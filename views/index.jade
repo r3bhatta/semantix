@@ -1,0 +1,18 @@
+extends layout
+
+block content
+    #content
+        .container-fluid
+            .row-fluid
+                #top
+                    .span6
+                        textarea#htmlText(rows='32')
+                    .span6
+                        textarea#jsonText(rows='32')
+            .row-fluid
+                .span4
+                .span4
+                    #urlInput
+                        form.form-search
+                            button(type='submit', class='btn', onclick='parse()') Parse
+                .span4
