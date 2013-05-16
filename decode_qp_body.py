@@ -1,3 +1,4 @@
+from bs4 import BeautifulSoup
 import quopri
 import json
 import os, errno
@@ -25,5 +26,6 @@ except OSError:
 
 #write decoded body to output file
 out_file = open( OUTPUT, 'w')
+soup = BeautifulSoup(decoded_qp)
 out_file.write(decoded_qp)
 out_file.close()
