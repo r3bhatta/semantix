@@ -3,29 +3,38 @@ import quopri
 import json
 import os, errno
 
-FILE = "cpk.txt"
-OUTPUT = "out.txt"
-
-file = open(FILE, 'r')
-
-#just a string
-line1 = file.readlines()
-
-#get the body (unicode) of the first object in the JSON
-body = json.loads(line1[0]).values()[0]
-
-#use the quopri module to decode the qp_encoded body of each page
-#but in this case just decoding the first body of the loading page
-decoded_qp = quopri.decodestring(body)
+INPUT_FILE = "cpk.txt"
+OUTPUT_FILE = "out.txt"
 
 #remove the file if exists
 try:
-    os.remove(OUTPUT)
+    os.remove(OUTPUT_FILE)
 except OSError:
     pass
 
-#write decoded body to output file
-out_file = open( OUTPUT, 'w')
-soup = BeautifulSoup(decoded_qp)
-out_file.write(decoded_qp)
-out_file.close()
+# Open the file.
+inputFile = open(INPUT_FILE, 'r')
+# Read the file contents.
+lines = inputFile.readlines()
+
+# Loop through each line in the file.
+index = 0
+for line in lines:
+    line = lines[index]
+    index += 1
+
+    # load the line and the value that we want.
+    body = json.loads(line).values()[0]
+
+    # Use the quopri module to decode the qp_encoded value of each page.
+    decoded_qp = quopri.decodestring(body)
+    soup = BeautifulSoup(decoded_qp)
+
+    print soup.title
+
+    # Write decoded values to the output file.
+    out_file = open(OUTPUT_FILE, 'a')
+    out_file.write(decoded_qp)
+    out_file.write("\n")
+    out_file.close()
+

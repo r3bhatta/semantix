@@ -497,3 +497,2553 @@
 </html>
 
 
+
+
+
+   
+
+
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js ie6 ie" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js ie7 ie" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js ie8 ie" lang="en"><![endif]-->
+<!--[if IE 9]><html class="no-js ie9 ie" lang="en"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en" class="no-js"><!--<![endif]-->
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>California Pizza Kitchen - Menu items, catering and beverages</title>
+		<meta name="keywords" content="california pizza kitchen, cpk, pizza, made to order pasta, salads, order online, pick-up, to-go, carry-out, take out, menu, new items, catering, beverages, appetizers, desserts, salads, soups, sandwiches, nutritional information, vegetarian information, allergen information," />
+		<meta name="description" content="At California Pizza Kitchen, we are always adding new and innovative items to our menu.  Dine in, take out or use our convenient online ordering system to enjoy CPK today." />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="shortcut icon" href="http://d149n29we98a20.cloudfront.net/static/img/favicon.ico" />
+		<link rel="stylesheet" href="http://d149n29we98a20.cloudfront.net/static/css/style.css" />
+		<link rel="stylesheet" href="http://d149n29we98a20.cloudfront.net/static/css/menu.css" />
+		<script src="http://d149n29we98a20.cloudfront.net/static/js/libs/modernizr.custom.35188.js"></script>
+	</head>
+	<body class="menu" data-page-class="Menu">
+		<!--[if lte IE 8]><div class="mainwidth bg_checkered"></div><![endif]-->
+		<header class="clearfix">
+			<div class="wrapper mainwidth clearfix">
+				<div class="left">
+					<hgroup><h1><a href="/" title="California Pizza Kitchen">California Pizza Kitchen</a></h1></hgroup>
+					<nav id="social-links">
+					<ul>
+						<li><a href="http://www.facebook.com/californiapizzakitchen" title="Follow us on Facebook" class="social social-fb" target="_blank"><span>Follow us on Facebook</span></a></li>
+						<li><a href="http://www.twitter.com/calpizzakitchen" title="Follow us on Twitter" class="social social-tw" target="_blank"><span>Follow us on Twitter</span></a></li>
+						<li><a href="http://pinterest.com/cpkpinterest/" class="social social-pinterest" target="_blank"><span>Pinterest</span></a></li>
+						<li><a href="https://plus.google.com/b/117705728686504164805/#117705728686504164805/posts" class="social social-google" target="_blank"><span>Google+</span></a></li>
+						<li><a href="http://www.youtube.com/user/CPKTelevision" title="Follow us on Youtube" class="social social-youtube" target="_blank"><span>Follow us on Youtube</span></a></li>
+						<li><a href="http://itunes.apple.com/us/app/california-pizza-kitchen/id363883551?mt=8" title="Download our App" class="social social-appstore" target="_blank"><span>Download our App</span></a></li>
+						<li><a href="http://assets.fbmta.com/clt/cpk/lp/join/join.asp" title="Register today and receive $5 toward your next CPK visit" class="social social-signup" target="_blank"><span>Register today and receive $5 toward your next CPK visit</span></a></li>
+					</ul>
+				</nav>
+					<nav id="uni-nav">
+						<ul class="clearfix">
+							<li>
+								<a href="/menu/" title="Menus">Menus</a>
+								<ul>
+									<li><a href="/menu/#newmenuitems" title="New Menu Items">New Menu Items</a></li>
+									<li><a href="/menu/#Small_Cravings" title="Small Cravings">Small Cravings</a></li>
+									<li><a href="/menu/#Appetizers" title="Appetizers">Appetizers</a></li>
+									<li><a href="/menu/#Soups" title="Soups">Soups</a></li>
+									<li><a href="/menu/#Salads" title="Salads">Salads</a></li>
+									<li><a href="/menu/#Pizzas" title="Pizzas">Pizzas</a></li>
+									<li><a href="/menu/#thin-crust" title="Thin Crust">Thin Crust</a></li>
+									<li><a href="/menu/#pastas-specialties" title="Pastas + Specialties">Pastas + Specialties</a></li>
+									<li><a href="/menu/#tacos-sandwiches" title="Tacos + Sandwiches">Tacos + Sandwiches</a></li>
+									<li><a href="/menu/#Desserts" title="Desserts">Desserts</a></li>
+									<li><a href="/menu/#beverages" title="Beverages">Beverages</a></li>
+								</ul>
+							</li>
+							<li><a href="/locations/" title="Locations">Locations</a></li>
+							<li>
+								<a href="/catering/" title="Catering &amp; Events">Catering &amp; Events</a>
+								<ul>
+									<li><a href="/catering/" title="Catering &amp; Events - Overview">Overview</a></li>
+									<li><a href="/catering/menu/" title="Catering &amp; Events - Catering Menu">Catering Menu</a></li>
+									<li><a href="/catering/let-us-help/" title="Catering &amp; Events - Let Us Help Form">Let Us Help</a></li>
+									<li><a href="/catering/mobile-kitchen/" title="Catering &amp; Events - Mobile Kitchen &amp; Special Events">Mobile Kitchen &amp; Special Events</a></li>
+								</ul>
+							</li>
+							<li><a href="http://www.cpkcard.com/splash.aspx" title="Gift Cards">Gift Cards</a></li>
+							<li>
+								<a href="/company/" title="Company">Company</a>
+								<ul>
+									<li><a href="/company/" title="Company - About CPK" class="on">About CPK</a></li>
+									<li><a href="/company/press-room/" title="Company - Press Room">Press Room</a></li>
+									<li><a href="/company/cpkids/" title="Company - CPKids Fundraisers &amp; Activities">CPKids Fundraisers &amp; Activities</a></li>
+									<li><a href="/company/community-relations/" title="Company - Community Relations">Community Relations</a></li>
+									<li><a href="/company/cpk-cookbooks/" title="Company - CPK Cookbooks">CPK Cookbooks</a></li>
+								</ul>
+							</li>
+						</ul>
+					</nav>
+					<nav id="uni-nav-secondary">
+						<ul class="clearfix">
+							<li><a href="/careers/" title="Careers">Careers</a></li>
+							<li><a href="http://www.cpkfrozen.com/" title="CPK Grocery">CPK Grocery</a></li>
+							<li><a href="/real-estate/" title="Real Estate">Real Estate</a></li>
+							<li><a href="/real-estate/international/" title="International Franchise">Int'l Franchise</a></li>
+							<li><a href="/faqs/" title="FAQs">FAQs</a></li>
+							<li><a href="http://webhost.cpk.com/contactus/contactus.asp" title="Contact Us">Contact Us</a></li>
+							
+						</ul>
+					</nav>
+				</div>
+
+
+
+				<div class="right clearfix">
+					
+					<section id="location-panel" class="clearfix">
+						
+						
+						<form id="location-form" action="/locations/">
+							<label>Find a Location</label>
+							<input type="text" placeholder="Enter a City, State or Zip" name="q" />
+							<button type='submit'>Go</button>
+						</form>
+						
+						
+						<a href="#" title="Close Panel" class="close"><span>Close</span></a>
+					</section>
+					
+					<div class="top-cta">
+						<a href="http://assets.fbmta.com/clt/cpk/lp/join/join.asp" id="header-cta"><img src="http://d149n29we98a20.cloudfront.net/static/img/shell/header-cta.png" alt=""/></a>
+					</div>
+					
+					<a href="#" title="Order Online" class="orderonline button"><span>Order Online</span></a>
+				</div>
+			</div>
+		</header>
+		<article>
+
+
+
+			<div class="clearfix">
+<!--
+Start of DoubleClick Floodlight Tag: Please do not remove
+Activity name of this tag: CPK Catering Menu - View through to online order
+URL of the webpage where the tag is expected to be placed: http://www.cpk.com/menu/
+This tag must be placed between the <body> and </body> tags, as close as possible to the opening tag.
+Creation Date: 06/26/2012
+-->
+<script type="text/javascript">
+var axel = Math.random() + "";
+var a = axel * 10000000000000;
+document.write('<iframe src="http://fls.doubleclick.net/activityi;src=2413305;type=cpkca037;cat=cpkca863;ord=1;num=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
+</script>
+<noscript>
+<iframe src="http://fls.doubleclick.net/activityi;src=2413305;type=cpkca037;cat=cpkca863;ord=1;num=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+</noscript>
+
+<!-- End of DoubleClick Floodlight Tag: Please do not remove -->
+
+<div id="breadcrumb"><a href="/" title="California Pizza Kitchen">Home</a> &gt; Menu</div>
+<div id="main-column">
+	
+    
+
+    <section class="main-slider">
+		<div id="controls"></div>
+        <div class="asset">
+            <ul class="clearfix" id="main-slider">
+                    
+                        <!---->
+                        
+						<li>
+							
+								<a href="order-online" title="NEW! Quinoa + Arugula Salad">
+								<img src="http://info.cpk.com/images/menu_items/salads/120224_goldsmith_cpkla275b_lores_carousel.jpg" />
+								<div style="background-image:url(http://info.cpk.com/images/menu_items/salads/120224_goldsmith_cpkla275b_lores_carousel.jpg);" class="img">&nbsp;</div>
+								</a>
+								<span class="details">
+	                                
+	                                    <span class="title">NEW! Quinoa + Arugula Salad</span>
+	                                    <span class="copy">Click to order online!</span>
+	                                
+	                            </span>
+								
+							
+                        </li>
+						
+                    
+                        <!---->
+                        
+						<li>
+							
+								<a href="order-online" title="NEW! Cedar Plank Salmon">
+								<img src="http://info.cpk.com/images/menu_items/specialties/120224_goldsmith_cpkla864_lores_carousel.jpg" />
+								<div style="background-image:url(http://info.cpk.com/images/menu_items/specialties/120224_goldsmith_cpkla864_lores_carousel.jpg);" class="img">&nbsp;</div>
+								</a>
+								<span class="details">
+	                                
+	                                    <span class="title">NEW! Cedar Plank Salmon</span>
+	                                    <span class="copy">Click to Order Online</span>
+	                                
+	                            </span>
+								
+							
+                        </li>
+						
+                    
+                        <!---->
+                        
+						<li>
+							
+								<a href="/menu/#Desserts" title="It&#39;s not short on taste!">
+								<img src="http://info.cpk.com/images/menu_items/desserts/strawberry_shortcake_cropped_carousel.jpg" />
+								<div style="background-image:url(http://info.cpk.com/images/menu_items/desserts/strawberry_shortcake_cropped_carousel.jpg);" class="img">&nbsp;</div>
+								</a>
+								<span class="details">
+	                                
+	                                    <span class="title">It&#39;s not short on taste!</span>
+	                                    <span class="copy">NEW! Strawberry Shortcake</span>
+	                                
+	                            </span>
+								
+							
+                        </li>
+						
+                    
+                        <!---->
+                        
+						<li>
+							
+								<a href="/menu/#beverages" title="Seasonal Strawberry Mojito">
+								<img src="http://info.cpk.com/images/carousels/4_carousel.jpg" />
+								<div style="background-image:url(http://info.cpk.com/images/carousels/4_carousel.jpg);" class="img">&nbsp;</div>
+								</a>
+								<span class="details">
+	                                
+	                                    <span class="title">Seasonal Strawberry Mojito</span>
+	                                    <span class="copy"></span>
+	                                
+	                            </span>
+								
+							
+                        </li>
+						
+                    
+                        <!---->
+                        
+						<li>
+							
+								<a href="/menu/#Desserts" title="">
+								<img src="http://info.cpk.com/images/menu_items/desserts/lemongraphic-_home_carousel.jpg" />
+								<div style="background-image:url(http://info.cpk.com/images/menu_items/desserts/lemongraphic-_home_carousel.jpg);" class="img">&nbsp;</div>
+								</a>
+								<span class="details">
+	                                
+	                            </span>
+								
+							
+                        </li>
+						
+                    
+                        <!---->
+                        
+						<li>
+							
+								
+								<img src="http://info.cpk.com/images/carousels/menu/spring_rolls_-_cropped_1567_-_take_2_carousel.jpg" />
+								<div style="background-image:url(http://info.cpk.com/images/carousels/menu/spring_rolls_-_cropped_1567_-_take_2_carousel.jpg);" class="img">&nbsp;</div>
+								
+								<span class="details">
+	                                
+	                            </span>
+								
+							
+                        </li>
+						
+                    
+                        <!---->
+                        
+						<li>
+							
+								
+								<img src="http://info.cpk.com/images/carousels/menu/2_carousel.jpg" />
+								<div style="background-image:url(http://info.cpk.com/images/carousels/menu/2_carousel.jpg);" class="img">&nbsp;</div>
+								
+								<span class="details">
+	                                
+	                            </span>
+								
+							
+                        </li>
+						
+                    
+                        <!---->
+                        
+						<li>
+							
+								
+								<img src="http://info.cpk.com/images/carousels/menu/6_carousel.jpg" />
+								<div style="background-image:url(http://info.cpk.com/images/carousels/menu/6_carousel.jpg);" class="img">&nbsp;</div>
+								
+								<span class="details">
+	                                
+	                            </span>
+								
+							
+                        </li>
+						
+                    
+            </ul>
+            <div class="info">
+                <hgroup>
+                    <h1></h1>
+                    <h2></h2>
+                </hgroup>
+            </div>
+        </div>
+        <div class="main-slider-pager-wrapper">
+            <div class="icons-arrow_slider-small icons-main-icons-arrow_slider-prev"></div>
+            <div class="main-slider-pager"></div>
+            <div class="icons-arrow_slider-small icons-main-icons-arrow_slider-next"></div>
+        </div>
+    </section>
+
+
+
+	<section id="view-options">
+		<nav>
+			<ul>
+				<li>View By</li>
+				<li><a href="" class="icons-menuview-image on" title="Menu Image View">Image</a></li>
+				<li><a href="" class="icons-menuview-text" title="Menu Text View">Text</a></li>
+			</ul>
+		</nav>
+		<a href="http://info.cpk.com/documents/main_menu.pdf" class="icons-menuview-print" title="Print Complete Menu" target="_blank">Print Complete Menu</a>
+	</section>
+    
+	
+		<section class="menu-list-slider" data-name="newmenuitems">
+			<hgroup><h1>New Menu Items</h1></hgroup>
+			<a href="#" class="icon-arrow3 view-more"><span class="off">View All </span><span class="on">View Less</span></a>
+			<div class="scroll clearfix">
+				<ul>
+                
+    				<li class="odd">
+                            <span class="name"><span class="icon-new">New</span>Mediterranean Focaccia</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/appetizers/120224_goldsmith_cpkla650_lores_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Herb cheese focaccia served with Mediterranean olive oil and Parmesan. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name"><span class="icon-new">New</span>Crispy Mac &#39;N&#39; Cheese</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/appetizers/crispymacncheese_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Our classic mac ‘n’ cheese lightly fried with panko, served on creamy cheese sauce. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name"><span class="icon-new">New</span>Korean BBQ Steak Tacos</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/appetizers/koreanbbqsteaktacos_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Korean steak, Napa cabbage, Romaine, onions, scallions and cilantro on corn tortillas. Topped with spicy chili sauce and sesame seeds. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name"><span class="icon-new">New</span>Dynamite Shrimp</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/appetizers/bangbangshrimp_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Lightly fried shrimp tossed in spicy sweet chili sauce with scallions and toasted sesame seeds.  
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name"><span class="icon-new">New</span>Seasonal Selection - Artichoke &amp; Broccoli</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/soups/broccoli-artichoke_soup_cropped_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                A blend of artichoke hearts, broccoli, Romano, Cheddar and Parmesan. Garnished with homemade croutons. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name"><span class="icon-new">New</span>Quinoa + Arugula Salad</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/salads/120224_goldsmith_cpkla275b_lores_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Quinoa, arugula, red onion, sun-dried tomatoes, asparagus and toasted pine nuts tossed in homemade champagne vinaigrette and topped with Feta. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name"><span class="icon-new">New</span>Caramelized Peach</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/salads/caramelizedpeach_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Field greens, spinach, warm caramelized peaches, dried cranberries, red onions, toasted pecans and Gorgonzola tossed in white balsamic vinaigrette.  
+                                <span class="icons-gluten-free">GF</span>
+                                
+                                    <p>+ Applewood Smoked Bacon</p>
+                                
+                                    <p>+ Grilled Chicken Breast</p>
+                                
+                                    <p>+ Grilled Shrimp or Sautéed Salmon</p>
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name"><span class="icon-new">New</span>Roasted Vegetable</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/salads/roasted_veg_salad_cropped_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Roasted artichoke hearts, asparagus, eggplant, red & yellow peppers, corn and sun-dried tomatoes served warm over Romaine tossed with homemade Dijon balsamic vinaigrette. Topped with avocado.  
+                                <span class="icons-gluten-free">GF</span>
+                                
+                                    <p>+ Grilled Chicken Breast</p>
+                                
+                                    <p>+ Grilled Shrimp or Sautéed Salmon</p>
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name"><span class="icon-new">New</span>Habanero Carnitas</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pizza/carnitas_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Slow-roasted pulled pork, red onions, cilantro pesto, Mozzarella and Queso Quesadilla cheese with SPICY habanero salsa. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name"><span class="icon-new">New</span>Cedar Plank Salmon + Corn Succotash</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/specialties/120224_goldsmith_cpkla093_lores_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Norwegian Atlantic salmon roasted on a cedar wood plank with smoked paprika and lime. Served with homemade corn, spinach & red bell pepper succotash with cilantro and Feta. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd placeholderimg">
+                            <span class="name"><span class="icon-new">New</span>Traditional Mac &#39;N&#39; Cheese</span>
+                            <span class="icons-camera tip-img hide">
+                                <img src="http://d149n29we98a20.cloudfront.net/static//img/menu/placeholder.jpg" />
+                            </span>
+                            <span class="details">
+                                Fusilli in a light creamy cheese sauce. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name"><span class="icon-new">New</span>Carnitas Tacos</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/tacos/carnitastacos_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Slow-roasted pork, homemade avocado salsa verde, red onions, cilantro, Romaine and shredded Napa cabbage served with tortilla chips and roasted tomato salsa. <br />+ Avocado 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name"><span class="icon-new">New</span>Strawberry Shortcake</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/desserts/strawberry_shortcake_cropped_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Our fresh shortcake biscuit piled high with seasonal strawberries, whipped cream and candied lemon zest. As desserts go, it’s a tall order!  Available à la Häagen-Dazs. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name"><span class="icon-new">New</span>Six Layer Lemon Cake</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/desserts/lemon_cake_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Six layers of yellow cake and lemon custard brushed with Limoncello. Served with sweet mascarpone frosting, candied lemon zest and blueberry coulis. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name"><span class="icon-new">New</span>Seasonal Strawberry Mojito</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/carousels/4_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Fresh strawberries, mint and lime with Bacardi Rum and strawberry syrup. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name"><span class="icon-new">New</span>Asian Plum Martini</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/beverages/asian_plum_martini_lemon_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Pearl Plum Vodka | Domaine de Canton Ginger Liqueur | Fresh Lemon Juice<br />Simple Syrup 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd last">
+                            <span class="name"><span class="icon-new">New</span>Paloma</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/beverages/paloma_cropped_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Milagro Silver Tequila | Ruby Red Grapefruit Juice | Lime Juice | Sierra Mist 
+                                
+                                
+                            </span>
+    				</li>
+                
+        		</ul>
+			</div>
+			<div class="pager-nav"></div>
+			<div class="icons-arrow_slider icons-arrow_slider-prev"></div>
+			<div class="icons-arrow_slider icons-arrow_slider-next"></div>
+		</section>
+		<div class="backtotop"><a href="#" title="Back to Top" class="icon-arrow4">Back to Top</a></div>
+	
+		<section class="menu-list-slider" data-name="Small_Cravings">
+			<hgroup><h1>Small Cravings</h1></hgroup>
+			<a href="#" class="icon-arrow3 view-more"><span class="off">View All </span><span class="on">View Less</span></a>
+			<div class="scroll clearfix">
+				<ul>
+                
+    				<li class="even">
+                            <span class="name"><span class="icon-new">New</span>Mediterranean Focaccia</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/appetizers/120224_goldsmith_cpkla650_lores_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Herb cheese focaccia served with Mediterranean olive oil and Parmesan. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name"><span class="icon-new">New</span>Crispy Mac &#39;N&#39; Cheese</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/appetizers/crispymacncheese_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Our classic mac ‘n’ cheese lightly fried with panko, served on creamy cheese sauce. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Spicy Chicken Tinga Quesadilla</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/appetizers/tinga_quesadilla_img_9448_tr_lores_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Hearth-baked with lime chicken, Queso Quesadilla and Enchilado cheese, chipotle sauce, caramelized onions, roasted bell peppers, black beans and cilantro. Served with homemade ranchito sauce. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Asparagus + Arugula Salad</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/appetizers/asparagus_arugula_salad_img_8880_tr_lores_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Arugula, asparagus and sun-dried tomatoes tossed in homemade lemon vinaigrette, topped with almonds and shaved Grana Padano Parmesan. 
+                                <span class="icons-gluten-free">GF</span>
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">White Corn Guacamole + Chips</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/appetizers/white_corn_guac_chips_img_8973_tr_lores_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Avocado, white corn, black beans, jicama, scallions, bell pepper, cilantro and serrano peppers. Served with tortilla chips. 
+                                <span class="icons-gluten-free">GF</span>
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">The Wedge Salad</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/appetizers/wedge_salad_img_8973_tr_lores_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Iceberg lettuce topped with blue cheese dressing, applewood smoked bacon, chopped egg and tomatoes. 
+                                <span class="icons-gluten-free">GF</span>
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Mediterranean Plate</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/appetizers/medplate_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Tuscan white bean hummus, Feta topped with extra virgin olive oil and a Greek salad. Served with traditional pizza-pita bread. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd last">
+                            <span class="name"><span class="icon-new">New</span>Korean BBQ Steak Tacos</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/appetizers/koreanbbqsteaktacos_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Korean steak, Napa cabbage, Romaine, onions, scallions and cilantro on corn tortillas. Topped with spicy chili sauce and sesame seeds. 
+                                
+                                
+                            </span>
+    				</li>
+                
+        		</ul>
+			</div>
+			<div class="pager-nav"></div>
+			<div class="icons-arrow_slider icons-arrow_slider-prev"></div>
+			<div class="icons-arrow_slider icons-arrow_slider-next"></div>
+		</section>
+		<div class="backtotop"><a href="#" title="Back to Top" class="icon-arrow4">Back to Top</a></div>
+	
+		<section class="menu-list-slider" data-name="Appetizers">
+			<hgroup><h1>Appetizers</h1></hgroup>
+			<a href="#" class="icon-arrow3 view-more"><span class="off">View All </span><span class="on">View Less</span></a>
+			<div class="scroll clearfix">
+				<ul>
+                
+    				<li class="even">
+                            <span class="name"><span class="icon-new">New</span>Dynamite Shrimp</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/appetizers/bangbangshrimp_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Lightly fried shrimp tossed in spicy sweet chili sauce with scallions and toasted sesame seeds.  
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Avocado Club Egg Rolls</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/appetizers/avocado_club_egg_rolls_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Avocado, chicken, tomato, Monterey Jack and applewood smoked bacon in a crispy wonton roll. Served with homemade ranchito sauce and herb ranch.   
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Lettuce Wraps</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/appetizers/lettuce_wraps_cropped_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Minced chicken and/or shrimp, wok-seared with Shiitake mushrooms, water chestnuts and scallions. Served with spicy soy-ginger sauce.<br />+ Chicken<br />+ Shrimp<br />+ Chicken & Shrimp 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Tuscan Hummus</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/appetizers/110830_goldsmith_cpk_food0833_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Tuscan white bean hummus garnished with parsley, tomatoes, basil and garlic. Served with warm traditional or honey-wheat with whole grain pizza-pita bread.   
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Tortilla Spring Rolls</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/appetizers/110830_goldsmith_cpk_food0869_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Rolled flour tortillas sprinkled with herbs and baked in our pizza oven.     <br /><br />Choose any two or three<br /><br />MEDITERRANEAN<br />Portobello mushrooms, eggplant, sun-dried tomatoes, caramelized onions, Fontina, Mozzarella and Parmesan. Served with sun-dried tomato marinara.<br /><br />BAJA CHICKEN<br />Monterey Jack and Cheddar, corn, black beans, mild chilies, red onions and cilantro. Served with homemade guacamole.<br /><br />THAI CHICKEN<br />Peanut sauce, bean sprouts, scallions, carrots, cilantro and Mozzarella. Served with Thai peanut sauce. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Spinach Artichoke Dip</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/appetizers/spinach-artichoke-dip_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Served hot with tortilla chips.  
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even last">
+                            <span class="name">Sesame Ginger Chicken Dumplings</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/appetizers/110830_goldsmith_cpk_food0812_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Topped with sesame seeds and scallions.  Served with soy-ginger chili sauce.    
+                                
+                                
+                            </span>
+    				</li>
+                
+        		</ul>
+			</div>
+			<div class="pager-nav"></div>
+			<div class="icons-arrow_slider icons-arrow_slider-prev"></div>
+			<div class="icons-arrow_slider icons-arrow_slider-next"></div>
+		</section>
+		<div class="backtotop"><a href="#" title="Back to Top" class="icon-arrow4">Back to Top</a></div>
+	
+		<section class="menu-list-slider" data-name="Soups">
+			<hgroup><h1>Soups</h1></hgroup>
+			<a href="#" class="icon-arrow3 view-more"><span class="off">View All </span><span class="on">View Less</span></a>
+			<div class="scroll clearfix">
+				<ul>
+                
+    				<li class="odd">
+                            <span class="name"><span class="icon-new">New</span>Seasonal Selection - Artichoke &amp; Broccoli</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/soups/broccoli-artichoke_soup_cropped_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                A blend of artichoke hearts, broccoli, Romano, Cheddar and Parmesan. Garnished with homemade croutons. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Dakota Smashed Pea + Barley Soup</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/soups/peasoup_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Garnished with scallions. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd placeholderimg">
+                            <span class="name">Sedona Tortilla Soup</span>
+                            <span class="icons-camera tip-img hide">
+                                <img src="http://d149n29we98a20.cloudfront.net/static//img/menu/placeholder.jpg" />
+                            </span>
+                            <span class="details">
+                                Garnished with tortilla strips.<br />For Gluten-Free, request without tortilla strips. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even placeholderimg last">
+                            <span class="name">Two in a Bowl</span>
+                            <span class="icons-camera tip-img hide">
+                                <img src="http://d149n29we98a20.cloudfront.net/static//img/menu/placeholder.jpg" />
+                            </span>
+                            <span class="details">
+                                Combine any two of our soups, served side by side in the same bowl.   
+                                
+                                
+                            </span>
+    				</li>
+                
+        		</ul>
+			</div>
+			<div class="pager-nav"></div>
+			<div class="icons-arrow_slider icons-arrow_slider-prev"></div>
+			<div class="icons-arrow_slider icons-arrow_slider-next"></div>
+		</section>
+		<div class="backtotop"><a href="#" title="Back to Top" class="icon-arrow4">Back to Top</a></div>
+	
+		<section class="menu-list-slider" data-name="Salads">
+			<hgroup><h1>Salads</h1></hgroup>
+			<a href="#" class="icon-arrow3 view-more"><span class="off">View All </span><span class="on">View Less</span></a>
+			<div class="scroll clearfix">
+				<ul>
+                
+    				<li class="odd">
+                            <span class="name">The Original BBQ Chicken Chopped</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/salads/originalbbqchickenchopped_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Sweet corn, black beans, jicama, cilantro, basil, tortilla strips and Monterey Jack tossed in homemade herb ranch dressing. Topped with BBQ chicken, tomatoes and scallions.   <br />For Gluten-Free, request without tortilla strips. 
+                                
+                                
+                                    <p>+ Avocado</p>
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name"><span class="icon-new">New</span>Quinoa + Arugula Salad</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/salads/120224_goldsmith_cpkla275b_lores_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Quinoa, arugula, red onion, sun-dried tomatoes, asparagus and toasted pine nuts tossed in homemade champagne vinaigrette and topped with Feta. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name"><span class="icon-new">New</span>Caramelized Peach</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/salads/caramelizedpeach_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Field greens, spinach, warm caramelized peaches, dried cranberries, red onions, toasted pecans and Gorgonzola tossed in white balsamic vinaigrette.  
+                                <span class="icons-gluten-free">GF</span>
+                                
+                                    <p>+ Applewood Smoked Bacon</p>
+                                
+                                    <p>+ Grilled Chicken Breast</p>
+                                
+                                    <p>+ Grilled Shrimp or Sautéed Salmon</p>
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name"><span class="icon-new">New</span>Roasted Vegetable</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/salads/roasted_veg_salad_cropped_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Roasted artichoke hearts, asparagus, eggplant, red & yellow peppers, corn and sun-dried tomatoes served warm over Romaine tossed with homemade Dijon balsamic vinaigrette. Topped with avocado.  
+                                <span class="icons-gluten-free">GF</span>
+                                
+                                    <p>+ Grilled Chicken Breast</p>
+                                
+                                    <p>+ Grilled Shrimp or Sautéed Salmon</p>
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Classic Caesar</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/salads/classiccaesar_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Romaine, shaved Grana Padano Parmesan and homemade croutons tossed in Caesar dressing. 
+                                
+                                
+                                    <p>+ Grilled Chicken Breast</p>
+                                
+                                    <p>+ Grilled Shrimp or Sautéed Salmon</p>
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Chinese Chicken</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/salads/chinesechicken_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Napa & red cabbage, lettuce and wontons tossed with carrots, scallions, sesame seeds and cilantro in a sweet & sour dressing. Topped with chicken. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Miso Shrimp</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/salads/miso_shrimp_salad_cropped_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Napa & red cabbage, shrimp, avocado, cucumbers, daikon, edamame, carrots, scallions, cilantro, rice sticks and wontons tossed in miso dressing. Also available with chilled-grilled chicken instead of shrimp. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Moroccan Chicken</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/salads/moroccanchicken_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Moroccan-spiced chicken, Romaine, roasted butternut squash, dates, avocado, toasted almonds, beets, chopped egg, carrots, dried cranberries and bell peppers. Tossed with homemade champagne vinaigrette.  
+                                <span class="icons-gluten-free">GF</span>
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Waldorf Chicken</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/salads/waldorfchicken_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Field greens, grapes, Granny Smith apples, candied walnuts, celery and Gorgonzola tossed with homemade Dijon balsamic vinaigrette or blue cheese dressing.  
+                                <span class="icons-gluten-free">GF</span>
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Thai Crunch</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/salads/thai_crunch_cropped_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Napa & red cabbage, chicken, cucumbers, edamame, wontons, rice sticks, peanuts, cilantro, carrots and scallions tossed with lime-cilantro and Thai peanut dressing.  
+                                
+                                
+                                    <p>+ Avocado</p>
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Original Chopped</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/salads/chopped_salad_lores_cropped_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Salami, turkey breast, basil, tomatoes and Mozzarella tossed in mustard-Parmesan vinaigrette and topped with scallions. Garbanzo beans added upon request.  
+                                <span class="icons-gluten-free">GF</span>
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">CPK Cobb</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/cpk_cobb_salad_cropped_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Applewood smoked bacon, avocado, chicken, tomatoes, chopped egg, basil and Gorgonzola with homemade herb ranch or blue cheese dressing. Beets added upon request.  
+                                <span class="icons-gluten-free">GF</span>
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd last">
+                            <span class="name">Field Greens</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/salads/fieldgreens_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Field greens, pears and candied walnuts tossed in homemade Dijon balsamic vinaigrette.  
+                                <span class="icons-gluten-free">GF</span>
+                                
+                                    <p>+ Gorgonzola</p>
+                                
+                                    <p>+ Grilled Shrimp or Sautéed Salmon</p>
+                                
+                            </span>
+    				</li>
+                
+        		</ul>
+			</div>
+			<div class="pager-nav"></div>
+			<div class="icons-arrow_slider icons-arrow_slider-prev"></div>
+			<div class="icons-arrow_slider icons-arrow_slider-next"></div>
+		</section>
+		<div class="backtotop"><a href="#" title="Back to Top" class="icon-arrow4">Back to Top</a></div>
+	
+		<section class="menu-list-slider" data-name="Pizzas">
+			<hgroup><h1>Pizzas</h1></hgroup>
+			<a href="#" class="icon-arrow3 view-more"><span class="off">View All </span><span class="on">View Less</span></a>
+			<div class="scroll clearfix">
+				<ul>
+                
+    				<li class="even">
+                            <span class="name"><span class="icon-new">New</span>Habanero Carnitas</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pizza/carnitas_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Slow-roasted pulled pork, red onions, cilantro pesto, Mozzarella and Queso Quesadilla cheese with SPICY habanero salsa. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">California Club</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pizza/caliclubpizza_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Applewood smoked bacon, chicken and Mozzarella, hearth-baked then topped with tomatoes, avocado and chilled lettuce tossed in mayonnaise.   
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Jamaican Jerk Chicken</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pizza/jamaicanjerkchickenpizza_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Jerk chicken, spicy sweet Caribbean sauce, Mozzarella, applewood smoked bacon, onions, bell peppers and scallions.   
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">The Original BBQ Chicken</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pizza/bbqchickenpizza_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Invented here in 1985.<br />BBQ sauce, smoked Gouda, Mozzarella, BBQ chicken, red onions and cilantro.  
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Hawaiian BBQ Chicken</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pizza/hawaiianbbqchicken_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Our Original BBQ Chicken Pizza with fresh pineapple. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Chipotle Chicken</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pizza/chipotlechickenpizza_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Spicy chipotle sauce, chicken, mild chilies, Mozzarella and Enchilado cheese. Topped with roasted corn & black bean salsa, cilantro and lime cream sauce.   
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Thai Chicken</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pizza/thaichickenpizza_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Thai peanut sesame sauce, chicken, Mozzarella, scallions, bean sprouts, carrots, cilantro and peanuts.    Not available gluten-free. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">The Meat Cravers</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pizza/meatcravers_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Italian sausage, pepperoni, Canadian bacon, spicy Capicola ham, salami, Mozzarella and tomato sauce.  
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">White Pizza</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pizza/whitepizza_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Mozzarella, Fontina, Ricotta, Parmesan, Pecorino Romano and sautéed garlic spinach.    
+                                
+                                
+                                    <p>+ Applewood Smoked Bacon</p>
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Vegetarian with Japanese Eggplant</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pizza/vegjapaneggplantpizza_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Mozzarella, baby broccoli, eggplant, corn, red onions, mushrooms, sun-dried tomatoes and tomato sauce.    Recommended on honey-wheat with whole grain crust. 
+                                
+                                
+                                    <p>+ Goat Cheese</p>
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Pear + Gorgonzola</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pizza/peargorgonzolapizza_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Bosc pears, Gorgonzola, Fontina,  Mozzarella, caramelized onions and hazelnuts. Topped with field greens tossed in Gorgonzola ranch.  
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">BBQ Chicken + Applewood Smoked Bacon</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pizza/bbq_chicken_with_applewood_smoked_bacon_-_cropped_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Our Original BBQ Chicken Pizza with applewood smoked bacon. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">The Works</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pizza/theworks_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Italian sausage, pepperoni, mushrooms, Mozzarella, onions, green peppers, olives and tomato sauce.   
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">The Greek</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/the_greek_closeup_260_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Mediterranean chicken and Mozzarella, hearth-baked then topped with a chilled Greek salad. Served with Tzatziki sauce. Vegetarian Option - Substitute avocado for chicken. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Five Cheese + Fresh Tomato</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pizza/five_cheese_fresh_tomato_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Sliced tomatoes, basil, fresh Mozzarella, Monterey Jack, smoked Gouda, Mozzarella and shaved Pecorino Romano.   
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Honey-wheat with Whole Grain Crust</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/california_club_on_honey-wheat_with_whole_grain_crust_(cpkonnect)_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                You are what you wheat.  Your favorite pizzas can be made with our honey-wheat with whole grain crust. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Tostada</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pizza/tostada_pizza_cropped_-_0645_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Southwestern black beans, Cheddar & Monterey Jack, hearth-baked then topped with chilled lettuce, scallions, tortilla strips and homemade herb ranch. Served with roasted tomato salsa.    
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Traditional Cheese</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/carousels/menu/110830_goldsmith_cpk_food0718_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Mozzarella and tomato sauce.  
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Roasted Garlic Chicken</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pizza/110830_goldsmith_cpk_food0697_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Roasted garlic, chicken, Mozzarella, onions, parsley and white wine garlic butter sauce.   
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Wild Mushroom</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/wild_mushroom_pizza_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Cremini, Shiitake, Portobello and white mushrooms, Fontina, Mozzarella and wild mushroom walnut pesto. Garnished with parsley.    
+                                
+                                
+                                    <p>+ Chicken</p>
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Pepperoni</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pizza/placeholder_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Pepperoni, Mozzarella and  tomato sauce.   
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Mushroom Pepperoni Sausage</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pizza/mushroom_pepperoni_sausage_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Mushrooms, pepperoni, Italian sausage, Mozzarella and tomato sauce. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">BLT</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pizza/blt_pizza_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Applewood smoked bacon and Mozzarella, hearth-baked then topped with sliced tomatoes and chilled lettuce tossed in mayonnaise. Recommended on honey-wheat with whole grain crust.  
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd last">
+                            <span class="name">Hawaiian</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pizza/hawaiian_pizza_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Pineapple, Canadian bacon, Mozzarella and tomato sauce.  Substitute pepperoni for Canadian bacon upon request. 
+                                
+                                
+                            </span>
+    				</li>
+                
+        		</ul>
+			</div>
+			<div class="pager-nav"></div>
+			<div class="icons-arrow_slider icons-arrow_slider-prev"></div>
+			<div class="icons-arrow_slider icons-arrow_slider-next"></div>
+		</section>
+		<div class="backtotop"><a href="#" title="Back to Top" class="icon-arrow4">Back to Top</a></div>
+	
+		<section class="menu-list-slider" data-name="thin-crust">
+			<hgroup><h1>Thin Crust</h1></hgroup>
+			<a href="#" class="icon-arrow3 view-more"><span class="off">View All </span><span class="on">View Less</span></a>
+			<div class="scroll clearfix">
+				<ul>
+                
+    				<li class="even">
+                            <span class="name">Roasted Artichoke + Spinach</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pizza/roastedartichokespinach_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Artichoke hearts, sautéed garlic spinach, Fontina, Mozzarella and Parmesan with spinach artichoke sauce.    Not available gluten-free. 
+                                
+                                
+                                    <p>+ Chicken</p>
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Pesto Chicken</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pizza/pestochicken_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Pesto chicken, onions, Mozzarella, sun-dried tomatoes, basil pesto sauce and toasted pine nuts.   
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Sicilian</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pizza/sicilianpizza_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Spicy marinara with Italian sausage, spicy Capicola ham, salami, Fontina, Mozzarella and Grana Padano Parmesan. Topped with herbs.   
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Four Seasons</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pizza/fourseasonspizza_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Italian tomatoes, artichoke hearts,  salami, mushrooms, onions, Mozzarella and fresh Mozzarella topped with herbs and Parmesan.  
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Tricoloré Salad Pizza</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pizza/tricolore_salad_pizza_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Caramelized Parmesan pizza crust topped with chilled arugula, baby red leaf lettuce, radicchio, tomatoes and shaved Grana Padano Parmesan tossed in homemade Dijon balsamic vinaigrette.     
+                                
+                                
+                                    <p>+ Grilled Chicken Breast</p>
+                                
+                                    <p>+ Grilled Shrimp or Sautéed Salmon</p>
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd placeholderimg last">
+                            <span class="name">Margherita</span>
+                            <span class="icons-camera tip-img hide">
+                                <img src="http://d149n29we98a20.cloudfront.net/static//img/menu/placeholder.jpg" />
+                            </span>
+                            <span class="details">
+                                Italian tomatoes, Mozzarella and fresh Mozzarella, topped with basil and Parmesan.   
+                                
+                                
+                            </span>
+    				</li>
+                
+        		</ul>
+			</div>
+			<div class="pager-nav"></div>
+			<div class="icons-arrow_slider icons-arrow_slider-prev"></div>
+			<div class="icons-arrow_slider icons-arrow_slider-next"></div>
+		</section>
+		<div class="backtotop"><a href="#" title="Back to Top" class="icon-arrow4">Back to Top</a></div>
+	
+		<section class="menu-list-slider" data-name="pastas-specialties">
+			<hgroup><h1>Pastas + Specialties</h1></hgroup>
+			<a href="#" class="icon-arrow3 view-more"><span class="off">View All </span><span class="on">View Less</span></a>
+			<div class="scroll clearfix">
+				<ul>
+                
+    				<li class="even">
+                            <span class="name"><span class="icon-new">New</span>Cedar Plank Salmon + Corn Succotash</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/specialties/120224_goldsmith_cpkla093_lores_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Norwegian Atlantic salmon roasted on a cedar wood plank with smoked paprika and lime. Served with homemade corn, spinach & red bell pepper succotash with cilantro and Feta. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Chicken Tequila Fettuccine</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pastas/chickentequilafettuccine_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Spinach fettuccine with chicken, bell peppers, red onions and cilantro in tequila-lime jalapeño cream sauce.   
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Asparagus + Spinach Spaghettini</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pastas/aspargspinspaghettini_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Sautéed asparagus, spinach, fresh tomatoes, basil, garlic and Parmesan.   
+                                
+                                
+                                    <p>+ Grilled Chicken Breast</p>
+                                
+                                    <p>+ Shrimp</p>
+                                
+                                    <p>+ Sautéed Salmon</p>
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Jambalaya</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/specialties/jambalaya_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Blackened chicken and shrimp in spicy Jambalaya sauce with crawfish, Andouille sausage and Tasso ham on linguini fini, topped with scallions.   
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Four Cheese Ravioli</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pastas/4cheeseravioli_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Asiago, Mascarpone, Ricotta and Parmesan ravioli, sautéed in creamy Pomodoro sauce with basil.  
+                                
+                                
+                                    <p>+ Sautéed Mushrooms</p>
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Pesto Cream Penne</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pastas/pestocreampenne_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Pesto cream sauce, sun-dried tomatoes and Parmesan.  <br />+ Chicken <br />+ Shrimp<br />+ Chicken & Shrimp 
+                                
+                                
+                                    <p>+ Chicken</p>
+                                
+                                    <p>+ Shrimp</p>
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Kung Pao Spaghetti</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pastas/kungpaospaghetti_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Classic Kung Pao sauce with garlic, green onions, peanuts and hot red chilies.  
+                                
+                                
+                                    <p>+ Chicken</p>
+                                
+                                    <p>+ Shrimp</p>
+                                
+                                    <p>+ Chicken &amp; Shrimp</p>
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Baby Clam Linguini with Lemon Cream Sauce</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pastas/baby_clam_linguini_white_sauce_(lemon_cream_sauce)_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Baby clams, garlic, parsley, Parmesan, white wine and red pepper flakes. Tossed in light lemon cream sauce.  
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Baby Clam Linguini with Imported Italian Tomatoes</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pastas/baby_clam_linguini_-_red_sauce_(imported_italian_tomatoes)_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Baby clams, garlic, parsley, Parmesan, white wine and red pepper flakes. Tossed in tomato basil sauce.  
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Garlic Cream Fettuccine</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pastas/garliccreamfettuccine_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Garlic-Parmesan cream sauce with parsley.       
+                                
+                                
+                                    <p>+ Chicken</p>
+                                
+                                    <p>+ Shrimp</p>
+                                
+                                    <p>+ Chicken &amp; Shrimp</p>
+                                
+                                    <p>+ Sautéed Mushrooms</p>
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Spaghetti Bolognese</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pastas/spaghettibolognese_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Traditional meat sauce, Parmesan and parsley.   
+                                
+                                
+                                    <p>+ Sautéed Mushrooms</p>
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Norwegian Atlantic Salmon</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/specialties/norwegianatlanticsalmon_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Pan-sautéed salmon with grilled asparagus and creamy lemon-caper spaghettini or wok-stirred vegetables. Blackened upon request.  
+                                <span class="icons-gluten-free">GF</span>
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Chicken Milanese</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/specialties/chickenmilanese_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Thinly pounded chicken breast, lightly breaded with panko and sautéed. Topped with arugula, shaved Grana Padano Parmesan, tomatoes, basil, garlic and a drizzle of extra virgin olive oil.   
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Chicken Piccata</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/specialties/chickenpiccata_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Thinly pounded chicken breast, sautéed in creamy lemon-caper sauce. Served with spaghettini.   
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even placeholderimg">
+                            <span class="name">Tomato Basil Spaghettini</span>
+                            <span class="icons-camera tip-img hide">
+                                <img src="http://d149n29we98a20.cloudfront.net/static//img/menu/placeholder.jpg" />
+                            </span>
+                            <span class="details">
+                                Italian tomatoes, garlic and basil.  
+                                
+                                
+                                    <p>+ Goat Cheese</p>
+                                
+                                    <p>+ Grilled Chicken Breast</p>
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Broccoli Sun-Dried Tomato Fusilli</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/pastas/brocolli_sun_dried_fusili_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Baby broccoli, garlic, sun-dried and fresh tomatoes, thyme and Parmesan.     
+                                
+                                
+                                    <p>+ Goat Cheese</p>
+                                
+                                    <p>+ Grilled Chicken Breast</p>
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even placeholderimg last">
+                            <span class="name"><span class="icon-new">New</span>Traditional Mac &#39;N&#39; Cheese</span>
+                            <span class="icons-camera tip-img hide">
+                                <img src="http://d149n29we98a20.cloudfront.net/static//img/menu/placeholder.jpg" />
+                            </span>
+                            <span class="details">
+                                Fusilli in a light creamy cheese sauce. 
+                                
+                                
+                            </span>
+    				</li>
+                
+        		</ul>
+			</div>
+			<div class="pager-nav"></div>
+			<div class="icons-arrow_slider icons-arrow_slider-prev"></div>
+			<div class="icons-arrow_slider icons-arrow_slider-next"></div>
+		</section>
+		<div class="backtotop"><a href="#" title="Back to Top" class="icon-arrow4">Back to Top</a></div>
+	
+		<section class="menu-list-slider" data-name="tacos-sandwiches">
+			<hgroup><h1>Tacos + Sandwiches</h1></hgroup>
+			<a href="#" class="icon-arrow3 view-more"><span class="off">View All </span><span class="on">View Less</span></a>
+			<div class="scroll clearfix">
+				<ul>
+                
+    				<li class="odd">
+                            <span class="name"><span class="icon-new">New</span>Carnitas Tacos</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/tacos/carnitastacos_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Slow-roasted pork, homemade avocado salsa verde, red onions, cilantro, Romaine and shredded Napa cabbage served with tortilla chips and roasted tomato salsa. <br />+ Avocado 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Fish Tacos</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/tacos/bajafishtacos_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Sautéed Ono, shredded cabbage and ranchito sauce served with tortilla chips and roasted tomato salsa.<br />+ Avocado 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Steak Tacos</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/tacos/steak_tacos_-_cropped_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Steak, shredded cabbage and ranchito sauce served with tortilla chips and roasted tomato salsa. <br />+ Avocado 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">California Club</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/sandwiches/caliclubsandwich_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Chicken or turkey breast with applewood smoked bacon, avocado, tomatoes, lettuce and mayonnaise.    Served with your choice of herb onion or herb cheese focaccia and your choice of a cup of soup, classic Caesar salad or Szechuan slaw.  
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Cranberry Walnut Chicken Salad </span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/sandwiches/cranberry_walnut_chicken_salad_sandwich_w_slaw_cropped_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Chicken, dried cranberries, walnuts, celery, onions and mayonnaise topped with lettuce and tomatoes.  Served with your choice of herb onion or herb cheese focaccia and your choice of a cup of soup, classic Caesar salad or Szechuan slaw.  
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Grilled Vegetable</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/sandwiches/110830_goldsmith_cpk_food0768_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Portobello mushrooms, bell peppers, Fontina and Mozzarella, field greens, tomatoes and homemade sun-dried tomato aioli.  Served with your choice of herb onion or herb cheese focaccia and your choice of a cup of soup, classic Caesar salad or Szechuan slaw.  
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd placeholderimg">
+                            <span class="name">Italian Deli </span>
+                            <span class="icons-camera tip-img hide">
+                                <img src="http://d149n29we98a20.cloudfront.net/static//img/menu/placeholder.jpg" />
+                            </span>
+                            <span class="details">
+                                Spicy Capicola ham, salami and pepperoni with Mozzarella and Fontina, basil and lettuce tossed with mustard-Parmesan vinaigrette.  Served with your choice of herb onion or herb cheese focaccia and your choice of a cup of soup, classic Caesar salad or Szechuan slaw.  
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even placeholderimg last">
+                            <span class="name">Grilled Chicken Caesar</span>
+                            <span class="icons-camera tip-img hide">
+                                <img src="http://d149n29we98a20.cloudfront.net/static//img/menu/placeholder.jpg" />
+                            </span>
+                            <span class="details">
+                                Chicken, shaved Grana Padano Parmesan, Caesar dressing, lettuce and tomatoes.   Served with your choice of herb onion or herb cheese focaccia and your choice of a cup of soup, classic Caesar salad or Szechuan slaw.  
+                                
+                                
+                            </span>
+    				</li>
+                
+        		</ul>
+			</div>
+			<div class="pager-nav"></div>
+			<div class="icons-arrow_slider icons-arrow_slider-prev"></div>
+			<div class="icons-arrow_slider icons-arrow_slider-next"></div>
+		</section>
+		<div class="backtotop"><a href="#" title="Back to Top" class="icon-arrow4">Back to Top</a></div>
+	
+		<section class="menu-list-slider" data-name="Desserts">
+			<hgroup><h1>Desserts</h1></hgroup>
+			<a href="#" class="icon-arrow3 view-more"><span class="off">View All </span><span class="on">View Less</span></a>
+			<div class="scroll clearfix">
+				<ul>
+                
+    				<li class="odd">
+                            <span class="name"><span class="icon-new">New</span>Strawberry Shortcake</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/desserts/strawberry_shortcake_cropped_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Our fresh shortcake biscuit piled high with seasonal strawberries, whipped cream and candied lemon zest. As desserts go, it’s a tall order!  Available à la Häagen-Dazs. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name"><span class="icon-new">New</span>Six Layer Lemon Cake</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/desserts/lemon_cake_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Six layers of yellow cake and lemon custard brushed with Limoncello. Served with sweet mascarpone frosting, candied lemon zest and blueberry coulis. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Chocolate Soufflé Cake</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/desserts/chocolate_souffle_097_cropped_lores_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Warm Belgian chocolate soufflé cake with triple-thick hot fudge.<br />Also available + Häagen-Dazs 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Red Velvet Cake</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/desserts/red_velvet_cake_cropped_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                A traditional favorite, frosted with vanilla bean cream cheese and white chocolate curls. Also available à la Häagen-Dazs. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Butter Cake</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/desserts/butter_cake_045_cropped_lores_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Served warm with fresh whipped cream. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Tiramisu</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/desserts/tiramisu_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Sweet Italian cream cheese and marsala custard between layers of espresso and rum-soaked lady fingers. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Key Lime Pie</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/desserts/keylimepie_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                On a graham cracker crust. Served with fresh whipped cream. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Apple Crisp</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/desserts/apple_crisp__menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Slow-baked Granny Smith apples with a brown sugar and butter topping. Served warm. Add caramel sauce upon request.<br />+ Häagen-Dazs 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd placeholderimg">
+                            <span class="name">Hot Fudge Brownie Sundae</span>
+                            <span class="icons-camera tip-img hide">
+                                <img src="http://d149n29we98a20.cloudfront.net/static//img/menu/placeholder.jpg" />
+                            </span>
+                            <span class="details">
+                                A warm brownie topped with   Häagen-Dazs vanilla ice cream, triple-thick hot fudge, fresh whipped cream, toasted pecans and a cherry. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even last">
+                            <span class="name">Hot Fudge or Caramel Sundae</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/desserts/110830_goldsmith_cpk_food0974_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Two scoops of Häagen-Dazs vanilla ice cream, toasted pecans, fresh whipped cream and a cherry. Topped with triple-thick hot fudge or warm caramel sauce. 
+                                <span class="icons-gluten-free">GF</span>
+                                
+                            </span>
+    				</li>
+                
+        		</ul>
+			</div>
+			<div class="pager-nav"></div>
+			<div class="icons-arrow_slider icons-arrow_slider-prev"></div>
+			<div class="icons-arrow_slider icons-arrow_slider-next"></div>
+		</section>
+		<div class="backtotop"><a href="#" title="Back to Top" class="icon-arrow4">Back to Top</a></div>
+	
+		<section class="menu-list-slider" data-name="beverages">
+			<hgroup><h1>Beverages</h1></hgroup>
+			<a href="#" class="icon-arrow3 view-more"><span class="off">View All </span><span class="on">View Less</span></a>
+			<div class="scroll clearfix">
+				<ul>
+                
+    				<li class="odd">
+                            <span class="name">White Wines - Slightly Sweet</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/beverages/jacobs_creek_moscato_winenew_sm_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                JACOB’S CREEK MOSCATO | South Eastern Australia<br /><br />BERINGER WHITE ZINFANDEL | California<br /><br />CHATEAU STE. MICHELLE RIESLING | Washington 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Draft Beer</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/beverages/draft_beers_cpk0514_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                SAM ADAMS BOSTON LAGER<br /><br />BUD LIGHT<br /><br />Many locations serve regional draft beer selections. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name"><span class="icon-new">New</span>Seasonal Strawberry Mojito</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/carousels/4_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Fresh strawberries, mint and lime with Bacardi Rum and strawberry syrup. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Spirits</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/beverages/110415_goldsmith_cpk0160_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                We proudly serve a premium well including SKYY Vodka | Bacardi Rum | Sauza Gold Tequila | Beefeater Gin | Jack Daniel’s Whiskey | J&B Rare Scotch 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Iced Tea + Lemonades</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/beverages/iced-tea---110421_goldsmith_cpk1448_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                FRESH LEMONADE<br /><br />FLAVORED FRESH LEMONADE<br />Strawberry | Peach | Raspberry | Mango Kiwi<br /><br />FRESHLY BREWED ICED <br /><br />FLAVORED ICED TEA<br />Strawberry | Peach | Raspberry | Mango | Sugar-Free flavors available<br /><br />Complimentary refills 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Sangria</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/beverages/caribbeansunset_sangria_v1_r2_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                WHITE<br />CARIBBEAN SUNSET SANGRIA<br />A blend of mango, apple, Ecco Domani Pinot Grigio, Malibu Passion Fruit Rum and DeKuyper Peachtree Schnapps.<br /><br />RED<br />APPLEBERRY SANGRIA<br />A blend of raspberry, lime, orange, cranberry, Blackstone Merlot, Tuaca and DeKuyper Sour Apple Pucker. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Sparkling Wine</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/beverages/zonin_prosecco_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                ZONIN PROSECCO | Italy<br />Flavors of citrus fruits, apples and tropical fruits. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">White Wines - Light + Crisp</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/beverages/santa_margherita_main_v2_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                ECCO DOMANI PINOT GRIGIO | Italy<br /><br />ESTANCIA PINOT GRIGIO | California<br /><br />SANTA MARGHERITA PINOT GRIGIO | Italy<br /><br />NOBILO SAUVIGNON BLANC | Marlborough, New Zealand<br /><br />MURPHY-GOODE SAUVIGNON BLANC | North Coast 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">White Wines - Full + Rich</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/beverages/kendall_jackson_chardonnay_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                LINDEMANS “BIN 65” CHARDONNAY | Australia<br /><br />CLOS DU BOIS CHARDONNAY | North Coast<br /><br />KENDALL JACKSON “VINTNER’S RESERVE” CHARDONNAY | California<br /><br />SONOMA-CUTRER, RUSSIAN RIVER RANCHES CHARDONNAY │ Sonoma Coast<br /><br />CAKEBREAD CELLARS CHARDONNAY | Napa Valley 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Red Wines - Medium Bodied</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/beverages/la_crema_pinot_noir_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                MIRASSOU PINOT NOIR | California<br /><br />GREG NORMAN PINOT NOIR | Santa Barbara County<br /><br />LA CREMA PINOT NOIR | Monterey<br /><br />BERINGER “FOUNDERS’ ESTATE” MERLOT | California<br /><br />BLACKSTONE MERLOT | California<br /><br />MARKHAM MERLOT | Napa Valley<br /><br />STAGS’ LEAP MERLOT | Napa Valley<br /><br />DAVINCI DOCG CHIANTI | Italy 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Red Wines - Spicy</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/beverages/ravenswood_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                CASTLE ROCK SYRAH | Columbia Valley<br /><br />PENFOLDS RAWSON’S RETREAT SHIRAZ-CAB | South Australia<br /><br />RAVENSWOOD “VINTNER’S BLEND” ZINFANDEL | California 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Red Wines - Full Bodied</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/beverages/tamari_tacos_crop_horizontal_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                TAMARÍ RESERVA MALBEC | Mendoza, Argentina<br /><br />J. LOHR SEVEN OAKS CABERNET SAUVIGNON | Paso Robles<br /><br />COLUMBIA CREST “GRAND ESTATES” CABERNET SAUVIGNON | Washington<br /><br />RODNEY STRONG CABERNET SAUVIGNON | Sonoma County<br /><br />JORDAN CABERNET SAUVIGNON | Alexander Valley 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Bottled Beer</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/beverages/110830_goldsmith_cpk_food0466_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                SAM ADAMS LIGHT<br />AMSTEL LIGHT<br />BASS ALE<br />CORONA<br />CORONA LIGHT<br />GUINNESS<br />HEINEKEN<br />NEWCASTLE BROWN ALE<br />BUDWEISER<br />COORS LIGHT<br />MICHELOB ULTRA<br />MGD<br />MILLER LITE<br /><br />BUCKLER BY HEINEKEN (NON-ALCOHOLIC)<br /><br />Many locations serve regional bottled beer selections. 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name"><span class="icon-new">New</span>Asian Plum Martini</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/beverages/asian_plum_martini_lemon_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Pearl Plum Vodka | Domaine de Canton Ginger Liqueur | Fresh Lemon Juice<br />Simple Syrup 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Apple Martini</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/beverages/apple_martini__139b_cropped_lores_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                SKYY Vodka | Midori | DeKuyper Pucker Sour Apple | Sweet & Sour Mix 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Cosmopolitan</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/beverages/110830_goldsmith_cpk_food0211_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                ABSOLUT VODKA | Triple Sec | Lime Juice | Cranberry Juice 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Lemon Drop Martini</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/beverages/110830_goldsmith_cpk_food0259_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Ketel One Citroen | Cointreau | Lemon Juice | Sweet & Sour Mix | Sugar 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Raspberry Lemon Drop</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/beverages/raslemondrop_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Ketel One Citroen | Chambord | Triple Sec | Lemon Juice | Sweet & Sour Mix 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Margaritas</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/beverages/110830_goldsmith_cpk_food0269_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                CPK MARGARITA<br />Sauza Gold Tequila | Triple Sec | Lime Juice | Margarita Mix<br />Blended or on the rocks<br /><br />STRAWBERRY MARGARITA<br />Sauza Gold Tequila | Triple Sec | Lime Juice | Margarita Mix | Strawberry Purée<br /><br />ULTIMATE MARGARITA<br />1800 Reposado Tequila | Cointreau | Grand Marnier | Lime Juice | Margarita Mix<br />Blended or on the rocks 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name"><span class="icon-new">New</span>Paloma</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/beverages/paloma_cropped_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Milagro Silver Tequila | Ruby Red Grapefruit Juice | Lime Juice | Sierra Mist 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Cherry Lime Sparkler</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/beverages/cherry_limeade_01_v1_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Three Olives Cherry Vodka | Torani Cherry Lime Syrup | Lime Juice | Club Soda 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Mai Tai</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/beverages/mai_tai_029_lores_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Bacardi Rum | Myers's Dark Rum │ Pineapple Juice │ Orange Juice │ Grenadine  
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd placeholderimg">
+                            <span class="name">Top Shelf Long Island Iced Tea</span>
+                            <span class="icons-camera tip-img hide">
+                                <img src="http://d149n29we98a20.cloudfront.net/static//img/menu/placeholder.jpg" />
+                            </span>
+                            <span class="details">
+                                Ketel One Vodka | Beefeater Gin | Bacardi Rum | Cointreau | Sweet & Sour Mix | Pepsi 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Mojitos</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/beverages/classic_mojito_035_lores_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                CLASSIC MOJITO<br />Bacardi Rum | Fresh Mint | Fresh Lime | Club Soda<br /><br />PASSION FRUIT MOJITO<br />Malibu Passion Fruit Rum | Fresh Mint | Fresh Lime | Club Soda<br /><br />MANGO MANGO MOJITO<br />Cruzan Mango Rum | Fresh Mint | Fresh Lime | Torani Mango Syrup | Club Soda 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Smoothies + Blended Beverages</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/beverages/strawberry_banana_smoothie_img_5273_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                FLAVORED FROZEN LEMONADE<br />ORIGINAL │ STRAWBERRY │ PEACH │ RASPBERRY │ MANGO │ KIWI <br /><br />NON-FAT YOGURT SMOOTHIES SMOOTHIES <br />STRAWBERRY │ STRAWBERRY BANANA │ MANGO │ MANGO BANANA │ PEACH<br /><br />FLAVORED COLADAS<br />STRAWBERRY │ PINEAPPLE│ MANGO RASPBERRY  
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even">
+                            <span class="name">Maui Punch</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/beverages/maui-punch-img_5282_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Orange Juice | Pineapple Juice | Grenadine<br /><br />(Non-Alcoholic) 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="odd">
+                            <span class="name">Coffee + Tea</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/beverages/110415_goldsmith_cpk0284_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                CAFÉ LATTE<br /><br />CAFÉ AU LAIT<br /><br />CAPPUCC INO<br />HOT | ICED<br /><br />CAFÉ MOCHA<br />HOT | ICED<br /><br />ESPRESSO<br />SINGLE| DOUBLE <br /><br />CAPPUCC INO<br />HOT | ICED<br /><br />COFFEE<br />REGULAR| DECAF<br /><br />HOT CHOCOLATE<br /><br />TAZO HOT TEAS<br />Awake | Earl Grey | Zen | Calm 
+                                
+                                
+                            </span>
+    				</li>
+                
+    				<li class="even last">
+                            <span class="name">Specialty Coffees</span>
+                            <span class="icons-camera tip-img">
+                                <img src="http://info.cpk.com/images/menu_items/beverages/specialty_coffee_menu_item.jpg" />
+                                
+                            </span>
+                            <span class="details">
+                                Made with fresh coffee and topped with fresh whipped cream<br /><br />ALMOND JOY<br />Disaronno Amaretto | Malibu Coconut Rum | Steamed Milk | Hershey’s® Chocolate Syrup<br /><br />B-52 COFFEE<br />Baileys Irish Cream | Kahlúa | Grand Marnier<br /><br />CHIP SHOT<br />Baileys Irish Cream | Tuaca<br /><br />FRENCH KISS<br />Kahlúa | Disaronno Amaretto | Hershey’s® Chocolate Syrup | Steamed Milk<br /><br />IRISH COFFEE<br />Jameson Irish Whiskey | Sugar<br /><br />KEOKE COFFEE<br />Christian Brothers Brandy | Kahlúa | Crème De Cacao<br /><br />NUTTY IRISHMAN<br />Frangelico | Baileys Irish Cream<br /><br />WINTER WONDERLAND<br />Kahlúa | Baileys Irish Cream | Disaronno Amaretto 
+                                
+                                
+                            </span>
+    				</li>
+                
+        		</ul>
+			</div>
+			<div class="pager-nav"></div>
+			<div class="icons-arrow_slider icons-arrow_slider-prev"></div>
+			<div class="icons-arrow_slider icons-arrow_slider-next"></div>
+		</section>
+		<div class="backtotop"><a href="#" title="Back to Top" class="icon-arrow4">Back to Top</a></div>
+	
+	
+	
+</div>
+<aside class="main">
+	<div>
+		<hgroup>
+			<h1>Menu</h1>
+		</hgroup>
+		
+		<section id="location-set">
+			<div>
+
+
+			
+
+
+				<div>
+					<a href="#" class="button-small orderonline"><span>Order Online</span></a>
+				</div>
+			</div>
+		</section>
+        <nav>
+            <ul>
+                
+                    <li><a href="#newmenuitems" title="" class="menu-link">New Menu Items</a></li>
+                
+                    <li><a href="#Small_Cravings" title="" class="menu-link">Small Cravings</a></li>
+                
+                    <li><a href="#Appetizers" title="" class="menu-link">Appetizers</a></li>
+                
+                    <li><a href="#Soups" title="" class="menu-link">Soups</a></li>
+                
+                    <li><a href="#Salads" title="" class="menu-link">Salads</a></li>
+                
+                    <li><a href="#Pizzas" title="" class="menu-link">Pizzas</a></li>
+                
+                    <li><a href="#thin-crust" title="" class="menu-link">Thin Crust</a></li>
+                
+                    <li><a href="#pastas-specialties" title="" class="menu-link">Pastas + Specialties</a></li>
+                
+                    <li><a href="#tacos-sandwiches" title="" class="menu-link">Tacos + Sandwiches</a></li>
+                
+                    <li><a href="#Desserts" title="" class="menu-link">Desserts</a></li>
+                
+                    <li><a href="#beverages" title="" class="menu-link">Beverages</a></li>
+                
+                <li></li>
+                <li><a href="http://info.cpk.com/documents/cpkids_menu.pdf" title="CPKids Menu" target="_blank">CPKids Menu (PDF)</a></li>
+                <li></li>
+                <li><a href="http://info.cpk.com/documents/allergen_information.pdf" title="Allergen Menu" target="_blank">Allergen Menu (PDF)</a></li>
+                <li><a href="http://info.cpk.com/documents/gluten_free_menu.pdf" title="Gluten Free Menu" target="_blank">Gluten Free Menu (PDF)</a></li>
+                <li><a href="http://info.cpk.com/documents/vegetarian_and_vegan_info.pdf" title="Vegetarian and Vegan Menu" target="_blank">Vegetarian and Vegan Menu (PDF)</a></li>
+                <li><a href="http://info.cpk.com/documents/nutrition_facts.pdf" title="Nutrition Facts" target="_blank">Nutrition Facts (PDF)</a></li>
+            </ul>
+        </nav>
+	</div>
+</aside>
+
+<!-- List Id = 22746 and List Name = CM_CPK_boom --> 
+<!-- Begin ad tag --> 
+<img src="http://ad.doubleclick.net/activity;src=1270268;dcnet=4155;boom=22746;sz=1x1;ord=1?" width="1" height="1" border="0">
+<!-- End ad tag -->
+</div>
+
+
+
+			<footer>
+				<div>
+					<p>&copy; Copyright 2012 California Pizza Kitchen, Inc. All rights reserved.</p>
+					<nav>
+					<ul class="clearfix">
+						<li><a href="/sitemap/" title="Site Map">Site Map</a></li>
+						<li><a href="/terms/" title="Terms of Use">Terms of Use</a></li>
+						<li><a href="/privacy/" title="Privacty Policy">Privacy Policy</a></li>
+					</ul>
+				</nav>
+				</div>
+			</footer>
+		</article>  
+		<!-- JavaScript at the bottom for fast page loading -->
+		<div class="hidden scripts">
+			
+			<script type="text/javascript">
+				var STATIC_URL = "http://d149n29we98a20.cloudfront.net/static/";
+				(function () {
+				
+					Modernizr.load([{
+						// jQuery 1.7.1
+						load : "//ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js",
+						complete : function () {
+							if (!window.jQuery) {
+								Modernizr.load("http://d149n29we98a20.cloudfront.net/static/js/libs/jquery-1.5.2.min.js");
+							}
+						}
+					}, { // SITE
+						load : [
+							
+							
+								"http://d149n29we98a20.cloudfront.net/static/js/cpk.min.js"
+								
+							
+						],
+						wait : true,
+						complete : function () {
+							CPK.init();
+						}
+					}]);
+				}());
+			</script>
+			<!-- Google Analytics --> 
+			<script type="text/javascript">
+			  var _gaq = _gaq || [];
+			  _gaq.push(['_setAccount', 'UA-21964137-1']);
+			  _gaq.push(['_trackPageview']);
+
+			  (function() {
+			    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			  })();
+
+			</script>
+		</div>
+		
+		<!-- Overlay for IE7 and below -->
+		<!--[if lte IE 7 ]>
+			<div id="overlay" class="ie-check">
+				<div class="update-browser">
+					<div>
+						<h2>Update Browser <div class="close">CLOSE</div></h2>
+						<div class="message">
+							<p>For an optimal viewing experience, we recommend upgrading to the latest version of your preferred web browser.<span class="close">Not at this time.</span></p>
+							<ul>
+								<li class="ie">
+									<a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home" target="_blank"><img src="http://d149n29we98a20.cloudfront.net/static//img/modal/ie.png" alt="Internet Explorer" /></a>
+								</li>
+								<li class="safari">
+									<a href="http://www.apple.com/safari/" target="_blank"><img src="http://d149n29we98a20.cloudfront.net/static//img/modal/safari.png" alt="Safari" /></a>
+								</li>
+								<li class="chrome">
+									<a href="http://www.google.com/chrome" target="_blank"><img src="http://d149n29we98a20.cloudfront.net/static//img/modal/chrome.png" alt="Chrome" /></a>
+								</li>
+								<li class="firefox">
+									<a href="http://www.mozilla.org/en-US/firefox/new/" target="_blank"><img src="http://d149n29we98a20.cloudfront.net/static//img/modal/firefox.png" alt="FireFox" /></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		<![endif]-->
+
+		
+	</body>
+</html>
+
+
+
