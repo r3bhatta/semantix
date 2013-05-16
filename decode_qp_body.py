@@ -2,9 +2,6 @@ import quopri
 import json
 import os, errno
 
-HOME = ""
-USER = ""
-DIR = ""
 FILE = "cpk.txt"
 OUTPUT = "out.txt"
 
