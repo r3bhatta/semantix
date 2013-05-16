@@ -10,7 +10,7 @@ Installation
 2. Install [Flask](http://flask.pocoo.org/docs/installation/ "Flask"). Make sure `virtualenv` is 
 installed.
 3. Install [BeautifulSoup](http://www.crummy.com/software/BeautifulSoup/bs4/doc/ "BeautifulSoup").
-4. virtualenv venv
+4. Run `virtualenv venv`.
 5. Run `. venv/bin/activate`. Activate the virtual environment.
 6. Run `pip install Flask`. This will install flask in the virtual environment.
 
