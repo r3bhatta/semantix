@@ -27,14 +27,14 @@ for line in lines:
     body = json.loads(line).values()[0]
 
     # Use the quopri module to decode the qp_encoded value of each page.
-    decoded_qp = quopri.decodestring(body)
-    soup = BeautifulSoup(decoded_qp)
+    decodedQP = quopri.decodestring(body)
+    soup = BeautifulSoup(decodedQ)
 
     print soup.title
 
     # Write decoded values to the output file.
-    out_file = open(OUTPUT_FILE, 'a')
-    out_file.write(decoded_qp)
-    out_file.write("\n")
-    out_file.close()
+    outFile = open(OUTPUT_FILE, 'a')
+    outFile.write(decodedQP)
+    outFile.write("\n")
+    outFile.close()
 
