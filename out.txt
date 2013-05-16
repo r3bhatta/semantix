@@ -1,0 +1,499 @@
+
+
+   
+  
+
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js ie6 ie" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js ie7 ie" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js ie8 ie" lang="en"><![endif]-->
+<!--[if IE 9]><html class="no-js ie9 ie" lang="en"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html lang="en" class="no-js"><!--<![endif]-->
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>California Pizza Kitchen</title>
+		<meta name="keywords" content="california pizza kitchen, cpk, pizza, made to order pasta, salads, order online, pick-up, to-go, carry-out, nutrition, locations, menu, cpk asap" />
+		<meta name="description" content="Authentic California-style cuisine at all CPK locations. Try our innovative pizzas, distinctive pastas, salads, soups, appetizers and desserts. You can Online ordering and many of our locations have curbside pickup available." />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="shortcut icon" href="http://d149n29we98a20.cloudfront.net/static/img/favicon.ico" />
+		<link rel="stylesheet" href="http://d149n29we98a20.cloudfront.net/static/css/style.css" />
+		
+    <link rel="stylesheet" href="http://d149n29we98a20.cloudfront.net/static/css/home.css" />
+    <meta name="google-site-verification" content="Gf91ZJO2--IdnpOn7Us4LWP9fz_XAzUlkjdhMc8f6Nc" />
+
+		<script src="http://d149n29we98a20.cloudfront.net/static/js/libs/modernizr.custom.35188.js"></script>
+	</head>
+	<body class="home" data-page-class="Home">
+		<!--[if lte IE 8]><div class="mainwidth bg_checkered"></div><![endif]-->
+		<header class="clearfix">
+			<div class="wrapper mainwidth clearfix">
+				<div class="left">
+					<hgroup><h1><a href="/" title="California Pizza Kitchen">California Pizza Kitchen</a></h1></hgroup>
+					<nav id="social-links">
+					<ul>
+						<li><a href="http://www.facebook.com/californiapizzakitchen" title="Follow us on Facebook" class="social social-fb" target="_blank"><span>Follow us on Facebook</span></a></li>
+						<li><a href="http://www.twitter.com/calpizzakitchen" title="Follow us on Twitter" class="social social-tw" target="_blank"><span>Follow us on Twitter</span></a></li>
+						<li><a href="http://pinterest.com/cpkpinterest/" class="social social-pinterest" target="_blank"><span>Pinterest</span></a></li>
+						<li><a href="https://plus.google.com/b/117705728686504164805/#117705728686504164805/posts" class="social social-google" target="_blank"><span>Google+</span></a></li>
+						<li><a href="http://www.youtube.com/user/CPKTelevision" title="Follow us on Youtube" class="social social-youtube" target="_blank"><span>Follow us on Youtube</span></a></li>
+						<li><a href="http://itunes.apple.com/us/app/california-pizza-kitchen/id363883551?mt=8" title="Download our App" class="social social-appstore" target="_blank"><span>Download our App</span></a></li>
+						<li><a href="http://assets.fbmta.com/clt/cpk/lp/join/join.asp" title="Register today and receive $5 toward your next CPK visit" class="social social-signup" target="_blank"><span>Register today and receive $5 toward your next CPK visit</span></a></li>
+					</ul>
+				</nav>
+					<nav id="uni-nav">
+						<ul class="clearfix">
+							<li>
+								<a href="/menu/" title="Menus">Menus</a>
+								<ul>
+									<li><a href="/menu/#newmenuitems" title="New Menu Items">New Menu Items</a></li>
+									<li><a href="/menu/#Small_Cravings" title="Small Cravings">Small Cravings</a></li>
+									<li><a href="/menu/#Appetizers" title="Appetizers">Appetizers</a></li>
+									<li><a href="/menu/#Soups" title="Soups">Soups</a></li>
+									<li><a href="/menu/#Salads" title="Salads">Salads</a></li>
+									<li><a href="/menu/#Pizzas" title="Pizzas">Pizzas</a></li>
+									<li><a href="/menu/#thin-crust" title="Thin Crust">Thin Crust</a></li>
+									<li><a href="/menu/#pastas-specialties" title="Pastas + Specialties">Pastas + Specialties</a></li>
+									<li><a href="/menu/#tacos-sandwiches" title="Tacos + Sandwiches">Tacos + Sandwiches</a></li>
+									<li><a href="/menu/#Desserts" title="Desserts">Desserts</a></li>
+									<li><a href="/menu/#beverages" title="Beverages">Beverages</a></li>
+								</ul>
+							</li>
+							<li><a href="/locations/" title="Locations">Locations</a></li>
+							<li>
+								<a href="/catering/" title="Catering &amp; Events">Catering &amp; Events</a>
+								<ul>
+									<li><a href="/catering/" title="Catering &amp; Events - Overview">Overview</a></li>
+									<li><a href="/catering/menu/" title="Catering &amp; Events - Catering Menu">Catering Menu</a></li>
+									<li><a href="/catering/let-us-help/" title="Catering &amp; Events - Let Us Help Form">Let Us Help</a></li>
+									<li><a href="/catering/mobile-kitchen/" title="Catering &amp; Events - Mobile Kitchen &amp; Special Events">Mobile Kitchen &amp; Special Events</a></li>
+								</ul>
+							</li>
+							<li><a href="http://www.cpkcard.com/splash.aspx" title="Gift Cards">Gift Cards</a></li>
+							<li>
+								<a href="/company/" title="Company">Company</a>
+								<ul>
+									<li><a href="/company/" title="Company - About CPK" class="on">About CPK</a></li>
+									<li><a href="/company/press-room/" title="Company - Press Room">Press Room</a></li>
+									<li><a href="/company/cpkids/" title="Company - CPKids Fundraisers &amp; Activities">CPKids Fundraisers &amp; Activities</a></li>
+									<li><a href="/company/community-relations/" title="Company - Community Relations">Community Relations</a></li>
+									<li><a href="/company/cpk-cookbooks/" title="Company - CPK Cookbooks">CPK Cookbooks</a></li>
+								</ul>
+							</li>
+						</ul>
+					</nav>
+					<nav id="uni-nav-secondary">
+						<ul class="clearfix">
+							<li><a href="/careers/" title="Careers">Careers</a></li>
+							<li><a href="http://www.cpkfrozen.com/" title="CPK Grocery">CPK Grocery</a></li>
+							<li><a href="/real-estate/" title="Real Estate">Real Estate</a></li>
+							<li><a href="/real-estate/international/" title="International Franchise">Int'l Franchise</a></li>
+							<li><a href="/faqs/" title="FAQs">FAQs</a></li>
+							<li><a href="http://webhost.cpk.com/contactus/contactus.asp" title="Contact Us">Contact Us</a></li>
+							
+						</ul>
+					</nav>
+				</div>
+
+
+
+				<div class="right clearfix">
+					
+					<section id="location-panel" class="clearfix">
+						
+						
+						<form id="location-form" action="/locations/">
+							<label>Find a Location</label>
+							<input type="text" placeholder="Enter a City, State or Zip" name="q" />
+							<button type='submit'>Go</button>
+						</form>
+						
+						
+						<a href="#" title="Close Panel" class="close"><span>Close</span></a>
+					</section>
+					
+					<div class="top-cta">
+						<a href="http://assets.fbmta.com/clt/cpk/lp/join/join.asp" id="header-cta"><img src="http://d149n29we98a20.cloudfront.net/static/img/shell/header-cta.png" alt=""/></a>
+					</div>
+					
+					<a href="#" title="Order Online" class="orderonline button"><span>Order Online</span></a>
+				</div>
+			</div>
+		</header>
+		<article>
+
+
+
+			<div class="clearfix">
+    
+
+    <section class="main-slider">
+		<div id="controls"></div>
+        <div class="asset">
+            <ul class="clearfix" id="main-slider">
+                    
+                        <!---->
+                        
+						<li class="swf" data-videourl="http://info.cpk.com/images/carousels/home/cpk_marquee_thankyou_v10b.swf">
+								
+								<div id="swiffer">
+									<img src="http://info.cpk.com/_carousel_large/" style="display: none;"/>
+								</div>
+								
+                        </li>
+						
+                    
+                        <!---->
+                        
+						<li>
+							
+								<a href="menu/#Salads" title="Introducing New Adventures">
+								<img src="http://info.cpk.com/images/menu_items/salads/120224_goldsmith_cpkla275b_lores_carousel_large.jpg" />
+								<div style="background-image:url(http://info.cpk.com/images/menu_items/salads/120224_goldsmith_cpkla275b_lores_carousel_large.jpg);" class="img">&nbsp;</div>
+								</a>
+								<span class="details">
+	                                
+	                                    <span class="title">Introducing New Adventures</span>
+	                                    <span class="copy">NEW! Quinoa (keen-wah) + Arugula Salad</span>
+	                                
+	                            </span>
+								
+							
+                        </li>
+						
+                    
+                        <!---->
+                        
+						<li>
+							
+								<a href="/menu/" title="Introducing New Adventures">
+								<img src="http://info.cpk.com/images/menu_items/specialties/120224_goldsmith_cpkla864_lores_carousel_large.jpg" />
+								<div style="background-image:url(http://info.cpk.com/images/menu_items/specialties/120224_goldsmith_cpkla864_lores_carousel_large.jpg);" class="img">&nbsp;</div>
+								</a>
+								<span class="details">
+	                                
+	                                    <span class="title">Introducing New Adventures</span>
+	                                    <span class="copy">NEW! Cedar Plank Salmon + Corn Succotash</span>
+	                                
+	                            </span>
+								
+							
+                        </li>
+						
+                    
+                        <!---->
+                        
+						<li>
+							
+								<a href="/menu/#Desserts" title="it&#39;s not short on taste!">
+								<img src="http://info.cpk.com/images/menu_items/desserts/strawberry_shortcake_cropped_carousel_large.jpg" />
+								<div style="background-image:url(http://info.cpk.com/images/menu_items/desserts/strawberry_shortcake_cropped_carousel_large.jpg);" class="img">&nbsp;</div>
+								</a>
+								<span class="details">
+	                                
+	                                    <span class="title">it&#39;s not short on taste!</span>
+	                                    <span class="copy">NEW! Strawberry Shortcake</span>
+	                                
+	                            </span>
+								
+							
+                        </li>
+						
+                    
+                        <!---->
+                        
+						<li>
+							
+								<a href="/menu/#beverages" title="Fresh from the mojito patch">
+								<img src="http://info.cpk.com/images/carousels/4_carousel_large.jpg" />
+								<div style="background-image:url(http://info.cpk.com/images/carousels/4_carousel_large.jpg);" class="img">&nbsp;</div>
+								</a>
+								<span class="details">
+	                                
+	                                    <span class="title">Fresh from the mojito patch</span>
+	                                    <span class="copy">NEW! Seasonal Strawberry Mojito</span>
+	                                
+	                            </span>
+								
+							
+                        </li>
+						
+                    
+                        <!---->
+                        
+						<li>
+							
+								<a href="/menu/#Appetizers" title="Dip into this favorite with friends">
+								<img src="http://info.cpk.com/images/menu_items/appetizers/spinach-artichoke-dip_carousel_large.jpg" />
+								<div style="background-image:url(http://info.cpk.com/images/menu_items/appetizers/spinach-artichoke-dip_carousel_large.jpg);" class="img">&nbsp;</div>
+								</a>
+								<span class="details">
+	                                
+	                                    <span class="title">Dip into this favorite with friends</span>
+	                                    <span class="copy">Spinach Artichoke Dip</span>
+	                                
+	                            </span>
+								
+							
+                        </li>
+						
+                    
+                        <!---->
+                        
+						<li>
+							
+								<a href="/catering/menu/" title="work the party. not the kitchen.">
+								<img src="http://info.cpk.com/images/carousels/catering/catering_spread_083011_retouched_lores_carousel_large.jpg" />
+								<div style="background-image:url(http://info.cpk.com/images/carousels/catering/catering_spread_083011_retouched_lores_carousel_large.jpg);" class="img">&nbsp;</div>
+								</a>
+								<span class="details">
+	                                
+	                                    <span class="title">work the party. not the kitchen.</span>
+	                                    <span class="copy">Order online today!</span>
+	                                
+	                            </span>
+								
+							
+                        </li>
+						
+                    
+                        <!---->
+                        
+						<li>
+							
+								<a href="/menu/#Pizzas" title="Meet pepperoni pizza&#39;s evil twin">
+								<img src="http://info.cpk.com/images/carousels/home/3_carousel_large.jpg" />
+								<div style="background-image:url(http://info.cpk.com/images/carousels/home/3_carousel_large.jpg);" class="img">&nbsp;</div>
+								</a>
+								<span class="details">
+	                                
+	                                    <span class="title">Meet pepperoni pizza&#39;s evil twin</span>
+	                                    <span class="copy">NEW! Habanero Carnitas Pizza</span>
+	                                
+	                            </span>
+								
+							
+                        </li>
+						
+                    
+            </ul>
+            <div class="info">
+                <hgroup>
+                    <h1></h1>
+                    <h2></h2>
+                </hgroup>
+            </div>
+        </div>
+        <div class="main-slider-pager-wrapper">
+            <div class="icons-arrow_slider-small icons-main-icons-arrow_slider-prev"></div>
+            <div class="main-slider-pager"></div>
+            <div class="icons-arrow_slider-small icons-main-icons-arrow_slider-next"></div>
+        </div>
+    </section>
+
+
+    
+    <section id="promos">
+        
+
+<div>
+
+<div id="promo-swf" data-swf="http://info.cpk.com/banners/countdown_v6.swf"></div>
+
+</div>
+
+        <ul class="clearfix">
+            <li class="register"><a href="http://info.cpk.com/documents/cpk_2012_thank_you_card_official_rules-final.pdf" rel="external" id="sidebar-cta"  target="_blank">Thank You Card Official Rules</a></li>
+            <li class="fb"><div><div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#xfbml=1"></script><fb:like href="http://www.facebook.com/californiapizzakitchen" send="false" width="100" show_faces="false" font="trebuchet ms"></fb:like></div></li>
+            <li class="tw">
+                <div><a href="https://twitter.com/calpizzakitchen" class="twitter-follow-button" data-button="grey" data-show-count="false" data-width="62px">@calpizzakitchen</a><script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script></div>
+                <span class="badge">@calpizzakitchen</span>
+            </li>
+        </ul>
+    </section>
+
+    
+
+    <section id="home_updates">
+        <hgroup><h1>In the Kitchen</h1></hgroup>
+        <div class="scroll">
+            <ul class="clearfix" id="updates-list">
+                
+                    <li>
+                        
+						<a href="https://www.facebook.com/californiapizzakitchen/app_344908422230810" title="Try our best recipes yet! Click for a $1 off coupon.">
+						
+							<h4>Try our best recipes yet! Click for a $1 off coupon.</h4>
+							<img src="http://info.cpk.com/images/carousels/home/nestle_didyouknow.jpg" alt="" />
+						
+						</a>
+						
+                    </li>
+                
+                    <li>
+                        
+						<a href="http://www.yumsugar.com/California-Pizza-Kitchen-BBQ-Chicken-Pizza-Recipe-23067690" title="Get the Dish:Click for tips to making BBQ Chicken Pizza!">
+						
+							<h4>Get the Dish:Click for tips to making BBQ Chicken Pizza!</h4>
+							<img src="http://info.cpk.com/images/did_you_know/home/cpk_in_the_news_didyouknow.jpg" alt="" />
+						
+						</a>
+						
+                    </li>
+                
+                    <li>
+                        
+						<a href="/locations/" title="Your meal. Our wheels. Try our delivery.">
+						
+							<h4>Your meal. Our wheels. Try our delivery.</h4>
+							<img src="http://info.cpk.com/images/did_you_know/home/2_didyouknow.jpg" alt="" />
+						
+						</a>
+						
+                    </li>
+                
+                    <li>
+                        
+							<h4>Curb your Hunger. Curbside Service Available.</h4>
+							<img src="http://info.cpk.com/images/did_you_know/home/curbside_-_no_phone_didyouknow.jpg" alt="" />
+						
+                    </li>
+                
+                    <li>
+                        
+						<a href="/catering/mobile-kitchen/" title="Everything you need, including the kitchen sink.">
+						
+							<h4>Everything you need, including the kitchen sink.</h4>
+							<img src="http://info.cpk.com/images/did_you_know/home/3_didyouknow.jpg" alt="" />
+						
+						</a>
+						
+                    </li>
+                
+                    <li>
+                        
+						<a href="/company/cpkids/" title="CPKids Birthday Parties.  Delicious memories included.">
+						
+							<h4>CPKids Birthday Parties.  Delicious memories included.</h4>
+							<img src="http://info.cpk.com/images/did_you_know/home/5_didyouknow.jpg" alt="" />
+						
+						</a>
+						
+                    </li>
+                
+            </ul>
+        </div>
+        <div class="update-slider-pager-wrapper">
+            <div class="icons-arrow_slider-small icons-update-icons-arrow_slider-prev"></div>
+            <div class="update-slider-pager"></div>
+            <div class="icons-arrow_slider-small icons-update-icons-arrow_slider-next"></div>
+        </div>
+    </section>
+
+    
+    <section id="home_tweets">
+    	<hgroup><h1>Twitter Feed</h1></hgroup>
+    	<a href="https://twitter.com/calpizzakitchen" title="View All on Twitter" class="view-all" target="_blank">View All</a>
+    	<div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+    	<div class="viewport" id="tweets"></div>
+    </section>
+    
+    <!-- List Id = 22746 and List Name = CM_CPK_boom --> 
+    <!-- Begin ad tag --> 
+    <img src="http://ad.doubleclick.net/activity;src=1270268;dcnet=4155;boom=22746;sz=1x1;ord=1?" width="1" height="1" border="0">
+    <!-- End ad tag -->
+</div>
+
+
+
+			<footer>
+				<div>
+					<p>&copy; Copyright 2012 California Pizza Kitchen, Inc. All rights reserved.</p>
+					<nav>
+					<ul class="clearfix">
+						<li><a href="/sitemap/" title="Site Map">Site Map</a></li>
+						<li><a href="/terms/" title="Terms of Use">Terms of Use</a></li>
+						<li><a href="/privacy/" title="Privacty Policy">Privacy Policy</a></li>
+					</ul>
+				</nav>
+				</div>
+			</footer>
+		</article>  
+		<!-- JavaScript at the bottom for fast page loading -->
+		<div class="hidden scripts">
+			
+			<script type="text/javascript">
+				var STATIC_URL = "http://d149n29we98a20.cloudfront.net/static/";
+				(function () {
+				
+					Modernizr.load([{
+						// jQuery 1.7.1
+						load : "//ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js",
+						complete : function () {
+							if (!window.jQuery) {
+								Modernizr.load("http://d149n29we98a20.cloudfront.net/static/js/libs/jquery-1.5.2.min.js");
+							}
+						}
+					}, { // SITE
+						load : [
+							
+							
+								"http://d149n29we98a20.cloudfront.net/static/js/cpk.min.js"
+								
+							
+						],
+						wait : true,
+						complete : function () {
+							CPK.init();
+						}
+					}]);
+				}());
+			</script>
+			<!-- Google Analytics --> 
+			<script type="text/javascript">
+			  var _gaq = _gaq || [];
+			  _gaq.push(['_setAccount', 'UA-21964137-1']);
+			  _gaq.push(['_trackPageview']);
+
+			  (function() {
+			    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			  })();
+
+			</script>
+		</div>
+		
+		<!-- Overlay for IE7 and below -->
+		<!--[if lte IE 7 ]>
+			<div id="overlay" class="ie-check">
+				<div class="update-browser">
+					<div>
+						<h2>Update Browser <div class="close">CLOSE</div></h2>
+						<div class="message">
+							<p>For an optimal viewing experience, we recommend upgrading to the latest version of your preferred web browser.<span class="close">Not at this time.</span></p>
+							<ul>
+								<li class="ie">
+									<a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home" target="_blank"><img src="http://d149n29we98a20.cloudfront.net/static//img/modal/ie.png" alt="Internet Explorer" /></a>
+								</li>
+								<li class="safari">
+									<a href="http://www.apple.com/safari/" target="_blank"><img src="http://d149n29we98a20.cloudfront.net/static//img/modal/safari.png" alt="Safari" /></a>
+								</li>
+								<li class="chrome">
+									<a href="http://www.google.com/chrome" target="_blank"><img src="http://d149n29we98a20.cloudfront.net/static//img/modal/chrome.png" alt="Chrome" /></a>
+								</li>
+								<li class="firefox">
+									<a href="http://www.mozilla.org/en-US/firefox/new/" target="_blank"><img src="http://d149n29we98a20.cloudfront.net/static//img/modal/firefox.png" alt="FireFox" /></a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		<![endif]-->
+
+		
+	</body>
+</html>
+
+
