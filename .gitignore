@@ -3,3 +3,4 @@
 *.swo
 *.swm
 *.pem
+.DS_Store
