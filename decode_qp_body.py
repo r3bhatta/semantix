@@ -94,5 +94,6 @@ for line in lines:
 
     outFile = open(OUTPUT_FILE, 'a')
     outFile.write(decodedQP)
+    
     outFile.write("\n")
     outFile.close()
