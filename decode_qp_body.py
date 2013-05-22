@@ -94,6 +94,7 @@ for line in lines:
     # Write decoded values to the output file.
 
     outFile = open(OUTPUT_FILE, 'a')
+    
     outFile.write(decodedQP)
     outFile.write("\n")
     outFile.close()
