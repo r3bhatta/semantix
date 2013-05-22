@@ -36,7 +36,6 @@ for line in lines:
     body = json.loads(line).values()[0]
 
     # Use the quopri module to decode the qp_encoded value of each page.
-
     decodedQP = quopri.decodestring(body)
     soup = BeautifulSoup(decodedQP)
 
@@ -94,7 +93,6 @@ for line in lines:
     # Write decoded values to the output file.
 
     outFile = open(OUTPUT_FILE, 'a')
-    
     outFile.write(decodedQP)
     outFile.write("\n")
     outFile.close()
