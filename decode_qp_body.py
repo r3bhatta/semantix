@@ -36,24 +36,16 @@ for line in lines:
     body = json.loads(line).values()[0]
 
     # Use the quopri module to decode the qp_encoded value of each page.
-    decoded_qp = quopri.decodestring(body)
 
+    decodedQP = quopri.decodestring(body)
+    soup = BeautifulSoup(decodedQP)
 
-
-    soup = BeautifulSoup(decoded_qp)
-
-	
-    #anchorText = soup.find_all("a", text=r)
-    #for row in anchorText:
-    #	print row
-
+    # the title may have location
     title = soup.title
-    #the title may have location
 
-   
     if title is not None:
-	    if "location" in str(title):
-	    	print "found keyword location at " + str(title)
+    	if "location" in str(title):
+    		print "found keyword location at " + str(title)
 	    	r = re.compile(r'location',re.IGNORECASE)
 	    	locationAnchorTags = soup.find_all("a", text=r)
 	    	locationSpanTags = soup.find_all("span", text=r)
@@ -66,7 +58,6 @@ for line in lines:
 	    			print str(locationAnchorTag).strip()
 	    			for descendant in locationAnchorTag.descendants:
 	    				pattern = re.compile(r'\s+')
-	    				#print "		" + str(descendant).sub(pattern, '', str(descendant))
 	    				output = re.sub(pattern, '', str(descendant))
 	    				print output
 	    		print "____End anchor tags_____\n"
@@ -74,7 +65,6 @@ for line in lines:
 	    	if locationSpanTags:
 	    		for locationSpanTag in locationSpanTags:
 	    			pattern = re.compile(r'\s+')
-	    			#print str(locationSpanTag).sub(pattern, '', str(locationSpanTag))
 	    			output = re.sub(pattern, '', str(locationSpanTag))
 	    			print output
 	    			print "\n"
@@ -84,9 +74,6 @@ for line in lines:
 	    		print len(locationAnchorTags)
 	    		for locationDivTag in locationDivTags:
 	    			pattern = re.compile(r'\t+')
-	    			#print str(locationDivTag).sub(pattern, '', str(locationDivTag))
-
-	    			#print locationDivTag
 	    			output = re.sub(pattern, '', str(locationDivTag))
 	    			print output + "\n"
                     
@@ -105,9 +92,8 @@ for line in lines:
 	    		print "\n"
 
     # Write decoded values to the output file.
-    out_file = open(OUTPUT_FILE, 'a')
-    #out_file.write(decoded_qp)
 
-    out_file.write("\n")
-    out_file.close()
-
+    outFile = open(OUTPUT_FILE, 'a')
+    outFile.write(decodedQP)
+    outFile.write("\n")
+    outFile.close()
