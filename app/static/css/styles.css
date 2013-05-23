@@ -1,3 +1,7 @@
+html, body {
+	height: 100%;
+}
+
 .center {
     float: none;
     margin-left: auto;
@@ -5,15 +9,24 @@
     text-align: center;
 }
 
-.search-wrapper {
+.container-wrap {
+	min-height: 100%;
+}
+
+.container-wrap .container {
+	overflow: auto;
+	padding-bottom: 210px;
+}
+
+.search-wrap {
     width: 100%;
 }
 
-.search-wrapper input {
+.search-wrap input {
     width: 100%;
 }
 
-.data-wrapper {
+.data-wrap {
     margin-bottom: 30px;
 }
 
@@ -22,3 +35,9 @@
     margin-right: 20px;
 }
 
+.footer {
+	position: relative;
+	margin-top: -210px;
+	height: 210px;
+	clear: both;
+}
