@@ -4,6 +4,7 @@ import quopri
 import json
 import os, errno
 import sys
+from address import AddressParser, Address
 
 # set default encoding to utf to avoid conflicts with weird symbols
 if __name__ == "__main__":
@@ -43,15 +44,15 @@ def printLocations(soup):
                     if key.find("location") != -1:
                         locationCheck = True
 
-                    #look in values for keyword location
+                    # look in values for keyword location
                     # since values could be a list, iteration may be needed
-                    #print "type of val is" + str(type(tag[key]))
+                    # print "type of val is" + str(type(tag[key]))
                     if type(tag[key]) is unicode:
                         #print str(tag[key]) + "and"
-                        if str(tag[key]).find("location") != -1:
+                        if str(tag[key]).find('location') != -1:
                             locationCheck = True
                     else:
-                        if any("location" in s for s in tag[key]):
+                        if any('location' in s for s in tag[key]):
                             locationCheck = True
                 #print locationCheck
                 return locationCheck
@@ -62,10 +63,29 @@ def printLocations(soup):
                 print "____Location Tags_____\n"
                 print len(locationTags)
 
+                #def extractTag(tag):
+                 #   for key in dict(tag.attrs):
+
+                ap = AddressParser()
+
                 for locationTag in locationTags:
+                    locationSoup = BeautifulSoup(str(locationTag))
+                    allText = locationSoup.find_all(text = True)
+                    for text in allText:
+                        pattern = re.compile(r'\t+')
+                        output = re.sub(pattern, '', str(text))
+
+                        address = "cannot find"
+                        try:
+                            address = str(ap.parse_address(output))
+                        except:
+                            pass
+                        print "out: " + address
+                        print "text: " + output
+
                     pattern = re.compile(r'\t+')
                     output = re.sub(pattern, '', str(locationTag))
-                    print output
+                    #print output
                     print "___________________________________________________________ "
                     print "\n"
 

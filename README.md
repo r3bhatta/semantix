@@ -14,9 +14,7 @@ installed. Follow the instructions to install to activate the virtual environmen
 Run
 ---
 
-1. Run `. venv/bin/activate`. Everytime you want to deploy the project, you have to activate the 
-virtual environment.
-2. Run `python run.py`.
+1. Run `./start`.
 
 Notes
 -----
