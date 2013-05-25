@@ -167,4 +167,3 @@ for line in lines:
     outFile.write(decodedQP)
     outFile.write("\n")
     outFile.close()
-

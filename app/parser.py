@@ -4,97 +4,117 @@ import quopri
 import json
 import os, errno
 import sys
+import requests
+from address import AddressParser, Address
 
 def parse():
-    # set default encoding to utf to avoid conflicts with weird symbols
-    if __name__ == "__main__":
-        reload(sys)
-        sys.setdefaultencoding("utf-8")
+    # Set default encoding to UTF to avoid conflicts with symbols.
+    reload(sys)
+    sys.setdefaultencoding('utf-8')
 
-    INPUT_FILE = "cpk.txt"
-    OUTPUT_FILE = "out.txt"
-
-    #remove the file if exists
-    try:
-        os.remove(OUTPUT_FILE)
-    except OSError:
-        pass
+    INPUT_FILE = 'cpk.txt'
+    OUTPUT_FILE = 'out.txt'
 
     # Open the file.
     inputFile = open(INPUT_FILE, 'r')
     # Read the file contents.
     lines = inputFile.readlines()
 
-    # Loop through each line in the file.
-    index = 0
+    def parseLocations(soup):
+        title = soup.title
+        formattedAddresses = []
+        if title is not None:
+            if 'location' in str(title):
+                r = re.compile(r'location', re.IGNORECASE)
+            
+                '''
+                Boolean comparator that takes in a tag from BeautifulSoup.find_all and returns 
+                true if the tag or its children contain the word 'location'.
+                '''
+                def locationCheck(tag):
+                    for key in dict(tag.attrs):
+                        if key.find('location') != -1:
+                            return True
+                        if type(tag[key]) is unicode:
+                            if str(tag[key]).find('location') != -1:
+                                return True
+                        else:
+                            if any('location' in s for s in tag[key]):
+                                return True
+                    return False
 
+                locationTags = soup.find_all(locationCheck)
+
+                if locationTags:
+                    addressParser = AddressParser()
+
+                    addresses = []
+                    
+                    for locationTag in locationTags:
+                        locationSoup = BeautifulSoup(str(locationTag))
+                        # Extract the text value from all the tags.
+                        allText = locationSoup.find_all(text = True)
+                        index = 0
+                        for text in allText:
+                            pattern = re.compile(r'\t+')
+                            cleanText = re.sub(pattern, '', text)
+                            address = None
+                            try:
+                                address = addressParser.parse_address(cleanText).full_address()
+                                index += 1
+                                siblingIndex = index + 1
+                                maxSiblingSearchDepth = 4
+                                siblingSearchDepth = 0
+
+                                while (siblingSearchDepth < maxSiblingSearchDepth):
+                                    siblingText = str(allText[siblingIndex])
+
+                                    if re.sub(r'\s+', '', siblingText) != re.sub(r'\s+', '', cleanText):
+                                        cleanText += siblingText
+                                    # Found 3 > numbers in a row, hopefully it's a postal code.
+                                    if len(re.findall(r"\D(\d[0-9]{3,})\D", ' ' + siblingText + ' ')) > 0:
+                                        break;
+
+                                    siblingIndex += 1
+                                    siblingSearchDepth += 1
+
+                                if cleanText not in addresses:
+                                    if len(addresses) == 0:
+                                        addresses.append(cleanText)
+                            except:
+                                pass
+                               
+                    for address in addresses:
+                        address.replace(' ', '+')
+                        print 'Original: ' + address
+                        request = 'https://maps.googleapis.com/maps/api/place/textsearch/json?sensor=true&key=AIzaSyDZa2Ayyv1Nk0um0VJvSkM8qj_uzESBMIQ&query=' + address
+                        # request = 'http://maps.googleapis.com/maps/api/geocode/json?address=' + address + '&sensor=true'
+                        
+                        r = requests.get(request)
+                        if r.json() is not None:
+                            response = r.json()
+                            if response['status'] == 'OK':
+                                results = response['results']
+                                print '----------RESULTS----------'
+                                for result in results:
+                                    print 'Address: ' + result['formatted_address']
+                                    formattedAddresses.append(result['formatted_address'])
+                            else:
+                                print response['status']
+        
+        return formattedAddresses
+                        
+                    
     for line in lines:
-        line = lines[index]
-        index += 1
+        # Load the line and the value 'body'.
+        body = json.loads(line)['body']
 
-        # load the line and the value that we want.
-        body = json.loads(line).values()[0]
-
-        # Use the quopri module to decode the qp_encoded value of each page.
+        # Use the quopri module to decode the qp encoded value of each page.
         decodedQP = quopri.decodestring(body)
         soup = BeautifulSoup(decodedQP)
+        locations = parseLocations(soup)
+        if (len(locations) > 0):
+            return json.dumps(locations)
 
-        # the title may have location
-        title = soup.title
-
-        if title is not None:
-            if "location" in str(title):
-                print "found keyword location at " + str(title)
-                r = re.compile(r'location',re.IGNORECASE)
-                locationAnchorTags = soup.find_all("a", text=r)
-                locationSpanTags = soup.find_all("span", text=r)
-                locationDivTags = soup.find_all("div", id=r)
-                locationParaTags = soup.find_all("p", text=r)
-                
-                if locationAnchorTags:
-                    print "____Anchor tags_____\n"
-                    for locationAnchorTag in locationAnchorTags:
-                        print str(locationAnchorTag).strip()
-                        for descendant in locationAnchorTag.descendants:
-                            pattern = re.compile(r'\s+')
-                            output = re.sub(pattern, '', str(descendant))
-                            print output
-                    print "____End anchor tags_____\n"
-
-                if locationSpanTags:
-                    for locationSpanTag in locationSpanTags:
-                        pattern = re.compile(r'\s+')
-                        output = re.sub(pattern, '', str(locationSpanTag))
-                        print output
-                        print "\n"
-
-                if locationDivTags:
-                    print "____Div Tags_____\n"
-                    print len(locationAnchorTags)
-                    for locationDivTag in locationDivTags:
-                        pattern = re.compile(r'\t+')
-                        output = re.sub(pattern, '', str(locationDivTag))
-                        print output + "\n"
-                        
-                        #for descendant in locationDivTag.descendants:
-                            #if descendant is not None:
-                            #	print " 	" + str(descendant)
-
-                    print "_____End Div tags____\n"
-
-                if locationParaTags:
-                    for locationParaTag in locationParaTags:
-                        pattern = re.compile(r'\s+')
-                        #print str(locationParaTag).sub(pattern, '', str(locationParaTag))
-                        output = re.sub(pattern, '', str(locationParaTag))
-                        print output
-                    print "\n"
-
-        # Write decoded values to the output file.
-
-        outFile = open(OUTPUT_FILE, 'a')
-        outFile.write(decodedQP)
-        
-        outFile.write("\n")
-        outFile.close()
+parse()
 
