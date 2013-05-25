@@ -128,4 +128,3 @@ def parse():
             return json.dumps(locations)
 
 parse()
-
