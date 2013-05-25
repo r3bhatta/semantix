@@ -6,6 +6,7 @@ import os, errno
 import sys
 import requests
 from address import AddressParser, Address
+from business import Business
 
 def parse():
     # Set default encoding to UTF to avoid conflicts with symbols.
@@ -53,7 +54,7 @@ def parse():
                     for locationTag in locationTags:
                         
                         #print str(locationTag.name)
-                        if str(locationTag.name) != "script":
+                        if str(locationTag.name) != 'script':
                             locationSoup = BeautifulSoup(str(locationTag))
                             # Extract the text value from all the tags.
                             allText = locationSoup.find_all(text = True)
@@ -89,7 +90,6 @@ def parse():
                                     except:
                                         pass
                            
-                    
                     for address in addresses:
                         address.replace(' ', '+')
                         #print '\nORIGINAL' + re.sub(r'\s+', ' ', address)
@@ -115,7 +115,7 @@ def parse():
             
         return formattedAddresses
                         
-                    
+    business = Business()
     for line in lines:
         # Load the line and the value 'body'.
         body = json.loads(line)['body']
@@ -123,8 +123,10 @@ def parse():
         # Use the quopri module to decode the qp encoded value of each page.
         decodedQP = quopri.decodestring(body)
         soup = BeautifulSoup(decodedQP)
+
         locations = parseLocations(soup)
         if (len(locations) > 0):
+            business.locations = locations
             return json.dumps(locations)
 
 parse()
