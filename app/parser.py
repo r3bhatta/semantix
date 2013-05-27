@@ -129,4 +129,3 @@ def parse():
             business.locations = locations
             return json.dumps(locations)
 
-parse()

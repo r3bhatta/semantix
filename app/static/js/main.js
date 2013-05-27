@@ -1,5 +1,9 @@
 $('.search-button').on('click', function(evt){
-    console.log('Clicked on search button.');
+    $('.data-header small').html('California Pizza Kitchen');
+    $('#locationTags_tagsinput').html('Loading...');
+    $('.data-name').html('California Pizza Kitchen');
+    $('.data-business').html('Restaurant');
+    $('.data-hours').html('Unknown');
     $.ajax({
         url: '/locations',
     }).done(function(data){
