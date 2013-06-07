@@ -1,27 +1,15 @@
 from bs4 import BeautifulSoup
+from address import AddressParser, Address
+import jsonParser
 import re
 import quopri
 import json
 import os, errno
-import sys
 import requests
-from address import AddressParser, Address
-from business import Business
 
-def parse():
-    # Set default encoding to UTF to avoid conflicts with symbols.
-    reload(sys)
-    sys.setdefaultencoding('utf-8')
-
-    INPUT_FILE = 'cpk.txt'
-    OUTPUT_FILE = 'out.txt'
-
-    # Open the file.
-    inputFile = open(INPUT_FILE, 'r')
-    # Read the file contents.
-    lines = inputFile.readlines()
-
-    def parseLocations(soup):
+def parseLocations(soups):
+    for soup in soups:
+        print soup.title
         title = soup.title
         formattedAddresses = []
 
@@ -104,29 +92,7 @@ def parse():
                                 #print '----------RESULTS----------'
 
                                 for result in results:
-                                    #print 'Address: ' + result['formatted_address']
                                     if len(results) == 1:
                                         formattedAddresses.append(result['formatted_address'])
-                            #else:
-                                #print response['status']
-                    
-        for address in formattedAddresses:
-            print address
-            
-        return formattedAddresses
-                        
-    business = Business()
-    for line in lines:
-        # Load the line and the value 'body'.
-        body = json.loads(line)['body']
-
-        # Use the quopri module to decode the qp encoded value of each page.
-        decodedQP = quopri.decodestring(body)
-        soup = BeautifulSoup(decodedQP)
-
-        locations = parseLocations(soup)
-        if (len(locations) > 0):
-            business.locations = locations
-            return json.dumps(locations)
-
-parse()
+                            
+    return formattedAddresses
