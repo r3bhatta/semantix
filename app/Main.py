@@ -13,7 +13,9 @@ soups = jsonParser.parse()
 ##### LOCATIONS ###################################################################
 def locationCBFunc(formattedAddresses):
     print 'Formatted Addresses in thread: %s' % threading.current_thread().name
-    print formattedAddresses
+    for address in formattedAddresses:
+        print address
+        print "_____________________"
 
 def locationsThread(callback):
     callback(locationsParser.parseLocations(soups))

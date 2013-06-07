@@ -38,10 +38,13 @@ def parseSingleSoup(soup):
                     allText = locationSoup.find_all(text = True)
                     index = 0
                     for text in allText:
-                        pattern = re.compile(r'\t+')
-                        #cleanText = re.sub(pattern, '', text)
-                        cleanText = re.sub(r'\s+', ' ', text)   
-                        if cleanText.find("{") == -1:
+                        
+                        'Remove all extra white spaces, make them into a single whitespace'
+                        cleanText = re.sub(r'\s+', ' ', text)  
+                        'Remove script tags if they got through'
+                        removeScriptTagsPattern = re.compile(r"[{}\[\]]")
+                        
+                        if re.search(removeScriptTagsPattern, cleanText) is None:
                             address = None
                             try:
                                 parsedAdress = addressParser.parse_address(cleanText).full_address()
@@ -67,6 +70,7 @@ def parseSingleSoup(soup):
                                     addresses.append(cleanText)
                             except:
                                 pass
+                        
 
 def parseLocations(soups):
     for soup in soups:
