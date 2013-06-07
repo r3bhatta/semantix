@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
 from address import AddressParser, Address
 import jsonParser
+import stringSimilarity
 import re
 import quopri
 import json
@@ -8,6 +9,7 @@ import os, errno
 import requests
 
 addresses = []
+STRING_MATCH_TOLERANCE = 0.7
 
 def unique_list(l):
     ulist = []
@@ -80,7 +82,23 @@ def parseSingleSoup(soup):
                                     
                             except:
                                 pass
+
+def filterDuplicateAddresses():
+    filteredAddresses = []
+    for address1 in addresses[:]:
+        if address1 not in addresses:
+            break
+        addresses.remove(address1)
+        for address2 in addresses[:]:
+            similarity = stringSimilarity.compute(address1, address2)
+            if similarity > STRING_MATCH_TOLERANCE:
+                addresses.remove(address2)
+                if len(address2) > len(address1):
+                    address1 = address2
+        filteredAddresses.append(address1)
+    return filteredAddresses
+
 def parseLocations(soups):
     for soup in soups:
         parseSingleSoup(soup)
-    return addresses
+    return filterDuplicateAddresses()
