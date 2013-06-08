@@ -10,6 +10,7 @@ import requests
 
 addresses = []
 STRING_MATCH_TOLERANCE = 0.4
+SIBLING_SEARCH_DEPTH = 4
 
 def unique_list(l):
     ulist = []
@@ -58,10 +59,9 @@ def parseSingleSoup(soup):
                                 'Retain the old string, as the address parser parses it funny, but we use its validation'
                                 index += 1
                                 siblingIndex = index + 1
-                                maxSiblingSearchDepth = 4
                                 siblingSearchDepth = 0
 
-                                while (siblingSearchDepth < maxSiblingSearchDepth):
+                                while (siblingSearchDepth < SIBLING_SEARCH_DEPTH):
                                     siblingText = str(allText[siblingIndex])
 
                                     if re.sub(r'\s+', '', siblingText) != re.sub(r'\s+', '', cleanText):
@@ -75,7 +75,7 @@ def parseSingleSoup(soup):
 
                                 if cleanText not in addresses:
 
-                                    'Remove duplicate and make all white spaces look nice'
+                                    'Remove duplicates within same string and make all white spaces look nice'
                                     cleanText = ' '.join(unique_list(cleanText.split(" ")))
                                     cleanText = re.sub(r'\s+', ' ', cleanText)
                                     addresses.append(cleanText)
@@ -100,10 +100,13 @@ def filterDuplicateAddresses():
                     address1 = address2
 
         filteredAddresses.append(address1)
+    print "\n" + str(len(filteredAddresses)) + " addresses found \n"
     return filteredAddresses
 
 def parseLocations(soups):
     for soup in soups:
         parseSingleSoup(soup)
 
+    for address in addresses:
+        print address
     return filterDuplicateAddresses()

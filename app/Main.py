@@ -15,7 +15,6 @@ def locationCBFunc(formattedAddresses):
     print 'Formatted Addresses in thread: %s' % threading.current_thread().name
     for address in formattedAddresses:
         print address
-        print "_____________________"
 
 def locationsThread(callback):
     callback(locationsParser.parseLocations(soups))
