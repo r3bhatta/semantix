@@ -6,7 +6,6 @@ import re
 import quopri
 import json
 import os, errno
-import requests
 
 addresses = []
 STRING_MATCH_TOLERANCE = 0.4
@@ -100,13 +99,10 @@ def filterDuplicateAddresses():
                     address1 = address2
 
         filteredAddresses.append(address1)
-    print "\n" + str(len(filteredAddresses)) + " addresses found \n"
     return filteredAddresses
 
 def parseLocations(soups):
     for soup in soups:
         parseSingleSoup(soup)
 
-    for address in addresses:
-        print address
     return filterDuplicateAddresses()
