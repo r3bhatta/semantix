@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup
 import re
 
-
 def parseSingleSoupTrial(soup):
     
     removeScriptTagsPattern = re.compile(r"[{}\[\]\*]")
@@ -14,16 +13,16 @@ def parseSingleSoupTrial(soup):
             divTagsCollection = soup.findAll('div')
             for divTag in divTagsCollection:
                 divTagTextCollection = divTag.findAll(text=True, recursive=False)
+                
                 finalText = ""
                 for text in divTagTextCollection:        
                     if len(re.sub(r'\s+', '', text)) > 0:
                         if re.search(removeScriptTagsPattern, text) is None:
                             finalText += str(re.sub(r'\s+', ' ', text))
                 
-                print finalText
-                print "____________________________________"
-
-
+                if finalText:
+                    print finalText
+                    print "____________________________________"
 
 
 
