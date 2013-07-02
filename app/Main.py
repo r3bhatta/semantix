@@ -4,6 +4,7 @@ import os
 import jsonParser
 import locationsParser
 import menuParser
+import locationParserTrial as locationsParser
 
 WINDOWS = 'nt'
 
@@ -16,6 +17,7 @@ soups = jsonParser.parse()
 ##### LOCATIONS ###################################################################
 def locationCBFunc(formattedAddresses):
     print 'Formatted Addresses in thread: %s' % threading.current_thread().name
+    
     for address in formattedAddresses:
         if os.name == WINDOWS:
             print(address.encode('cp1252'))
@@ -41,3 +43,5 @@ def menuThread(callback):
 # thr = threading.Thread(target=locationsThread, name="Location Thread", args=(locationCBFunc,)).start()
 #thr = threading.Thread(target=hoursThread, name="Hours Thread", args=(hoursCBFunc,)).start()
 thr = threading.Thread(target=menuThread, name="Menu Thread", args=(menuCBFunc,)).start()
+=======
+#thr = threading.Thread(target=menuThread, name="Menu Thread", args=(menuCBFunc,)).start()
