@@ -1,10 +1,10 @@
 import threading
 import sys
 import os
-import jsonParser
-import MenuParser
-import LocationsParser
 import json
+from parsers import JsonParser
+from parsers import MenuParser
+from parsers import LocationsParser
 
 WINDOWS = 'nt'
 
@@ -12,7 +12,7 @@ WINDOWS = 'nt'
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-soups = jsonParser.parse()
+soups = JsonParser.parse()
 
 #### Locations #####
 def locationCallback(allSoupsAddresses):
@@ -31,7 +31,7 @@ def locations():
     return json.dumps(LocationsParser.parse(soups))
 
 #### Menu #####
-def menuCallback(formattedAddresses):  
+def menuCallback(menuItems):
     print 'Menu items in thread: %s' % threading.current_thread().name
 
 def menuThread(callback):
