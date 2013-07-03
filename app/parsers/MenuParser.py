@@ -18,7 +18,7 @@ def parse(soups):
 def parseSingleSoup(soup):
     title = soup.title
     if title is not None and 'menu' in str(title).lower():
-        attrs = ['title', 'name']
+        attrs = ['title', 'name', 'salad', 'salads']
 
         def getMenuTags(tag):
             for key in dict(tag.attrs):
@@ -37,6 +37,10 @@ def parseSingleSoup(soup):
 
         for tag in menuTags:
             for key in tag.attrs:
+                '''
+                if 'Salads' in tag[key]:
+                    print 'Salads'
+                '''
                 if 'name' in tag[key]:
                     menuItems.append(tag.get_text())
 

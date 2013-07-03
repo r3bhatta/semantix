@@ -5,11 +5,9 @@ import json
 import os, errno
 import sys
 import requests
-from address import AddressParser, Address
 
 def parse():
     INPUT_FILE = 'cpk.txt'
-    OUTPUT_FILE = 'out.txt'
 
     # Open the file.
     inputFile = open(INPUT_FILE, 'r')
