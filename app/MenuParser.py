@@ -12,7 +12,6 @@ def parse(soups):
         else:
             if newMenuItems:
                 menuItems += newMenuItems
-    print menuItems
 
     return menuItems
 
@@ -39,7 +38,6 @@ def parseSingleSoup(soup):
         for tag in menuTags:
             for key in tag.attrs:
                 if 'name' in tag[key]:
-                    print tag.get_text()
                     menuItems.append(tag.get_text())
 
         return menuItems
