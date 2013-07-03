@@ -11,10 +11,11 @@ def parseSingleSoup(soup):
         pageTitle = soup.title
         finalText = ""
         if pageTitle is not None and 'location' in str(pageTitle).lower():
-
-            ''' TODO: what if the location is not in the page title?  '''
-            ''' TODO: now this needs to call the naive bayes method to give % probablities of topic and if is subtopic of location print it'''
-
+            ''' 
+            TODO: What if the location is not in the page title?
+            TODO: Now this needs to call the naive bayes method to give % probablities of topic and 
+                    if is subtopic of location print it.
+            '''
             divTagsCollection = soup.findAll('div')
             for divTag in divTagsCollection:
                 divTagTextCollection = divTag.findAll(text=True, recursive=False)

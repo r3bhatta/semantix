@@ -14,7 +14,7 @@ sys.setdefaultencoding('utf-8')
 
 soups = jsonParser.parse()
 
-##### LOCATIONS #####
+#### Locations #####
 def locationCallback(allSoupsAddresses):
     print 'Formatted addresses in thread: %s' % threading.current_thread().name
     
@@ -30,7 +30,7 @@ def locationsThread(callback):
 def locations():
     return json.dumps(LocationsParser.parse(soups))
 
-##### Menu #####
+#### Menu #####
 def menuCallback(formattedAddresses):  
     print 'Menu items in thread: %s' % threading.current_thread().name
 
@@ -40,6 +40,6 @@ def menuThread(callback):
 def menu():
     return json.dumps(MenuParser.parse(soups))
     
-##### Threads #####################################################################
+#### Threads ####
 threading.Thread(target=locationsThread, name="Location Thread", args=(locationCallback,)).start()
 threading.Thread(target=menuThread, name="Menu Thread", args=(menuCallback,)).start()

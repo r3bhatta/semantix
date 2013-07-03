@@ -28,4 +28,5 @@ $('.search-button').on('click', function(evt){
     		'style="color: rgb(102, 102, 102); width: 12px;"></div></div>';
     	$('#menuTags_tagsinput').html(menuHTML);
     });
+    $('.data-wrap').removeClass('hide');
 });

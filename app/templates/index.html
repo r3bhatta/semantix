@@ -13,35 +13,45 @@
         </div>
     </div>
     <div class="row">
-        <div class="span6 offset3 data-wrap">
+        <div class="span12 data-wrap hide">
             <div class="page-header data-header">
                 <h1>Data <small>{# California Pizza Kitchen #}</small></h1>
             </div>
-            <div class="span6 data-item">
-                <span class="label label-large label-primary span1">Name</span>
-                <p class="data data-name">{# {{ data.name }} #}</p>
+            <div class="row">
+                <div class="span12 data-item">
+                    <span class="label label-large label-primary span3">Name</span>
+                    <p class="data data-name">{# {{ data.name }} #}</p>
+                </div>
             </div>
-            <div class="span6 data-item">
-                <span class="label label-large label-primary span1">Business</span>
-                <p class="data data-business">{# {{ data.business }} #}</p>
+            <div class="row">
+                <div class="span9 data-item">
+                    <span class="label label-large label-primary span3">Business</span>
+                    <p class="data data-business">{# {{ data.business }} #}</p>
+                </div>
             </div>
-            <div class="span6 data-item">
-                <span class="label label-large label-primary span1">Hours</span>
-                <p class="data data-hours">{# {{ data.hours }} #}</p>
+            <div class="row">
+                <div class="span9 data-item">
+                    <span class="label label-large label-primary span3">Hours</span>
+                    <p class="data data-hours">{# {{ data.hours }} #}</p>
+                </div>
             </div>
-            <div class="span6 data-item">
-                <span class="label label-large label-primary span1">Locations</span>
+            <div class="row">
+                <div class="span6 data-item noRightMargin">
+                    <span class="label label-large label-primary span3">Locations</span>
+                </div>
+                <div class="span6 data-item noRightMargin">
+                    <span class="label label-large label-primary span3">Menu</span>
+                </div>
             </div>
-            <div class="span6 data-item">
-                <input name="tagsinput" class="tagsinput tagsinput-primary" value="" id="locationTags" style="display: none;">
-                <div id="locationTags_tagsinput" class="tagsinput  tagsinput-primary" style="height: 100%;"></div>
-            </div>
-            <div class="span6 data-item">
-                <span class="label label-large label-primary span1">Menu</span>
-            </div>
-            <div class="span6 data-item">
-                <input name="tagsinput" class="tagsinput tagsinput-primary" value="" id="menuTags" style="display: none;">
-                <div id="menuTags_tagsinput" class="tagsinput  tagsinput-primary" style="height: 100%;"></div>
+            <div class="row">
+                <div class="span6 data-item noRightMargin">
+                    <input name="tagsinput" class="tagsinput tagsinput-primary" value="" id="locationTags" style="display: none;">
+                    <div id="locationTags_tagsinput" class="tagsinput tagsinput-primary"></div>
+                </div>
+                <div class="span6 data-item noRightMargin">
+                    <input name="tagsinput" class="tagsinput tagsinput-primary" value="" id="menuTags" style="display: none;">
+                    <div id="menuTags_tagsinput" class="tagsinput tagsinput-primary"></div>
+                </div>
             </div>
         </div>
     </div>
