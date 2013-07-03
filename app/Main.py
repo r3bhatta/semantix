@@ -2,9 +2,9 @@ import threading
 import sys
 import os
 import jsonParser
-import locationsParser
-import menuParser
-import locationParserTrial as locationsParser
+import MenuParser
+import LocationsParser
+import json
 
 WINDOWS = 'nt'
 
@@ -14,34 +14,32 @@ sys.setdefaultencoding('utf-8')
 
 soups = jsonParser.parse()
 
-##### LOCATIONS ###################################################################
-def locationCBFunc(formattedAddresses):
-    print 'Formatted Addresses in thread: %s' % threading.current_thread().name
+##### LOCATIONS #####
+def locationCallback(allSoupsAddresses):
+    print 'Formatted addresses in thread: %s' % threading.current_thread().name
     
-    for address in formattedAddresses:
+    for address in allSoupsAddresses:
         if os.name == WINDOWS:
-            print(address.encode('cp1252'))
+            print(address.encode('cp1252'))            
         else:
             print address
-
+    
 def locationsThread(callback):
-    callback(locationsParser.parseLocations(soups))
+    callback(LocationsParser.parse(soups))
 
-##### Hours #######################################################################
-#def hoursCBFunc(formattedAddresses):
-#def hoursThread(callback):
-    
+def locations():
+    return json.dumps(LocationsParser.parse(soups))
 
-##### Menu ########################################################################    
-def menuCBFunc(formattedAddresses):  
-	print "At the end"
+##### Menu #####
+def menuCallback(formattedAddresses):  
+    print 'Menu items in thread: %s' % threading.current_thread().name
+
 def menuThread(callback):
-	callback(menuParser.parseMenu(soups))
-    
+	callback(MenuParser.parse(soups))
 
+def menu():
+    return json.dumps(MenuParser.parse(soups))
+    
 ##### Threads #####################################################################
-# thr = threading.Thread(target=locationsThread, name="Location Thread", args=(locationCBFunc,)).start()
-#thr = threading.Thread(target=hoursThread, name="Hours Thread", args=(hoursCBFunc,)).start()
-thr = threading.Thread(target=menuThread, name="Menu Thread", args=(menuCBFunc,)).start()
-=======
-#thr = threading.Thread(target=menuThread, name="Menu Thread", args=(menuCBFunc,)).start()
+threading.Thread(target=locationsThread, name="Location Thread", args=(locationCallback,)).start()
+threading.Thread(target=menuThread, name="Menu Thread", args=(menuCallback,)).start()
