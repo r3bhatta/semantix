@@ -1,6 +1,4 @@
 from bs4 import BeautifulSoup
-import re
-import jsonParser
 
 def parse(soups):
     menuItems = []

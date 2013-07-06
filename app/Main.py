@@ -14,15 +14,18 @@ sys.setdefaultencoding('utf-8')
 
 soups = JsonParser.parse()
 
-#### Locations #####
-def locationCallback(allSoupsAddresses):
-    print 'Formatted addresses in thread: %s' % threading.current_thread().name
-    
-    for address in allSoupsAddresses:
+# Print items.
+def printItems(items):
+    for item in items:
         if os.name == WINDOWS:
-            print(address.encode('cp1252'))            
+            print(item.encode('cp1252'))
         else:
-            print address
+            print item
+
+#### Locations #####
+def locationCallback(addresses):
+    print 'Formatted addresses in thread: %s' % threading.current_thread().name
+    printItems(addresses)
     
 def locationsThread(callback):
     callback(LocationsParser.parse(soups))
@@ -33,12 +36,7 @@ def locations():
 #### Menu #####
 def menuCallback(menuItems):
     print 'Menu items in thread: %s' % threading.current_thread().name
-
-    for address in formattedAddresses:
-        if os.name == WINDOWS:
-            print(address.encode('cp1252'))            
-        else:
-            print address
+    printItems(menuItems)
 
 def menuThread(callback):
 	callback(MenuParser.parse(soups))

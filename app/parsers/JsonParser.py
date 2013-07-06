@@ -7,7 +7,7 @@ import sys
 import requests
 
 def parse():
-    INPUT_FILE = 'cpk.txt'
+    INPUT_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'cpk.txt')
 
     # Open the file.
     inputFile = open(INPUT_FILE, 'r')
@@ -26,3 +26,4 @@ def parse():
         soups.append(BeautifulSoup(decodedQP))
     
     return soups
+
