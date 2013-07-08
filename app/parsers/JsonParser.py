@@ -5,11 +5,9 @@ import json
 import os, errno
 import sys
 import requests
-from address import AddressParser, Address
 
 def parse():
-    INPUT_FILE = 'cpk.txt'
-    OUTPUT_FILE = 'out.txt'
+    INPUT_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'cpk.txt')
 
     # Open the file.
     inputFile = open(INPUT_FILE, 'r')
@@ -28,3 +26,4 @@ def parse():
         soups.append(BeautifulSoup(decodedQP))
     
     return soups
+

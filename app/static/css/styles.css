@@ -35,6 +35,20 @@ html, body {
     margin-right: 20px;
 }
 
+.noRightMargin {
+    margin-right: 0;
+}
+
+#locationTags_tagsinput, #menuTags_tagsinput {
+    height: 400px;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.hide {
+    display: none;
+}
+
 .footer {
 	position: relative;
 	margin-top: -210px;

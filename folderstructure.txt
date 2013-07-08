@@ -1,0 +1,18 @@
+/run.py
+/app
+    /templates
+    /static
+    /unittests
+    /nbc
+        /__init__.py
+        /naivebayesclassifier.py
+    /parsers
+        /__init__.py
+        /jsonparser.py
+        /locationsparser.py
+        /menuparser.py
+    /__init__.py
+    /settings.py
+    /views.py
+    /main.py
+
