@@ -64,6 +64,7 @@ print nltk.classify.accuracy(nbc, test_set())
 from nltk.probability import ELEProbDist, FreqDist
 from nltk import NaiveBayesClassifier
 from collections import defaultdict
+import settings
 
 trainingSet = {
     'oven-roasted chicken'  : 'menu',
@@ -86,6 +87,9 @@ testingSet = {
     'turkey club'
 }
 
+def categories():
+    return ['menu', 'location']
+
 def isInt(s):
     try: 
         int(s)
@@ -104,6 +108,12 @@ def splitTrue(item):
 
 # Generates features set: {'steak': {'menu': 1, 'location': 0}}.
 def generateFeaturesSet(trainingSet):
+    def generateDefaultFreq():
+        frequencies = {}
+        for category in categories():
+            frequencies[category] = 0
+        return frequencies
+
     frequencies = {}
     for text, label in trainingSet.items():
         tokens = text.split()
@@ -111,7 +121,7 @@ def generateFeaturesSet(trainingSet):
             if isInt(token):
                 token = 'number'
             if token not in frequencies:
-                frequencies[token] = {'menu': 0, 'location': 0}
+                frequencies[token] = generateDefaultFreq()
             frequencies[token][label] += 1
     return frequencies
 
@@ -119,7 +129,7 @@ def generateFeaturesSet(trainingSet):
 def getLabelProbabilityDistribution(features):
     labelFrequencies = FreqDist()
     for item, counts in features.items():
-        for label in ['menu', 'location']:
+        for label in categories():
             if counts[label] > 0:
                 labelFrequencies.inc(label)
     return ELEProbDist(labelFrequencies)
@@ -130,7 +140,7 @@ def getFeatureProbabilityDistribution(features):
     values = defaultdict(set)
     numberSamples = len(trainingSet) / 2
     for token, counts in features.items():
-        for label in ['menu','location']:
+        for label in categories():
             frequencyDistributions[label, token].inc(True, count = counts[label])
             frequencyDistributions[label, token].inc(None, numberSamples - counts[label])
             values[token].add(None)
@@ -141,7 +151,7 @@ def getFeatureProbabilityDistribution(features):
     '''
     probabilityDistribution = {}
     for ((label, name), freqDist) in frequencyDistributions.items():
-        eleProbDist = ELEProbDist(freqDist, bins=len(values[name]))
+        eleProbDist = ELEProbDist(freqDist, bins = len(values[name]))
         probabilityDistribution[label, name] = eleProbDist
     return probabilityDistribution
 
@@ -151,9 +161,15 @@ labelProbabilityDistribution = getLabelProbabilityDistribution(featuresSet)
 
 featureProbabilityDistribution = getFeatureProbabilityDistribution(featuresSet)
 
+print labelProbabilityDistribution
+
 classifier = NaiveBayesClassifier(labelProbabilityDistribution, featureProbabilityDistribution)
 
+def classify(item):
+    return classifier.classify(splitTrue(item))
+
+'''
 for item in testingSet:
     print "%s | %s" % (item, classifier.classify(splitTrue(item)))
-
+'''
 #classifier.show_most_informative_features()
