@@ -1,7 +1,16 @@
 from bs4 import BeautifulSoup
+'''
+def generateDictionary():
+    f = open('data/menuattrs.dat')
+    lines = f.readlines()
+    print lines
+    f.close()
+'''
 
 def parse(soups):
     menuItems = []
+
+    #generateDictionary()
 
     for soup in soups:
         newMenuItems = parseSingleSoup(soup)
