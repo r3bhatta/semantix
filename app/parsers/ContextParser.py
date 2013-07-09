@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup
 import re
+from naivebayesclassifier import naivebayesclassifier as nbc
 
 
 #incorrectWords = set(["google","analytics","tag","ads"])
@@ -27,8 +28,8 @@ def parseSingleSoup(soup, contextMap):
                             finalText += str(re.sub(r'\s+', ' ', text))            
 
                 if finalText:
-                    category = "test " 
-                    #category = nbc.classify(finalText)
+                    #category = "test " 
+                    category = nbc.classify(finalText)
                     # add into hash map
                     if contextMap.get(category) is not None:
                         contextMap.get(category).append(finalText)
@@ -42,9 +43,8 @@ def parseSingleSoup(soup, contextMap):
 # Input         - soups     : A list of soups that Beautiful soup is capable of parsing
 # Description   - 
 # Output        - A map that contains all classification types as keys, with their respective values as a list of text 
-#               - Things to note: contextMap may have repeats of similar texts, it needs to run through strig
 
-def parse(soups):
+def parseSoups(soups):
     contextMap = {}
     for soup in soups:
         parseSingleSoup(soup,contextMap)

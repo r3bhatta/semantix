@@ -4,7 +4,7 @@ import json
 import os, errno
 import settings
 
-def parse():
+def parseData():
 
     INPUT_FILE = settings.CPK_DATA
 

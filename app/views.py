@@ -1,6 +1,6 @@
 from flask import render_template
 from app import app
-import Main
+import main
 
 @app.route('/')
 def index():
@@ -14,9 +14,9 @@ def index():
 
 @app.route('/locations')
 def locations():
-    return Main.locations()
+    return main.locations()
 
 @app.route('/menu')
 def menu():
-    return Main.menu()
+    return main.menu()
 
