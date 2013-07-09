@@ -23,3 +23,4 @@ We activate a virtual environment to ensure our project runs on the enclosed Pyt
 not affected by the other Python versions installed on the machine. Flask is also installed into 
 the virtual environment, and not globally on our machine.
 
+sudo easy_install -U pyyaml nltk to install module for python classifier
