@@ -5,9 +5,6 @@ import re
 #incorrectWords = set(["google","analytics","tag","ads"])
 #if not any(word in incorrectWords for word in text.lower().split()):
 
-
-
-
 # Input         -   soup        : A soup that 
 #                   contextMap  : A map that contains all classification types as keys, with their respective values as a list of text 
 # Description   -   Iterates through the single soup looking for text and calling the classifier, classifying the text into the map
