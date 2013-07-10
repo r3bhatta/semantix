@@ -64,8 +64,8 @@ print nltk.classify.accuracy(nbc, test_set())
 from nltk.probability import ELEProbDist, FreqDist
 from nltk import NaiveBayesClassifier
 from collections import defaultdict
-import settings
 
+'''
 trainingSet = {
     'oven-roasted chicken'  : 'menu',
     'rib eye steak'         : 'menu',
@@ -77,18 +77,40 @@ trainingSet = {
     '321 Lester Street'     : 'location',
     'oz'                    : 'menu'
 }
+'''
 
 testingSet = {
     'We are at 444 Weber Street',
-    'steak frits',
+    'steak bread hot dog',
     '888 Socks Drive',
     'chicken broccoli',
     '8 oz steak',
     'turkey club'
 }
 
-def categories():
+def labels():
     return ['menu', 'location']
+
+def trainingSet():
+    def createTrainingDict(fileName, category):
+        trainingSet = {}
+        with open(fileName) as file:
+            lines = file.readlines()
+            for line in lines:
+                trainingSet[line.strip()] = category
+        return trainingSet
+
+    trainingSet = {}
+    locationFiles = ['countries', 'states', 'addresses']
+    menuFiles = ['menus']
+
+    for file in locationFiles:
+        trainingSet.update(createTrainingDict(file, 'location'))
+    for file in menuFiles:
+        trainingSet.update(createTrainingDict(file, 'menu'))
+
+    return trainingSet
+
 
 def isInt(s):
     try: 
@@ -101,6 +123,7 @@ def splitTrue(item):
     words = item.split()
     splits = {}
     for word in words:
+        # Consider all numbers as one category.
         if isInt(word):
             word = 'number'
         splits[word.lower()] = True
@@ -110,7 +133,7 @@ def splitTrue(item):
 def generateFeaturesSet(trainingSet):
     def generateDefaultFreq():
         frequencies = {}
-        for category in categories():
+        for category in labels():
             frequencies[category] = 0
         return frequencies
 
@@ -118,6 +141,7 @@ def generateFeaturesSet(trainingSet):
     for text, label in trainingSet.items():
         tokens = text.split()
         for token in tokens:
+            # Consider all numbers as one category.
             if isInt(token):
                 token = 'number'
             if token not in frequencies:
@@ -129,7 +153,7 @@ def generateFeaturesSet(trainingSet):
 def getLabelProbabilityDistribution(features):
     labelFrequencies = FreqDist()
     for item, counts in features.items():
-        for label in categories():
+        for label in labels():
             if counts[label] > 0:
                 labelFrequencies.inc(label)
     return ELEProbDist(labelFrequencies)
@@ -138,9 +162,9 @@ def getLabelProbabilityDistribution(features):
 def getFeatureProbabilityDistribution(features):
     frequencyDistributions = defaultdict(FreqDist)
     values = defaultdict(set)
-    numberSamples = len(trainingSet) / 2
+    numberSamples = len(trainingSet()) / 2
     for token, counts in features.items():
-        for label in categories():
+        for label in labels():
             frequencyDistributions[label, token].inc(True, count = counts[label])
             frequencyDistributions[label, token].inc(None, numberSamples - counts[label])
             values[token].add(None)
@@ -155,21 +179,26 @@ def getFeatureProbabilityDistribution(features):
         probabilityDistribution[label, name] = eleProbDist
     return probabilityDistribution
 
-featuresSet = generateFeaturesSet(trainingSet)
+featuresSet = generateFeaturesSet(trainingSet())
 
 labelProbabilityDistribution = getLabelProbabilityDistribution(featuresSet)
 
 featureProbabilityDistribution = getFeatureProbabilityDistribution(featuresSet)
 
-print labelProbabilityDistribution
+#print labelProbabilityDistribution
 
 classifier = NaiveBayesClassifier(labelProbabilityDistribution, featureProbabilityDistribution)
 
 def classify(item):
-    return classifier.classify(splitTrue(item))
+    label = classifier.classify(splitTrue(item.lower()))
+    return {label: classifier.prob_classify(splitTrue(item)).prob(label)} 
 
 '''
 for item in testingSet:
-    print "%s | %s" % (item, classifier.classify(splitTrue(item)))
+    print classify(item)
+    samples = classifier.prob_classify(splitTrue(item)).samples()
+    for sample in samples:
+        print "%s | %s | %s" % (item, sample, classifier.prob_classify(splitTrue(item)).prob(sample))
 '''
+
 #classifier.show_most_informative_features()
