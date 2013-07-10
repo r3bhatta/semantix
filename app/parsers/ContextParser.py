@@ -58,9 +58,7 @@ def parseSoups(soups):
             print (key, value)
             print "\n"
 
-    print "\n"
-    print "****************************************************************************************"
-    print "\n"
+    print "\n======================================================================\n"
 
     for key, value in contextMap.items() :
         if float(key[1]) < 0.9 and key[0] is "noise":

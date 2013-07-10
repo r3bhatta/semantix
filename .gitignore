@@ -46,3 +46,7 @@ nosetests.xml
 .project
 .pydevproject
 
+# Data
+*.json
+*.zip
+*.gz
