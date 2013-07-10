@@ -45,15 +45,15 @@ def parseSingleSoup(soup, contextMap):
 # Output        - A map that contains all classification types as keys, with their respective values as a list of text 
 
 def parseSoups(soups):
-
-    print nbc.classify("bacon cheeseburger with spring rolls")
-
+    #print nbc.classify("bacon cheeseburger with spring rolls")
+    #print "+ chicken & shrimp" + str(nbc.classify("+ Chicken & Shrimp"))
 
     contextMap = {}
     for soup in soups:
         parseSingleSoup(soup, contextMap)
-        '''
+        
     for item in contextMap.items():
         print item
-        '''
+        print "\n"
+        
     return contextMap

@@ -71,7 +71,7 @@ testingSet = {
     'We are at 444 Weber Street',
     'steak bread hot dog',
     '888 Socks Drive',
-    'chicken broccoli',
+    'chicken broccoli lol',
     '8 oz steak',
     'turkey club'
 }
@@ -145,6 +145,7 @@ def getLabelProbabilityDistribution(features):
         for label in labels():
             if counts[label] > 0:
                 labelFrequencies.inc(label)
+    print labelFrequencies
     return ELEProbDist(labelFrequencies)
 
 # Generates expected likelihood distribution for features.
