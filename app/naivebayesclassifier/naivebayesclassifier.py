@@ -1,66 +1,3 @@
-'''
-import nltk
-from nltk.corpus import names
-import random
-
-def gender_features(word):
-    return {'last_leter': word[-1]}
-
-names = ([(name, 'male') for name in names.words('male.txt')] +
-         [(name, 'female') for name in names.words('female.txt')])
-random.shuffle(names)
-
-featuresets = [(gender_features(n), g) for (n, g) in names]
-
-train_set = featuresets[500:]
-test_set = featuresets[:500]
-
-classifier = nltk.NaiveBayesClassifier.train(train_set)
-
-def test_set():
-    return [(gender_features('raymond'), '')]
-
-print classifier.classify(gender_features('Raymond'))
-print nltk.classify.accuracy(classifier, [(gender_features('Josephine'), 'female'),
-                                          (gender_features('Raymond'), 'female')])
-
-classifier.show_most_informative_features(5)
-
-#[({'last_leter': 'l'}, 'male'), 
-# ({'last_leter': 's'}, 'female')
-
-def generateFeatures(text, label):
-    features = []
-    tokens = text.split
-    for token in tokens:
-        features.append({token: })
-
-def menu_features(item):
-    return {'menu': item}
-
-def location_features(location):
-    return {'location': location}
-
-def training_set():
-    return [(menu_features('oven-roasted chicken'), 'menu'),
-        (menu_features('rib eye steak'), 'menu'),
-        (menu_features('mushroom burger'), 'menu'),
-        (menu_features('fried chicken'), 'menu'),
-        (location_features('10511 168 Street'), 'location'),
-        (location_features('293 Hemlock Street'), 'location'),
-        (location_features('11-45 46th Road, Long Island City'), 'location'),
-        (location_features('321 Lester Street, #201'), 'location')]
-
-def test_set():
-    return [(location_features('888 Foder Street'), 'location')]
-
-nbc = nltk.NaiveBayesClassifier.train(training_set())
-print nbc.classify(menu_features('bacon stuffed chicken'))
-print nbc.classify(location_features('148 Weber Street, Waterloo'))
-print nbc.show_most_informative_features(4)
-print nltk.classify.accuracy(nbc, test_set())
-'''
-
 from nltk.probability import ELEProbDist, FreqDist
 from nltk import NaiveBayesClassifier
 from collections import defaultdict
@@ -147,7 +84,6 @@ def getLabelProbabilityDistribution(features):
         for label in labels():
             if counts[label] > 0:
                 labelFrequencies.inc(label)
-    print labelFrequencies
     return ELEProbDist(labelFrequencies)
 
 # Generates expected likelihood distribution for features.
@@ -183,8 +119,10 @@ def classify(item):
     label = classifier.classify(splitTrue(item.lower()))
     return (label, classifier.prob_classify(splitTrue(item.lower())).prob(label))
 
+'''
 for item in testingSet:
     result = classify(item)
     print "%s | %s | %s" % (item, result[0], result[1])
+'''
 
 #classifier.show_most_informative_features()
