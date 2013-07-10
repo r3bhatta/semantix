@@ -111,7 +111,6 @@ def trainingSet():
 
     return trainingSet
 
-
 def isInt(s):
     try: 
         int(s)
@@ -191,7 +190,7 @@ classifier = NaiveBayesClassifier(labelProbabilityDistribution, featureProbabili
 
 def classify(item):
     label = classifier.classify(splitTrue(item.lower()))
-    return {label: classifier.prob_classify(splitTrue(item)).prob(label)} 
+    return (label, classifier.prob_classify(splitTrue(item)).prob(label))
 
 '''
 for item in testingSet:
