@@ -12,4 +12,4 @@ contextMap = ContextParser.parseSoups(soups)
 
 #  NOTE : contextMap may have repeats of similar texts, it needs to run through string comparison taking bests
 
-print contextMap
+# print contextMap

@@ -64,20 +64,8 @@ print nltk.classify.accuracy(nbc, test_set())
 from nltk.probability import ELEProbDist, FreqDist
 from nltk import NaiveBayesClassifier
 from collections import defaultdict
-
-'''
-trainingSet = {
-    'oven-roasted chicken'  : 'menu',
-    'rib eye steak'         : 'menu',
-    'mushroom burger'       : 'menu',
-    'fried chicken'         : 'menu',
-    '10511 168 Street'      : 'location',
-    '293 Hemlock Street'    : 'location',
-    '11-45 46th Road'       : 'location',
-    '321 Lester Street'     : 'location',
-    'oz'                    : 'menu'
-}
-'''
+import os
+import settings
 
 testingSet = {
     'We are at 444 Weber Street',
@@ -100,14 +88,16 @@ def trainingSet():
                 trainingSet[line.strip()] = category
         return trainingSet
 
+    def training(files, label):
+        for file in files:
+            trainingSet.update(createTrainingDict(os.path.join(settings.APP_DATA_ASSETS, file), label))
+
     trainingSet = {}
     locationFiles = ['countries', 'states', 'addresses']
     menuFiles = ['menus']
 
-    for file in locationFiles:
-        trainingSet.update(createTrainingDict(file, 'location'))
-    for file in menuFiles:
-        trainingSet.update(createTrainingDict(file, 'menu'))
+    training(locationFiles, 'location')
+    training(menuFiles, 'menu')
 
     return trainingSet
 
@@ -184,20 +174,14 @@ labelProbabilityDistribution = getLabelProbabilityDistribution(featuresSet)
 
 featureProbabilityDistribution = getFeatureProbabilityDistribution(featuresSet)
 
-#print labelProbabilityDistribution
-
 classifier = NaiveBayesClassifier(labelProbabilityDistribution, featureProbabilityDistribution)
 
 def classify(item):
     label = classifier.classify(splitTrue(item.lower()))
-    return (label, classifier.prob_classify(splitTrue(item)).prob(label))
+    return (label, classifier.prob_classify(splitTrue(item.lower())).prob(label))
 
-'''
 for item in testingSet:
-    print classify(item)
-    samples = classifier.prob_classify(splitTrue(item)).samples()
-    for sample in samples:
-        print "%s | %s | %s" % (item, sample, classifier.prob_classify(splitTrue(item)).prob(sample))
-'''
+    result = classify(item)
+    print "%s | %s | %s" % (item, result[0], result[1])
 
 #classifier.show_most_informative_features()
