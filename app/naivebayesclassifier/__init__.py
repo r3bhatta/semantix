@@ -50,7 +50,6 @@ class NaiveBayesClassifier:
                 absFileName = os.path.join(path, fileName)
                 # Update the training set dictionary with the training set from the file.
                 self.__updateTrainingSet(absFileName, label)
-        print self.labels
 
     # Check if a string is an integer.
     def __isInt(self, s):
