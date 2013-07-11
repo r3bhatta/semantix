@@ -9,3 +9,4 @@ APP_DATA_ASSETS = os.path.join(APP_DATA_HOME, 'assets')
 ###### HTML DATA ASSETS ######
 
 CPK_DATA = os.path.join(APP_DATA_HTML, 'cpk.txt')
+NEW_DATA = os.path.join(APP_DATA_HTML, 'data.txt')

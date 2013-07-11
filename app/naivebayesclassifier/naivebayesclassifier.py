@@ -10,11 +10,12 @@ testingSet = {
     '888 Socks Drive',
     'chicken broccoli lol',
     '8 oz steak',
-    'turkey club'
+    'turkey club',
+    '2:00 pm'
 }
 
 def labels():
-    return ['menu', 'location', 'noise']
+    return ['menu', 'location', 'noise','hours']
 
 def trainingSet():
     def createTrainingDict(fileName, category):
@@ -32,10 +33,13 @@ def trainingSet():
     trainingSet = {}
     locationFiles = ['countries', 'states', 'addresses']
     menuFiles = ['menus']
+    hoursFiles = ['hours']
     noiseFiles = ['noise']
+
 
     training(locationFiles, 'location')
     training(menuFiles, 'menu')
+    training(hoursFiles, 'hours')
     training(noiseFiles, "noise")
 
     return trainingSet
@@ -119,10 +123,10 @@ def classify(item):
     label = classifier.classify(splitTrue(item.lower()))
     return (label, classifier.prob_classify(splitTrue(item.lower())).prob(label))
 
-'''
+
 for item in testingSet:
     result = classify(item)
     print "%s | %s | %s" % (item, result[0], result[1])
-'''
+
 
 #classifier.show_most_informative_features()
