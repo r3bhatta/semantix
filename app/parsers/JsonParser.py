@@ -5,7 +5,7 @@ import os, errno
 import settings
 
 def parseData():
-    INPUT_FILE = os.path.join(settings.APP_DATA_HTML, 'data.json')
+    INPUT_FILE = os.path.join(settings.APP_DATA_HTML, 'cpk.txt')
     soups = [] 
 
     with open(INPUT_FILE) as inputFile:

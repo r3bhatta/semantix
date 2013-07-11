@@ -1,7 +1,5 @@
-from bs4 import BeautifulSoup
 import re
-from naivebayesclassifier import naivebayesclassifier as nbc
-
+from naivebayesclassifier import NaiveBayesClassifier
 
 #incorrectWords = set(["google","analytics","tag","ads"])
 #if not any(word in incorrectWords for word in text.lower().split()):
@@ -10,7 +8,7 @@ from naivebayesclassifier import naivebayesclassifier as nbc
 #                   contextMap  : A map that contains all classification types as keys, with their respective values as a list of text 
 # Description   -   Iterates through the single soup looking for text and calling the classifier, classifying the text into the map
 
-def parseSingleSoup(soup, contextMap):
+def parseSingleSoup(soup, contextMap, nbc):
 
     textList = []
     scriptTags = re.compile(r"[{}\[\]\*>=]")
@@ -48,9 +46,11 @@ def parseSoups(soups):
     #print nbc.classify("bacon cheeseburger with spring rolls")
     #print "+ chicken & shrimp" + str(nbc.classify("+ Chicken & Shrimp"))
 
+    nbc = NaiveBayesClassifier()
+
     contextMap = {}
     for soup in soups:
-        parseSingleSoup(soup, contextMap)
+        parseSingleSoup(soup, contextMap, nbc)
         
     for key, value in contextMap.items() :
         if float(key[1]) > 0.9 and key[0] is not "noise":
