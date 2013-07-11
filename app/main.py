@@ -1,6 +1,6 @@
 import sys
-from parsers import JsonParser
-from parsers import ContextParser
+from parsers import jsonparser as JsonParser
+from parsers import contextparser as ContextParser
 WINDOWS = 'nt'
 
 # Set default encoding to UTF to avoid conflicts with symbols.
