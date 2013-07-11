@@ -6,10 +6,19 @@ from os import listdir
 from os.path import isfile, join
 import settings
 
-class NaiveBayesClassifier:
-    def __init__(self):
-        self.labels = []
-        self.__trainingSet = {}
+class NaiveBayesClassifier:   
+    '''
+    These private variables are initialized by self.train()
+        self.labels
+        self.__trainingSet
+        self.__featuresSet
+        self.__labelProbabilityDistribution
+        self.__featureProbabilityDistribution
+    @param classifierType = 'data' or 'businesses'
+    '''
+    def __init__(self, classifierType='data'):
+        self.__classifierType = classifierType
+        # Start training.
         self.train()
 
     # Creates and returns a training set (dictionary) from one data file belonging to a label.
@@ -22,19 +31,26 @@ class NaiveBayesClassifier:
         return self.__trainingSet.update(trainingSet)
 
     # Train the classifier by iterating through the folder that contains the data.
-    def __generatesTrainingSet(self):
+    def __generateTrainingSet(self):
+        self.__trainingSet = {}
+        self.labels = []
+        trainingDirectory = settings.APP_DATA_TRAINING
+        # Grab businesses files instead.
+        if self.__classifierType == 'businesses':
+            trainingDirectory = os.path.join(trainingDirectory, self.__classifierType)
         # Loop through each folder name for the training folder. The folder name corresponds to a label.
-        for label in listdir(settings.APP_DATA_TRAINING):
+        for label in listdir(trainingDirectory):
             # Add the folder name as a 'label'.
             self.labels.append(label)
             # Obtain the absolute path of the folder.
-            path = os.path.join(settings.APP_DATA_TRAINING, label)
+            path = os.path.join(trainingDirectory, label)
             # Loop through each training file of each folder.
             for fileName in [f for f in listdir(path) if isfile(join(path, f))]:
                 # Obtain the absolute path of the file.
                 absFileName = os.path.join(path, fileName)
                 # Update the training set dictionary with the training set from the file.
                 self.__updateTrainingSet(absFileName, label)
+        print self.labels
 
     # Check if a string is an integer.
     def __isInt(self, s):
@@ -102,17 +118,20 @@ class NaiveBayesClassifier:
 
         self.__featureProbabilityDistribution = probabilityDistribution
 
+    # Train the classifier.
     def train(self):
-        self.__generatesTrainingSet()
+        self.__generateTrainingSet()
         self.__generateFeaturesSet()
         self.__generateLabelProbabilityDistribution()
         self.__generateFeatureProbabilityDistribution()
         self.__classifier = nltk.NaiveBayesClassifier(self.__labelProbabilityDistribution, self.__featureProbabilityDistribution)
 
+    # Classify an item.
     def classify(self, item):
         label = self.__classifier.classify(self.__splitTrue(item.lower()))
         return (label, self.__classifier.prob_classify(self.__splitTrue(item.lower())).prob(label))
 
+    # Print some demo items.
     def demo(self):
         testingSet = {
             'We are at 444 Weber Street',
