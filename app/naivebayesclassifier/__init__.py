@@ -141,7 +141,6 @@ class NaiveBayesClassifier:
             '8 oz steak',
             'turkey club',
             "2:00 pm"
-
         }
         for item in testingSet:
             result = self.classify(item)
