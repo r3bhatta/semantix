@@ -106,9 +106,13 @@ class NaiveBayesClassifier:
         for text, labels in self.__trainingSet.items():
             tokens = text.split()
             for token in tokens:
+                """
+                NOTE: I think this part is wrong. I put "number" in addresses list. When we are
+                tokenizing input in classify, then I will replace all numbers with "number".
                 # Consider all numbers as one category.
                 if self.__isInt(token):
                     token = 'number'
+                """
                 if token not in featuresSet:
                     featuresSet[token] = generateDefaultFreq()
                 # Loop through all labels associated with this feature.
@@ -150,7 +154,7 @@ class NaiveBayesClassifier:
     @param trainingDataType = 'data' or 'businesses' so far.
     """
     def train(self, trainingDataType='data'):
-        self.__generateTrainingSet()
+        self.__generateTrainingSet(trainingDataType)
         self.__generateFeaturesSet()
         self.__generateLabelProbabilityDistribution()
         self.__generateFeatureProbabilityDistribution()
@@ -167,11 +171,14 @@ class NaiveBayesClassifier:
             'We are at 444 Weber Street',
             'steak bread hot dog',
             '888 Socks Drive',
-            'chicken broccoli lol',
+            'chicken broccoli',
             '8 oz steak',
             'turkey club',
             "2:00 pm"
         }
         for item in testingSet:
-            result = self.classify(item)
-            print "%s | %s | %s" % (item, result[0], result[1])
+            probs = {}
+            results = self.classify(item)
+            for label in self.labels:
+                probs[label] = round(self.__classifier.prob_classify(self.__splitTrue(item.lower())).prob(label), 2)
+            print "%s | %s | %s | %s" % (item, results[0], results[1], probs)
