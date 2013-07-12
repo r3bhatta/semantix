@@ -5,12 +5,9 @@
     /unittests
     /nbc
         /__init__.py
-        /naivebayesclassifier.py
     /parsers
         /__init__.py
-        /jsonparser.py
-        /locationsparser.py
-        /menuparser.py
+        /contextparser.py
     /__init__.py
     /settings.py
     /views.py
