@@ -83,15 +83,33 @@ class NaiveBayesClassifier:
         except ValueError:
             return False
 
-    """ Split the item being classified into true kvps for dictionary. """
-    def __splitTrue(self, item):
+    """
+    Tokenize the input, perform some label specific feature work, and assign to kvp with
+    value of true.
+    """
+    def __tokenizeInputToFeatures(self, item):
         words = item.split()
         splits = {}
+
+        # Location feature.
+        ordinals = ['st', 'nd', 'rd', 'th']
+
         for word in words:
-            # Consider all numbers as one category.
-            if self.__isInt(word):
+            """
+            LOCATION FEATURES SPECIFIC.
+            """
+            # Consider all numbers as one category for location. 10 because full address is about
+            # 10 tokens.
+            if self.__isInt(word) and len(words) < 10:
                 word = 'number'
-            splits[word.lower()] = True
+            elif len(word) > 2:
+                # Check if this word is an ordinal number like '1st' for location feature.
+                if word[-2:] in ordinals and self.__isInt(word[:-2]):
+                    word = 'ordinal'
+            """
+            /LOCATION FEATURES SPECIFIC.
+            """
+            splits[word] = True
         return splits
 
     """ Generates the features set. """
@@ -162,8 +180,9 @@ class NaiveBayesClassifier:
 
     """ Classify an item. """
     def classify(self, item):
-        label = self.__classifier.classify(self.__splitTrue(item.lower()))
-        return (label, self.__classifier.prob_classify(self.__splitTrue(item.lower())).prob(label))
+        item = item.lower()
+        label = self.__classifier.classify(self.__tokenizeInputToFeatures(item))
+        return (label, self.__classifier.prob_classify(self.__tokenizeInputToFeatures(item)).prob(label))
 
     """ Print some demo items. """
     def demo(self):
@@ -174,11 +193,14 @@ class NaiveBayesClassifier:
             'chicken broccoli',
             '8 oz steak',
             'turkey club',
-            "2:00 pm"
+            "2:00 pm",
+            "8:00 AM to 8:00 PM",
+            "6th street"
         }
         for item in testingSet:
             probs = {}
             results = self.classify(item)
             for label in self.labels:
-                probs[label] = round(self.__classifier.prob_classify(self.__splitTrue(item.lower())).prob(label), 2)
+                probs[label] = round(self.__classifier.prob_classify(self.__tokenizeInputToFeatures(item.lower())).prob(label), 2)
             print "%s | %s | %s | %s" % (item, results[0], results[1], probs)
+        print '\n'
