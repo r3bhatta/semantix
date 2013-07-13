@@ -1,6 +1,5 @@
 import os
 
-
 SEMANTIX_ROOT =  os.path.dirname((os.path.abspath(__file__)))
 APP_ROOT = os.path.join(SEMANTIX_ROOT, 'app')
 APP_DATA = os.path.join(APP_ROOT, 'data')
