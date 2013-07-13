@@ -10,12 +10,11 @@ WINDOWS = 'nt'
 reload(sys)
 sys.setdefaultencoding('utf-8') # Set default encoding to UTF to avoid conflicts with symbols.
 
-
 soups = JsonParser.parseData(settings.CPK_DATA)
-nbc = NaiveBayesClassifier(settings.APP_DATA_TRAINING)
-contextMap = ContextParser.parseSoups( soups, nbc )
+nbc = NaiveBayesClassifier(os.path.join(settings.APP_DATA_TRAINING, 'general'))
+contextMap = ContextParser.parseSoups(soups, nbc)
 
-#  NOTE : contextMap may have repeats of similar texts, it needs to run through string comparison taking bests
-
+# NOTE: contextMap may have repeats of similar texts, it needs to run through string comparison
+# taking bests.
 # print contextMap
 

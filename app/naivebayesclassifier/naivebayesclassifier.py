@@ -1,6 +1,6 @@
 import os
 import sys
-
+from nltk.probability import ELEProbDist, FreqDist
 import nltk
 from nltk.probability import ELEProbDist, FreqDist
 from collections import defaultdict
@@ -9,15 +9,10 @@ from os.path import isfile, join
 
 """
 Example:
-nbc = NaiveBayesClassifier()
-item = nbc.classify("classify this")
-# By default this will train data like menus, locations, hours.
+nbc = NaiveBayesClassifier('/path/to/training/folder')
+item = nbc.classify('classify this')
 # If you want to train other preset data, do this:
-nbc.train("businesses")
-# This will reset the classifier with the "businesses" data.
-
-Supported train() parameters:
-"businesses", "data"
+nbc.train('/path/to/training/folder')
 """
 class NaiveBayesClassifier:   
     """
@@ -27,14 +22,15 @@ class NaiveBayesClassifier:
         self.__featuresSet - {'feature: {'label1': 1, 'label2': 0}}
         self.__labelProbabilityDistribution
         self.__featureProbabilityDistribution
+
+    @param trainingDirectory A valid absolute path from the training directory.
     """
-
-
-    def __init__(self,trainingDirectory):
+    def __init__(self, trainingDirectory):
+        if trainingDirectory is None:
+            raise Exception('Please input an absolute path training directory.')
         # Start training.
-        
-        self.__trainingDirectory = trainingDirectory
-        self.train()
+        self.__trainingDirectory = trainingDirectory.lower()
+        self.train(self.__trainingDirectory)
 
     """ Creates and returns a training set (dictionary) from one data file belonging to a label. """
     def __updateTrainingSet(self, fileName, label):
@@ -51,7 +47,7 @@ class NaiveBayesClassifier:
     Train the classifier by iterating through the folder that contains the data.
     @param trainingDataType = 'data' or 'businesses' so far.
     """
-    def __generateTrainingSet(self, trainingDataType='data'):
+    def __generateTrainingSet(self):
         # Use a defaultdict(list) because the same feature can belong to multiple labels.
         self.__trainingSet = defaultdict(list)
         self.labels = []
@@ -59,12 +55,8 @@ class NaiveBayesClassifier:
         # For example, we ignore 'businesses', but if we need 'businesses' we will only be looking
         # inside 'businesses' folder and nothing else.
         # Could be changed!
-        ignores = ['.DS_Store', 'businesses']
+        ignores = ['.DS_Store']
         trainingDirectory = self.__trainingDirectory
-
-        # Change directory to appropriate training data.
-        if trainingDataType == 'businesses':
-            trainingDirectory = os.path.join(trainingDirectory, trainingDataType)
 
         # Loop through each folder name for the training folder. The folder name corresponds to a label.
         for label in listdir(trainingDirectory):
@@ -129,13 +121,6 @@ class NaiveBayesClassifier:
         for text, labels in self.__trainingSet.items():
             tokens = text.split()
             for token in tokens:
-                """
-                NOTE: I think this part is wrong. I put "number" in addresses list. When we are
-                tokenizing input in classify, then I will replace all numbers with "number".
-                # Consider all numbers as one category.
-                if self.__isInt(token):
-                    token = 'number'
-                """
                 if token not in featuresSet:
                     featuresSet[token] = generateDefaultFreq()
                 # Loop through all labels associated with this feature.
@@ -174,10 +159,11 @@ class NaiveBayesClassifier:
 
     """
     Train the classifier.
-    @param trainingDataType = 'data' or 'businesses' so far.
+    @param trainingDirectory A valid absolute path from the training directory.
     """
-    def train(self, trainingDataType='data'):
-        self.__generateTrainingSet(trainingDataType)
+    def train(self, trainingDirectory):
+        self.__trainingDirectory = trainingDirectory
+        self.__generateTrainingSet()
         self.__generateFeaturesSet()
         self.__generateLabelProbabilityDistribution()
         self.__generateFeatureProbabilityDistribution()
@@ -207,5 +193,5 @@ class NaiveBayesClassifier:
             results = self.classify(item)
             for label in self.labels:
                 probs[label] = round(self.__classifier.prob_classify(self.__tokenizeInputToFeatures(item.lower())).prob(label), 2)
-            print "%s | %s | %s | %s" % (item, results[0], results[1], probs)
+            print '%s | %s | %s | %s' % (item, results[0], results[1], probs)
         print '\n'
