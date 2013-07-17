@@ -84,20 +84,26 @@ $(function() {
     $("#catATags_tagsinput").droppable({
       accept: "#catBTags_tagsinput > span",
       drop: function( event, ui ) {
-        deleteSpan( ui.draggable, "#catBTags_tagsinput", "#catATags_tagsinput");
+        var select_option = $("#categoryA_select").val();
+        if(select_option != "Select Category") {
+            deleteSpan( ui.draggable, "#catBTags_tagsinput", "#catATags_tagsinput");
+        }
       }
     });
 
     $("#catBTags_tagsinput").droppable({
       accept: "#catATags_tagsinput > span",
       drop: function( event, ui ) {
-        deleteSpan(ui.draggable, "#catATags_tagsinput", "#catBTags_tagsinput");
+        var select_option = $("#categoryB_select").val();
+        if(select_option != "Select Category") {
+            deleteSpan(ui.draggable, "#catATags_tagsinput", "#catBTags_tagsinput");
+        }
       }
     });
 });
 
 //helper for when an element is dropped in the opposite box, need to remove it
-//from its original box
+//from its original box and add it to its new box
 function deleteSpan($item, removeFrom, moveTo) {
     var $list = $(moveTo);
     $item.find(removeFrom).remove();
@@ -121,12 +127,10 @@ function searchForKey(key, obj) {
 // and makes them draggable using the JQuery API
 function setDraggable() {
     $('.draggable').draggable({
-        addClasses: false,
         revert: "invalid",
         stack: ".draggable",
         helper: "clone",
-        cursor: "move",
-        appendTo: "parent"
+        appendTo: "#draggable_container"
     });
 }
 
@@ -135,30 +139,38 @@ function setDraggable() {
 //with the words for that category which will be draggable items
 $("#categoryA_select").change(function() {
     key = $(this).val();
-    searchForKey(key, data);
-    var catA_HTML = '';
-    for (var i in wordsList) {
-        var word = wordsList[i].trim()
-        catA_HTML += '<span class="tag draggable"><span>' + word + 
-        '<a class="tagsinput-remove-link"></a></span></span>';
+    if(key != "Select Category") {
+        searchForKey(key, data);
+        var catA_HTML = '';
+        for (var i in wordsList) {
+            var word = wordsList[i].trim()
+            catA_HTML += '<span class="tag draggable"><span>' + word + 
+            '<a class="tagsinput-remove-link"></a></span></span>';
+        }
+        $('#catATags_tagsinput').html(catA_HTML);
+        setDraggable();
+        setTagRemoval();
+    } else {
+        $('#catATags_tagsinput').html('');
     }
-    $('#catATags_tagsinput').html(catA_HTML);
-    setDraggable();
-    setTagRemoval();
 });
 
 $("#categoryB_select").change(function() {
     key = $(this).val();
-    searchForKey(key, data);
-    var catB_HTML = '';
-    for (var i in wordsList) {
-        var word = wordsList[i].trim()
-        catB_HTML += '<span class="tag draggable"><span>' + word + 
-        '<a class="tagsinput-remove-link"></a></span></span>';
+    if(key != "Select Category") {
+        searchForKey(key, data);
+        var catB_HTML = '';
+        for (var i in wordsList) {
+            var word = wordsList[i].trim()
+            catB_HTML += '<span class="tag draggable"><span>' + word + 
+            '<a class="tagsinput-remove-link"></a></span></span>';
+        }
+        $('#catBTags_tagsinput').html(catB_HTML);
+        setDraggable();
+        setTagRemoval();
+    } else {
+        $('#catBTags_tagsinput').html('');
     }
-    $('#catBTags_tagsinput').html(catB_HTML);
-    setDraggable();
-    setTagRemoval();
 });
 
 //When you click on the X on a draggable item this funtion helps to
@@ -175,22 +187,26 @@ function setTagRemoval() {
 $('#add_categoryA_label').click(function(event) {
     var $input = $(event.target).siblings('input');
     var label = $input.val();
-    $input.val('');
-    var html = '<span class="tag draggable"><span>' + label + 
-        '<a class="tagsinput-remove-link"></a></span></span>';
-    $("#catATags_tagsinput").append(html);
-    setDraggable();
-    setTagRemoval();
+    if (label.length != 0) {
+        $input.val('');
+        var html = '<span class="tag draggable"><span>' + label + 
+            '<a class="tagsinput-remove-link"></a></span></span>';
+        $("#catATags_tagsinput").append(html);
+        setDraggable();
+        setTagRemoval();
+    }
 });
 
 $('#add_categoryB_label').click(function(event) {
     var $input = $(event.target).siblings('input');
     var label = $input.val();
-    $input.val('');
-    var html = '<span class="tag draggable"><span>' + label + 
-        '<a class="tagsinput-remove-link"></a></span></span>';
-    $("#catBTags_tagsinput").append(html);
-    setDraggable();
-    setTagRemoval();
+    if (label.length != 0) {
+        $input.val('');
+        var html = '<span class="tag draggable"><span>' + label + 
+            '<a class="tagsinput-remove-link"></a></span></span>';
+        $("#catBTags_tagsinput").append(html);
+        setDraggable();
+        setTagRemoval();
+    }
 });
 
