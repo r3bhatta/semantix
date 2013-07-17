@@ -1,5 +1,5 @@
 import re
-
+"""
 # Go through list of all categories and finds the 
 # category with highest total probability
 def getHighestProbability(allCategories):
@@ -26,13 +26,8 @@ def getHighestProbability(allCategories):
     highestProbCategory.append(highestProbability)
     
     return highestProbCategory
+"""
 
-def parseSoups(soups,nbc):
-
-    # Parse all soups and put all categories found in an array
-    allCategories = []
-    for soup in soups:
-        allCategories.append(nbc.classify(soup.getText()))
-    
-    businessType = getHighestProbability(allCategories)
-    print businessType
+def parseSoup(soup, nbc):
+    result = nbc.classify(soup.getText())
+    return result
