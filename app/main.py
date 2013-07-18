@@ -44,7 +44,7 @@ def parseBusinessTypes():
 	print businessTypes
 
 # parseBusiness(settings.CPK_DATA)
-parseBusinessTypes()
+# parseBusinessTypes()
 
 
 
