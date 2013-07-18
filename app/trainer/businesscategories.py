@@ -3,6 +3,22 @@ import settings
 
 filelist = os.listdir(settings.APP_DATA_TRAINING)
 
+def saveTrainedData(map):
+    if map is not None:
+
+        matches = []
+        for root, subFolders, files in os.walk(filelist):
+            for filename in filenames:
+                print filename
+    else:
+        sys.stderr.write("abort: could not receive trained map of data")
+        return False
+
+# testing
+map = {}
+saveTrainedData(map)
+#end testing
+
 def getBusinessCatagories(dirName):
     data = {}
     directoryPath = os.path.join(settings.APP_DATA_TRAINING, dirName)
