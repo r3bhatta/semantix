@@ -5,7 +5,6 @@ import settings
 from trainer import businesscategories
 import json
 
-
 @app.route('/')
 def index():
     data = { 
@@ -22,14 +21,12 @@ def trainer():
 
 @app.route('/business_categories')
 def BusinessCategories():
-
     path = settings.APP_DATA_TRAINING
     data = businesscategories.getCategories(path)
     return json.dumps(data)
 
 @app.route('/save_classified_data', methods=['POST'])
 def function_name():
-
     path = settings.APP_DATA_TRAINING
     classifiedData = json.loads(request.form['classified_data']) 
     return  "True" if  businesscategories.saveTrainedData(classifiedData,path) else "False"
