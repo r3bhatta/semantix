@@ -24,6 +24,7 @@ WINDOWS = 'nt'
 reload(sys)
 sys.setdefaultencoding('utf-8') # Set default encoding to UTF to avoid conflicts with symbols.
 
+# Parse a single business, identified by input file.
 def parseBusiness(inputFile):
 	soups = JsonParser.parseData(inputFile)
 	nbc = NaiveBayesClassifier(os.path.join(settings.APP_DATA_TRAINING, 'general'))
@@ -32,20 +33,14 @@ def parseBusiness(inputFile):
 	# taking bests.
 	print contextMap
 
-def parseBusinessTypes():
-	businessTypes = []
+# Parse a single business file to identify its business type.
+def parseBusinessType(inputFile):
 	nbc = NaiveBayesClassifier(os.path.join(settings.APP_DATA_TRAINING, 'businesses'))
-	for businessFile in listdir(settings.APP_DATA_HTML):
-		if businessFile.endswith('.txt'):
-			soup = JsonParser.parseFirstPage(os.path.join(settings.APP_DATA_HTML, businessFile))
-			businessType = BusinessTypeParser.parseSoup(soup, nbc)
-			businessTypes.append({businessFile: businessType})
-			print '%s | %s' % (businessFile, businessType)
-	print businessTypes
+	# Our data files are .txt files for now.
+	if inputFile.endswith('.txt'):
+		soups = JsonParser.parseData(inputFile)
+		return BusinessTypeParser.parseBusinessType(inputFile, soups, nbc)
 
 # parseBusiness(settings.CPK_DATA)
-parseBusinessTypes()
-
-
-
-
+results = parseBusinessType(os.path.join(settings.APP_DATA_HTML, 'escada_com.txt'))
+print results
