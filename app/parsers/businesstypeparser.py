@@ -53,6 +53,11 @@ def highestFrequency(labels):
             averageProbability /= frequency
             result = [label, averageProbability]
 
+    """
+    # For testing.
+    for label in frequencies:
+        print '%s | %s' % (label, frequencies[label]['frequency'])
+    """
     return result
 
 """
