@@ -12,14 +12,5 @@ def parseData(inputFile):
             # Use the quopri module to decode the qp encoded value of each page.
             decodedQP = quopri.decodestring(body)
             soups.append(BeautifulSoup(decodedQP))
-    
     return soups
   
-def parseFirstPage(inputFile):
-	with open(inputFile) as data:
-		for line in data:
-			if json.loads(line)['sequence_number'] == 0:
-				body = json.loads(line)['body']
-				decodedQP = quopri.decodestring(body)
-				return BeautifulSoup(decodedQP)
-	raise Exception('Bad input file, cannot find first page.')

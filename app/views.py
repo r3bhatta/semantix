@@ -1,9 +1,10 @@
-from flask import render_template
+from flask import render_template, request
 from app import app
 import main
 import settings
 from trainer import businesscategories
 import json
+
 
 @app.route('/')
 def index():
@@ -21,6 +22,7 @@ def trainer():
 
 @app.route('/business_categories')
 def BusinessCategories():
+
     path = settings.APP_DATA_TRAINING
     data = businesscategories.getCategories(path)
     return json.dumps(data)
@@ -29,9 +31,5 @@ def BusinessCategories():
 def function_name():
 
     path = settings.APP_DATA_TRAINING
-    print "gayyyy"
-    return "true"
-    #classifiedData = request.form['classified_data']
-    #print classifiedData
-    #businesscategories.saveTrainedData(classifiedData,path)
-    #return true or false depending on its return type
+    classifiedData = json.loads(request.form['classified_data']) 
+    return  "True" if  businesscategories.saveTrainedData(classifiedData,path) else "False"
