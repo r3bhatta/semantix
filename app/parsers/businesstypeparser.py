@@ -40,14 +40,13 @@ def highestFrequency(labels):
 """
 Get the business type of the business file.
 """
-def parseBusinessType(businessFile, soups, nbc):
+def parse(businessFile, soups, nbc):
     labels = []
     for soup in soups:
         labels.append(nbc.classify(soup.getText()))
 
-    businessType = collections.namedtuple('BusinessType', \
-            ['file', 'label', 'probability'])
+    businessType = collections.namedtuple('Type', ['label', 'probability'])
     label = highestFrequency(labels)
 
-    return businessType(businessFile, label['label'], label['probability'])
+    return businessType(label['label'], label['probability'])
 

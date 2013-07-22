@@ -9,10 +9,10 @@ import collections
 # Output        - 
 # Load the line and the value 'body'.
  # Use the quopri module to decode the qp encoded value of each page.
-def parseData(inputFile,getBizName=False):
+def parseData(inputFile, getBizName=False):
     soups = []
     bizName = ""
-    business = collections.namedtuple('Business', ['businessSoups', 'businessName'])
+    business = collections.namedtuple('Business', ['soups', 'name'])
     with open(inputFile) as data:
         for line in data:
 
@@ -30,7 +30,7 @@ def parseData(inputFile,getBizName=False):
         bizName = 'Not Found'
 
     if getBizName == True:
-        return  business(soups,bizName)
+        return  business(soups, bizName)
         
     return soups
         
