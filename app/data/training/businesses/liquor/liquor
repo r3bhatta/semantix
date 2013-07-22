@@ -3,6 +3,9 @@ absinthe
 abv
 accent
 accented
+acidity
+age
+aging
 akvavit
 alcohol
 ale
@@ -10,16 +13,22 @@ applejack
 apv
 arak
 armagnac
+aroma
+aromas
+aromatic
 arrack
 australia
 awamori
 bacardi
 baileys
 balance
+bar
 barleywine
 beer
 beers
 bitter ale
+black
+blanc
 bock
 bottle
 bourbon whiskey
@@ -28,6 +37,7 @@ brew
 brewery
 bright
 brown ale
+cabernet
 california
 canadian whiskey
 cask ale
@@ -41,21 +51,36 @@ chardonnay
 chicha
 cider
 citrus
+cocktail
+cocktails
 coffee
 cognac
+complement
+complements
 craft
 crisp
+daily
 damassine
+dark
+dinner
 distill
 distilling
+domestic
+drink
+drinks
 dry
+earthy
 eau-de-vie
 enthusiast
 enthusiasts
+exquisite
+fancy
 ferment
 fermenting
 fine
 finish
+finished
+finishes
 flavor
 flavour
 fortified
@@ -75,6 +100,7 @@ horilka
 huangjiu
 icariine liquor
 imperial
+imported
 ipa
 irish
 irish cream
@@ -110,6 +136,7 @@ neutral grain
 nihamanchi
 note
 notes
+oak
 ogogoro
 oktoberfest
 old ale
@@ -135,8 +162,11 @@ pronounced
 prunelle
 pulque
 pumpkin
+quality
 raki
 rakia
+recommendation
+recommendations
 red
 reds
 ripeness
@@ -164,6 +194,7 @@ sonti
 spain
 sparklers
 sparkling wine
+spice
 spirit
 spirits
 stock ale
@@ -179,6 +210,7 @@ tiswin
 tonto
 vermouth
 vinsanto
+vintner
 vodka
 wheat beer
 whiskey
@@ -186,5 +218,7 @@ white
 whites
 williamine
 wine
+winemaker
+winemaking
 wines
 witbier
