@@ -16,7 +16,7 @@ $('.search-button').on('click', function(evt){
     if(website.indexOf("www") != -1){
         var dotOperatorAtIndex = 4;
         var websiteName = website.substring(dotOperatorAtIndex);
-        websiteName = websiteName.replace(".","_");
+        websiteName = websiteName.replace(/[-./]/g,"_");
 
         $.get("classify_business" , { business_name : JSON.stringify(websiteName) } ,
         function(data) {
@@ -24,10 +24,10 @@ $('.search-button').on('click', function(evt){
             if(data === "Null"){
                 alert("Data not available for this website");
             } else{
-                console.log(data)
-                data = JSON.parse(data)
-                bizType = data["businessTypeLabel"]
-                bizName = data["businessName"]
+                console.log(data);
+                data = JSON.parse(data);
+                bizType = data["businessTypeLabel"];
+                bizName = data["businessName"];
                 $('.data-name').html(bizName);
                 $('.data-business').html(bizType);
                 $('.data-wrap').removeClass('hide');
