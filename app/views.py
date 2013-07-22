@@ -50,10 +50,10 @@ def classify_business():
                 fileFound = True
                 business = main.parseBusinessType(os.path.join(settings.APP_DATA_HTML, originalFileName))
                 businessMap = {}
-                businessMap["businessName"]                 = business.businessName
-                businessMap["businessFile"]                 = business.businessType.businessFile
-                businessMap["businessTypeLabel"]            = business.businessType.businessTypeLabel.businessLabel
-                businessMap["businessAverageProbability"]   = business.businessType.businessTypeLabel.businessAverageProbability
+                businessMap["businessName"]                 = business.name
+                businessMap["businessFile"]                 = business.file
+                businessMap["businessTypeLabel"]            = business.type.label
+                businessMap["businessAverageProbability"]   = business.type.probability
                 return json.dumps(businessMap)
 
     return str("Null")

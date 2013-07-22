@@ -39,23 +39,25 @@ def parseBusinessType(inputFile):
     nbc = NaiveBayesClassifier(os.path.join(settings.APP_DATA_TRAINING, 'businesses'))
     # Our data files are .txt files for now.
     if inputFile.endswith('.txt'):
-        parsedBusinessTuple = JsonParser.parseData(inputFile,True)
-        businessTuple       = collections.namedtuple('Business', ['businessName', 'businessType'])
+        jsonParsedTuple = JsonParser.parseData(inputFile, True)
+        businessTuple = collections.namedtuple('Business', ['name', 'file', 'type'])
 
-        businessTuple.businessName = parsedBusinessTuple.businessName
-        businessTuple.businessType = BusinessTypeParser.parseBusinessType(inputFile, \
-                parsedBusinessTuple.businessSoups, nbc)
+        businessTuple.name = jsonParsedTuple.name
+        businessTuple.file = inputFile
+        businessTuple.type = BusinessTypeParser.parse(inputFile, jsonParsedTuple.soups, nbc)
         return businessTuple
 
 # parseBusiness(settings.CPK_DATA)
-business = parseBusinessType(os.path.join(settings.APP_DATA_HTML, 'jane_packer_co_uk.txt'))
-print (business.businessType.businessFile, business.businessType.businessTypeLabel.businessLabel, business.businessType.businessTypeLabel.businessAverageProbability)
+
+business = parseBusinessType(os.path.join(settings.APP_DATA_HTML, 'vijaykbattumdpc_com.txt'))
+print (business.file, business.type.label, business.type.probability)
+
 '''
 results = []
 for businessFile in listdir(settings.APP_DATA_HTML):
     business = parseBusinessType(os.path.join(settings.APP_DATA_HTML, businessFile))
     if business:
-        results.append((business.businessType.businessFile, business.businessType.businessTypeLabel.businessLabel, business.businessType.businessTypeLabel.businessAverageProbability))
+        results.append((business.file, business.type.label, business.type.probability))
 for result in results:
     print result
 '''
