@@ -43,6 +43,22 @@ def parseBusinessType(inputFile):
 
 # parseBusiness(settings.CPK_DATA)
 
-#results = parseBusinessType(os.path.join(settings.APP_DATA_HTML, 'informfitness_com.txt'))
-#print results
+results = parseBusinessType(os.path.join(settings.APP_DATA_HTML, 'nycdentist_com.txt'))
+print results
+results = parseBusinessType(os.path.join(settings.APP_DATA_HTML, 'drsboyd_com.txt'))
+print results
+results = parseBusinessType(os.path.join(settings.APP_DATA_HTML, 'papillonbistro_com.txt'))
+print results
+results = parseBusinessType(os.path.join(settings.APP_DATA_HTML, 'ojgallery_com.txt'))
+print results
+results = parseBusinessType(os.path.join(settings.APP_DATA_HTML, 'nespresso_com_us_en.txt'))
+print results
+results = parseBusinessType(os.path.join(settings.APP_DATA_HTML, 'escada_com.txt'))
+print results
 
+
+results = []
+for businessFile in listdir(settings.APP_DATA_HTML):
+    results.append(parseBusinessType(os.path.join(settings.APP_DATA_HTML, businessFile)))
+for result in results:
+    print result

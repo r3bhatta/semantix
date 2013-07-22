@@ -225,9 +225,7 @@ function setTagRemoval(from) {
 //for the two following onClick handlers (for the plus icon) when clicked 
 //take the text in the input element and make that into a draggable 
 //tag which is added into the box below
-$('#add_categoryA_label').click(function(event) {
-    var $input = $(event.target).siblings('input');
-    var label = $input.val();
+var addItem = function(label){
     var select_option = $("#categoryA_select").val();
     if (label.length != 0 && select_option != "Select Category") {
         var html = '<span class="tag draggable"><span>' + label + 
@@ -237,6 +235,21 @@ $('#add_categoryA_label').click(function(event) {
         setTagRemoval($("#categoryA_select").val());
         searchForLocationAndAdd(label, data, select_option);
     }
+};
+
+$('.input_container_A').keypress(function(event){
+    if (event.which === 13){
+        event.preventDefault();
+        addItem(event.target.value);
+        event.target.value = '';
+    }
+});
+
+
+$('#add_categoryA_label').click(function(event) {
+    var $input = $(event.target).siblings('input');
+    var label = $input.val();
+    addItem(label);
     $input.val('');
 });
 
