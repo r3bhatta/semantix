@@ -12,6 +12,7 @@ except ImportError:
 import os
 from os import listdir
 import sys
+import collections
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import settings
@@ -22,43 +23,42 @@ from naivebayesclassifier.naivebayesclassifier import NaiveBayesClassifier
 
 WINDOWS = 'nt'
 reload(sys)
-sys.setdefaultencoding('utf-8') # Set default encoding to UTF to avoid conflicts with symbols.
+sys.setdefaultencoding('utf-8')     # Set default encoding to UTF to avoid conflicts with symbols.
 
 # Parse a single business, identified by input file.
 def parseBusiness(inputFile):
-	soups = JsonParser.parseData(inputFile)
-	nbc = NaiveBayesClassifier(os.path.join(settings.APP_DATA_TRAINING, 'general'))
-	contextMap = ContextParser.parseSoups(soups, nbc)
-	# NOTE: contextMap may have repeats of similar texts, it needs to run through string comparison
-	# taking bests.
-	print contextMap
+    soups = JsonParser.parseData(inputFile)
+    nbc = NaiveBayesClassifier(os.path.join(settings.APP_DATA_TRAINING, 'general'))
+    contextMap = ContextParser.parseSoups(soups, nbc)
+    # NOTE: contextMap may have repeats of similar texts, it needs to run through string comparison
+    # taking bests.
+    print contextMap
 
 # Parse a single business file to identify its business type.
 def parseBusinessType(inputFile):
-	nbc = NaiveBayesClassifier(os.path.join(settings.APP_DATA_TRAINING, 'businesses'))
-	# Our data files are .txt files for now.
-	if inputFile.endswith('.txt'):
-		soups = JsonParser.parseData(inputFile)
-		return BusinessTypeParser.parseBusinessType(inputFile, soups, nbc)
+    nbc = NaiveBayesClassifier(os.path.join(settings.APP_DATA_TRAINING, 'businesses'))
+    # Our data files are .txt files for now.
+    if inputFile.endswith('.txt'):
+        parsedBusinessTuple = JsonParser.parseData(inputFile,True)
+        businessTuple       = collections.namedtuple('Business', ['businessName', 'businessType'])
+
+        businessTuple.businessName = parsedBusinessTuple.businessName
+        businessTuple.businessType = BusinessTypeParser.parseBusinessType(inputFile, parsedBusinessTuple.businessSoups, nbc)
+        return businessTuple
 
 # parseBusiness(settings.CPK_DATA)
 
-results = parseBusinessType(os.path.join(settings.APP_DATA_HTML, 'nycdentist_com.txt'))
-print results
-results = parseBusinessType(os.path.join(settings.APP_DATA_HTML, 'drsboyd_com.txt'))
-print results
-results = parseBusinessType(os.path.join(settings.APP_DATA_HTML, 'papillonbistro_com.txt'))
-print results
-results = parseBusinessType(os.path.join(settings.APP_DATA_HTML, 'ojgallery_com.txt'))
-print results
-results = parseBusinessType(os.path.join(settings.APP_DATA_HTML, 'nespresso_com_us_en.txt'))
-print results
-results = parseBusinessType(os.path.join(settings.APP_DATA_HTML, 'escada_com.txt'))
-print results
+business = parseBusinessType(os.path.join(settings.APP_DATA_HTML, 'baumstevens_com.txt'))
 
+print business.businessName
+print business.businessType.businessFile
+print business.businessType.businessTypeLabel.businessLabel
+print business.businessType.businessTypeLabel.businessAverageProbability
 
+'''
 results = []
 for businessFile in listdir(settings.APP_DATA_HTML):
     results.append(parseBusinessType(os.path.join(settings.APP_DATA_HTML, businessFile)))
 for result in results:
     print result
+'''

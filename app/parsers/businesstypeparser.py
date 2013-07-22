@@ -1,4 +1,5 @@
 import re
+import collections
 
 """
 From a list of labels and their frequencies, retrieve the label with highest frequency and the
@@ -27,7 +28,9 @@ def highestFrequency(labels):
             for probability in frequencies[label]['probabilities']:
                 averageProbability += probability
             averageProbability /= frequency
-            result = [label, averageProbability]
+
+            businessTypeLabel = collections.namedtuple('BusinessTypeLabel', ['businessLabel', 'businessAverageProbability'])
+            result = businessTypeLabel(label, averageProbability)
     """
     # For testing.
     for label in frequencies:
@@ -42,4 +45,7 @@ def parseBusinessType(businessFile, soups, nbc):
     labels = []
     for soup in soups:
         labels.append(nbc.classify(soup.getText()))
-    return [businessFile, highestFrequency(labels)]
+    businessTypeTuple = collections.namedtuple('BusinessType', ['businessFile', 'businessTypeLabel'])
+
+    return businessTypeTuple(businessFile,highestFrequency(labels))
+
