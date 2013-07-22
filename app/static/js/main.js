@@ -28,8 +28,9 @@ $('.search-button').on('click', function(evt){
                 data = JSON.parse(data)
                 bizType = data["businessTypeLabel"]
                 bizName = data["businessName"]
+                bizProbability = data['businessAverageProbability']
                 $('.data-name').html(bizName);
-                $('.data-business').html(bizType);
+                $('.data-business').html(bizType + ' - ' + bizProbability);
                 $('.data-wrap').removeClass('hide');
             }
         });
@@ -281,7 +282,6 @@ $('.input_container_A').keypress(function(event){
     if (event.which === 13){
         event.preventDefault();
         addItem(event.target.value);
-        event.target.value = '';
     }
 });
 

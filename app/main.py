@@ -49,13 +49,14 @@ def parseBusinessType(inputFile):
 
 # parseBusiness(settings.CPK_DATA)
 business = parseBusinessType(os.path.join(settings.APP_DATA_HTML, 'vijaykbattumdpc_com.txt'))
-print (business.businessType.businessFile, business.businessType.businessTypeLabel.businessLabel, business.businessType.businessTypeLabel.businessAverageProbability)
+print (business.businessType.file, business.businessType.label, business.businessType.probability)
+
 '''
 results = []
 for businessFile in listdir(settings.APP_DATA_HTML):
     business = parseBusinessType(os.path.join(settings.APP_DATA_HTML, businessFile))
     if business:
-        results.append((business.businessType.businessFile, business.businessType.businessTypeLabel.businessLabel, business.businessType.businessTypeLabel.businessAverageProbability))
+        results.append(print (business.businessType.file, business.businessType.label, business.businessType.probability))
 for result in results:
     print result
 '''
