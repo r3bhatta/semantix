@@ -1,13 +1,11 @@
 import re
-import collections
+from collections import namedtuple
 
-"""
-From a list of labels and their frequencies, retrieve the label with highest frequency and the
+'''
+From a list of labels and their frequencies, retrieve the label with highest weight and the average
 average probability of that label.
-"""
+'''
 def highestFrequency(labels):
-
-
     frequencies = {}
     # Go through labels and create a frequency map.
     for label in labels:
@@ -18,9 +16,7 @@ def highestFrequency(labels):
             # Accumulate a list of probabilities.
             frequencies[label[0]]['probabilities'].append(label[1])
     
-    # Get the result with highest frequency and calculate its average probability.
-    result = []
-    highest = 0
+    # Get a list of maps of frequency to average probability.
     
     '''
     # For testing.
@@ -28,30 +24,34 @@ def highestFrequency(labels):
         print '%s | %s' % (label, frequencies[label]['frequency'])
     '''
     
+    # Calculate the average probability from the frequencies as well as the weight to get the 
+    # highest weight. Weight is frequency * average probability.
+    highestResult = {}
     for label in frequencies:
         frequency = frequencies[label]['frequency']
-        if frequency > highest:
-            highest = frequency
-            # Calculate average probability.
-            averageProbability = 0
-            for probability in frequencies[label]['probabilities']:
-                averageProbability += probability
-            averageProbability /= frequency
-            result =  {'label': label, 'probability': averageProbability}
 
-    return result
+        # Calculate average probability.
+        averageProbability = 0
+        for probability in frequencies[label]['probabilities']:
+            averageProbability += probability
+        averageProbability /= frequency
+        weight = averageProbability * frequency
+
+        if not highestResult or weight > highestResult['weight']:
+            highestResult = {'label': label, 'probability': averageProbability, \
+                'weight': averageProbability * frequency}
+
+    return highestResult
 
 """
 Get the business type of the business file.
 """
 def parse(businessFile, soups, nbc):
-
     labels = []
     for soup in soups:
         labels.append(nbc.classify(soup.getText()))
 
-    businessType = collections.namedtuple('Type', ['label', 'probability'])
     label = highestFrequency(labels)
+    businessType = namedtuple('Type', ['label', 'probability'])
 
     return businessType(label['label'], label['probability'])
-
