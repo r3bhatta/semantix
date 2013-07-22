@@ -29,7 +29,8 @@ def highestFrequency(labels):
                 averageProbability += probability
             averageProbability /= frequency
 
-            businessTypeLabel = collections.namedtuple('BusinessTypeLabel', ['businessLabel', 'businessAverageProbability'])
+            businessTypeLabel = collections.namedtuple('BusinessTypeLabel', ['businessLabel', \
+                    'businessAverageProbability'])
             result = businessTypeLabel(label, averageProbability)
     """
     # For testing.
@@ -45,7 +46,8 @@ def parseBusinessType(businessFile, soups, nbc):
     labels = []
     for soup in soups:
         labels.append(nbc.classify(soup.getText()))
-    businessTypeTuple = collections.namedtuple('BusinessType', ['businessFile', 'businessTypeLabel'])
+    businessTypeTuple = collections.namedtuple('BusinessType', \
+            ['businessFile', 'businessTypeLabel'])
 
     return businessTypeTuple(businessFile,highestFrequency(labels))
 

@@ -43,22 +43,17 @@ def parseBusinessType(inputFile):
         businessTuple       = collections.namedtuple('Business', ['businessName', 'businessType'])
 
         businessTuple.businessName = parsedBusinessTuple.businessName
-        businessTuple.businessType = BusinessTypeParser.parseBusinessType(inputFile, parsedBusinessTuple.businessSoups, nbc)
+        businessTuple.businessType = BusinessTypeParser.parseBusinessType(inputFile, \
+                parsedBusinessTuple.businessSoups, nbc)
         return businessTuple
 
 # parseBusiness(settings.CPK_DATA)
 
-business = parseBusinessType(os.path.join(settings.APP_DATA_HTML, 'baumstevens_com.txt'))
-
-print business.businessName
-print business.businessType.businessFile
-print business.businessType.businessTypeLabel.businessLabel
-print business.businessType.businessTypeLabel.businessAverageProbability
-
-'''
 results = []
 for businessFile in listdir(settings.APP_DATA_HTML):
-    results.append(parseBusinessType(os.path.join(settings.APP_DATA_HTML, businessFile)))
+    business = parseBusinessType(os.path.join(settings.APP_DATA_HTML, businessFile))
+    if business:
+        results.append((business.businessType.businessFile, business.businessType.businessTypeLabel.businessLabel, business.businessType.businessTypeLabel.businessAverageProbability))
 for result in results:
     print result
-'''
+
