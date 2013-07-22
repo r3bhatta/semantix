@@ -48,7 +48,7 @@ def parseBusinessType(inputFile):
         return businessTuple
 
 # parseBusiness(settings.CPK_DATA)
-business = parseBusinessType(os.path.join(settings.APP_DATA_HTML, 'suttonwines_com.txt'))
+business = parseBusinessType(os.path.join(settings.APP_DATA_HTML, 'leperigord_com.txt'))
 print (business.businessType.businessFile, business.businessType.businessTypeLabel.businessLabel, business.businessType.businessTypeLabel.businessAverageProbability)
 
 '''
