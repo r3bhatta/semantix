@@ -6,6 +6,7 @@ from nltk.probability import ELEProbDist, FreqDist
 from collections import defaultdict
 from os import listdir
 from os.path import isfile, join
+from collections import namedtuple
 
 """
 Example:
@@ -173,7 +174,8 @@ class NaiveBayesClassifier:
     def classify(self, item):
         item = item.lower()
         label = self.__classifier.classify(self.__tokenizeInputToFeatures(item))
-        return (label, self.__classifier.prob_classify(self.__tokenizeInputToFeatures(item)).prob(label))
+        data = namedtuple('ClassifiedData', ['label', 'probability'])
+        return data(label, self.__classifier.prob_classify(self.__tokenizeInputToFeatures(item)).prob(label))
 
     """ Print some demo items. """
     def demo(self):
@@ -190,8 +192,8 @@ class NaiveBayesClassifier:
         }
         for item in testingSet:
             probs = {}
-            results = self.classify(item)
+            data = self.classify(item)
             for label in self.labels:
                 probs[label] = round(self.__classifier.prob_classify(self.__tokenizeInputToFeatures(item.lower())).prob(label), 2)
-            print '%s | %s | %s | %s' % (item, results[0], results[1], probs)
+            print '%s | %s | %s | %s' % (item, data.label, data.probability, probs)
         print '\n'

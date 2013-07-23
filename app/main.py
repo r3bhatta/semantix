@@ -20,6 +20,7 @@ from parsers import jsonparser as JsonParser
 from parsers import contextparser as ContextParser
 from parsers import businesstypeparser as BusinessTypeParser
 from naivebayesclassifier.naivebayesclassifier import NaiveBayesClassifier
+import stringsimilarity
 
 WINDOWS = 'nt'
 reload(sys)
@@ -29,10 +30,9 @@ sys.setdefaultencoding('utf-8')     # Set default encoding to UTF to avoid confl
 def parseBusiness(inputFile):
     soups = JsonParser.parseData(inputFile)
     nbc = NaiveBayesClassifier(os.path.join(settings.APP_DATA_TRAINING, 'general'))
-    contextMap = ContextParser.parseSoups(soups, nbc)
+    return ContextParser.parseSoups(soups, nbc)
     # NOTE: contextMap may have repeats of similar texts, it needs to run through string comparison
     # taking bests.
-    print contextMap
 
 # Parse a single business file to identify its business type.
 def parseBusinessType(inputFile):
@@ -47,12 +47,39 @@ def parseBusinessType(inputFile):
         businessTuple.type = BusinessTypeParser.parse(inputFile, jsonParsedTuple.soups, nbc)
         return businessTuple
 
-# parseBusiness(settings.CPK_DATA)
+# Filter and prune menu items.
+def pruneMenuItems(inputFile):
+    business = parseBusiness(inputFile)
+    filteredMenuItems = []
+    for label, menuItems in business.items():
+        if label.label == 'menu' and label.probability >= 0.6:
+            for item in menuItems:
+                if len(item.split()) <= 5:
+                    filteredMenuItems.append(item)
+    filteredMenuItems = list(set(filteredMenuItems))
+    for item in filteredMenuItems:
+        print item
 
-business = parseBusinessType(os.path.join(settings.APP_DATA_HTML, 'alexandregallery_com.txt'))
-#print (business.file, business.type.label, business.type.probability)
+business = parseBusinessType(os.path.join(settings.APP_DATA_HTML, 'cpk_com.txt'))
+print (business.file, business.type.label, business.type.probability)
 
 '''
+results = []
+for businessFile in listdir(settings.APP_DATA_HTML):
+    business = parseBusinessType(os.path.join(settings.APP_DATA_HTML, businessFile))
+    
+    if business:
+        print (business.file, business.type.label, business.type.probability)
+        results.append((business.file, business.type.label, business.type.probability))
+
+
+print "______________________________________________________________________"
+print results
+
+
+pruneMenuItems(os.path.join(settings.APP_DATA_HTML, 'cpk_com.txt'))
+print stringsimilarity.compute('word is one', 'word is two')
+
 results = []
 for businessFile in listdir(settings.APP_DATA_HTML):
     business = parseBusinessType(os.path.join(settings.APP_DATA_HTML, businessFile))
