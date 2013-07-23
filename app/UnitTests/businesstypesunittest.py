@@ -74,7 +74,7 @@ def verifyBusinessTypes():
 	for businessSite in businessClassification:
 		business = parseBusinessType(os.path.join(settings.APP_DATA_HTML, businessSite))
 
-		if(business.type.label != businessClassification[businessSite]):
+		if business.type.label != businessClassification[businessSite]:
 			print "\n", "ERROR!!"
 			print businessSite, " classified as ", business.type.label
 			print businessSite, " should be ", businessClassification[businessSite], "\n"
