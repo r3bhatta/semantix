@@ -60,7 +60,7 @@ def pruneMenuItems(inputFile):
     for item in filteredMenuItems:
         print item
 
-business = parseBusinessType(os.path.join(settings.APP_DATA_HTML, 'cpk_com.txt'))
+business = parseBusinessType(os.path.join(settings.APP_DATA_HTML, 'partymixnyc_com.txt'))
 print (business.file, business.type.label, business.type.probability)
 
 '''
