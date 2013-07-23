@@ -16,8 +16,6 @@ def highestFrequency(labels):
             # Accumulate a list of probabilities.
             frequencies[label[0]]['probabilities'].append(label[1])
     
-    # Get a list of maps of frequency to average probability.
-    
     '''
     # For testing.
     for label in frequencies:
