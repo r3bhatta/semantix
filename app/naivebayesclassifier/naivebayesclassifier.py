@@ -19,10 +19,10 @@ class NaiveBayesClassifier:
     """
     These private variables are initialized by self.train()
         self.labels - ['label1, label2']
-        self.__trainingSet - {'feature': ['label1, label2']}
-        self.__featuresSet - {'feature: {'label1': 1, 'label2': 0}}
-        self.__labelProbabilityDistribution
-        self.__featureProbabilityDistribution
+        self._trainingSet - {'feature': ['label1, label2']}
+        self._featuresSet - {'feature: {'label1': 1, 'label2': 0}}
+        self._labelProbabilityDistribution
+        self._featureProbabilityDistribution
 
     @param trainingDirectory A valid absolute path from the training directory.
     """
@@ -30,11 +30,11 @@ class NaiveBayesClassifier:
         if trainingDirectory is None:
             raise Exception('Please input an absolute path training directory.')
         # Start training.
-        self.__trainingDirectory = trainingDirectory
-        self.train(self.__trainingDirectory)
+        self._trainingDirectory = trainingDirectory
+        self.train(self._trainingDirectory)
 
     """ Creates and returns a training set (dictionary) from one data file belonging to a label. """
-    def __updateTrainingSet(self, fileName, label):
+    def _updateTrainingSet(self, fileName, label):
         trainingSet = defaultdict(list)
         with open(fileName) as trainingFile:
             lines = trainingFile.readlines()
@@ -42,22 +42,22 @@ class NaiveBayesClassifier:
                 trainingSet[line.strip()].append(label)
         # Add the new features:labels to the training set.
         for item, labels in trainingSet.items():
-            self.__trainingSet[item].extend(labels)
+            self._trainingSet[item].extend(labels)
 
     """
     Train the classifier by iterating through the folder that contains the data.
     @param trainingDataType = 'data' or 'businesses' so far.
     """
-    def __generateTrainingSet(self):
+    def _generateTrainingSet(self):
         # Use a defaultdict(list) because the same feature can belong to multiple labels.
-        self.__trainingSet = defaultdict(list)
+        self._trainingSet = defaultdict(list)
         self.labels = []
         # Ignore some OS generated files, as well as default folders that should not be included.
         # For example, we ignore 'businesses', but if we need 'businesses' we will only be looking
         # inside 'businesses' folder and nothing else.
         # Could be changed!
         ignores = ['.DS_Store']
-        trainingDirectory = self.__trainingDirectory
+        trainingDirectory = self._trainingDirectory
 
         # Loop through each folder name for the training folder. The folder name corresponds to a label.
         for label in listdir(trainingDirectory):
@@ -71,10 +71,10 @@ class NaiveBayesClassifier:
                     # Obtain the absolute path of the file.
                     absFileName = os.path.join(path, fileName)
                     # Update the training set dictionary with the training set from the file.
-                    self.__updateTrainingSet(absFileName, label)
+                    self._updateTrainingSet(absFileName, label)
 
     """ Check if a string is an integer. """
-    def __isInt(self, s):
+    def _isInt(self, s):
         try: 
             int(s)
             return True
@@ -85,7 +85,7 @@ class NaiveBayesClassifier:
     Tokenize the input, perform some label specific feature work, and assign to kvp with
     value of true.
     """
-    def __tokenizeInputToFeatures(self, item):
+    def _tokenizeInputToFeatures(self, item):
         words = item.split()
         splits = {}
 
@@ -98,11 +98,11 @@ class NaiveBayesClassifier:
             """
             # Consider all numbers as one category for location. 10 because full address is about
             # 10 tokens.
-            if self.__isInt(word) and len(words) < 10:
+            if self._isInt(word) and len(words) < 10:
                 word = 'number'
             elif len(word) > 2:
                 # Check if this word is an ordinal number like '1st' for location feature.
-                if word[-2:] in ordinals and self.__isInt(word[:-2]):
+                if word[-2:] in ordinals and self._isInt(word[:-2]):
                     word = 'ordinal'
             """
             /LOCATION FEATURES SPECIFIC.
@@ -111,7 +111,7 @@ class NaiveBayesClassifier:
         return splits
 
     """ Generates the features set. """
-    def __generateFeaturesSet(self):
+    def _generateFeaturesSet(self):
         def generateDefaultFreq():
             frequencies = {}
             for label in self.labels:
@@ -119,7 +119,7 @@ class NaiveBayesClassifier:
             return frequencies
 
         featuresSet = {}
-        for text, labels in self.__trainingSet.items():
+        for text, labels in self._trainingSet.items():
             tokens = text.split()
             for token in tokens:
                 if token not in featuresSet:
@@ -127,25 +127,25 @@ class NaiveBayesClassifier:
                 # Loop through all labels associated with this feature.
                 for label in labels:
                     featuresSet[token][label] += 1
-        self.__featuresSet = featuresSet
+        self._featuresSet = featuresSet
 
     """ Generates expected likelihood distribution for labels. """
-    def __generateLabelProbabilityDistribution(self):
+    def _generateLabelProbabilityDistribution(self):
         # Print this out to look at how many items were trained for each label.
         labelFrequencies = FreqDist()
-        for item, counts in self.__featuresSet.items():
+        for item, counts in self._featuresSet.items():
             for label in self.labels:
                 if counts[label] > 0:
                     labelFrequencies.inc(label)
 
-        self.__labelProbabilityDistribution = ELEProbDist(labelFrequencies)
+        self._labelProbabilityDistribution = ELEProbDist(labelFrequencies)
 
     """ Generates expected likelihood distribution for features. """
-    def __generateFeatureProbabilityDistribution(self):
+    def _generateFeatureProbabilityDistribution(self):
         frequencyDistributions = defaultdict(FreqDist)
         values = defaultdict(set)
-        numberSamples = len(self.__trainingSet) / 2
-        for token, counts in self.__featuresSet.items():
+        numberSamples = len(self._trainingSet) / 2
+        for token, counts in self._featuresSet.items():
             for label in self.labels:
                 frequencyDistributions[label, token].inc(True, count = counts[label])
                 frequencyDistributions[label, token].inc(None, numberSamples - counts[label])
@@ -156,26 +156,26 @@ class NaiveBayesClassifier:
             eleProbDist = ELEProbDist(freqDist, bins = len(values[name]))
             probabilityDistribution[label, name] = eleProbDist
 
-        self.__featureProbabilityDistribution = probabilityDistribution
+        self._featureProbabilityDistribution = probabilityDistribution
 
     """
     Train the classifier.
     @param trainingDirectory A valid absolute path from the training directory.
     """
     def train(self, trainingDirectory):
-        self.__trainingDirectory = trainingDirectory
-        self.__generateTrainingSet()
-        self.__generateFeaturesSet()
-        self.__generateLabelProbabilityDistribution()
-        self.__generateFeatureProbabilityDistribution()
-        self.__classifier = nltk.NaiveBayesClassifier(self.__labelProbabilityDistribution, self.__featureProbabilityDistribution)
+        self._trainingDirectory = trainingDirectory
+        self._generateTrainingSet()
+        self._generateFeaturesSet()
+        self._generateLabelProbabilityDistribution()
+        self._generateFeatureProbabilityDistribution()
+        self._classifier = nltk.NaiveBayesClassifier(self._labelProbabilityDistribution, self._featureProbabilityDistribution)
 
     """ Classify an item. """
     def classify(self, item):
         item = item.lower()
-        label = self.__classifier.classify(self.__tokenizeInputToFeatures(item))
+        label = self._classifier.classify(self._tokenizeInputToFeatures(item))
         data = namedtuple('ClassifiedData', ['label', 'probability'])
-        return data(label, self.__classifier.prob_classify(self.__tokenizeInputToFeatures(item)).prob(label))
+        return data(label, self._classifier.prob_classify(self._tokenizeInputToFeatures(item)).prob(label))
 
     """ Print some demo items. """
     def demo(self):
@@ -194,6 +194,6 @@ class NaiveBayesClassifier:
             probs = {}
             data = self.classify(item)
             for label in self.labels:
-                probs[label] = round(self.__classifier.prob_classify(self.__tokenizeInputToFeatures(item.lower())).prob(label), 2)
+                probs[label] = round(self._classifier.prob_classify(self._tokenizeInputToFeatures(item.lower())).prob(label), 2)
             print '%s | %s | %s | %s' % (item, data.label, data.probability, probs)
         print '\n'

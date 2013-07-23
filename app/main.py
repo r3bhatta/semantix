@@ -1,6 +1,6 @@
 '''
 try:
-	from mercurial import demandimport; demandimport.enable()
+    from mercurial import demandimport; demandimport.enable()
 except ImportError:
     import sys
     sys.stderr.write("abort: couldn't find mercurial libraries in [%s]\n" %
