@@ -21,6 +21,12 @@
           box-sizing: @boxmodel;
 }
 
+.background-clip(@clip: border-box) {
+  -webkit-background-clip: @clip;
+     -moz-background-clip: @clip;
+          background-clip: @clip;
+}
+
 .box-shadow(@properties) {
   -webkit-box-shadow: @properties;
      -moz-box-shadow: @properties;
@@ -35,8 +41,7 @@
 
 .opacity(@value) {
   opacity: @value / 100;
-  filter: alpha(opacity=@value);
-  zoom: 1;
+  filter: ~"alpha(opacity=@{value})";
 }
 
 // User select
@@ -61,7 +66,7 @@
   }
 }
 
-.mask(...) {
+.mask(@arguments) {
   -webkit-mask: @arguments;
           mask: @arguments;
 }

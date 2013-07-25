@@ -1,5 +1,5 @@
 /* =============================================================
- * flatui-checkbox.js v0.0.1
+ * flatui-checkbox.js v0.0.2
  * ============================================================ */
  
 !function ($) {
@@ -11,47 +11,51 @@
     this.init(element, options);
   }
 
-  Checkbox.prototype.setState = function () {    
-    var d = 'disabled'
-      , ch = 'checked' 
-      , $el = this.$element
-      , $parent = $el.closest('.checkbox');
-      
-      $el['prop'](d) && $parent.addClass(d);   
-      $el['prop'](ch) && $parent.addClass(ch);
-  }
-  
-  Checkbox.prototype.toggle = function () {    
-    var d = 'disabled'
-      , ch = 'checked'
-      , $el = this.$element
-      , $parent = $el.closest('.checkbox')
-      , checked = $el['prop'](ch)
-      , e = $.Event('toggle')
+  Checkbox.prototype = {
     
-    !$el['prop'](d) && $parent.toggleClass(ch) && checked ? $el.removeAttr(ch) : $el.attr(ch, true);  
-    $el.trigger(e);   
-  }
-  
-  Checkbox.prototype.setCheck = function (option) {    
-    var d = 'disabled'
-      , ch = 'checked'
-      , $el = this.$element
-      , $parent = $el.closest('.checkbox')
-      , checkAction = option == 'check' ? true : false
-      , e = $.Event(option)
+    constructor: Checkbox
     
-    !$el['prop'](d) && $parent[checkAction ? 'addClass' : 'removeClass' ](ch) && checkAction ? $el.attr(ch, true) : $el.removeAttr(ch);  
-    $el.trigger(e);   
-  }
-  
-  Checkbox.prototype.init = function (element, options) {      
+  , init: function (element, options) {      
     var $el = this.$element = $(element)
     
     this.options = $.extend({}, $.fn.checkbox.defaults, options);      
     $el.before(this.options.template);    
-    this.setState();      
-    return this
+    this.setState(); 
+  }  
+   
+  , setState: function () {    
+      var $el = this.$element
+        , $parent = $el.closest('.checkbox');
+        
+        $el.prop('disabled') && $parent.addClass('disabled');   
+        $el.prop('checked') && $parent.addClass('checked');
+    }  
+    
+  , toggle: function () {    
+      var ch = 'checked'
+        , $el = this.$element
+        , $parent = $el.closest('.checkbox')
+        , checked = $el.prop(ch)
+        , e = $.Event('toggle')
+      
+      if ($el.prop('disabled') == false) {
+        $parent.toggleClass(ch) && checked ? $el.removeAttr(ch) : $el.attr(ch, true);
+        $el.trigger(e).trigger('change'); 
+      }
+    }  
+    
+  , setCheck: function (option) {    
+      var d = 'disabled'
+        , ch = 'checked'
+        , $el = this.$element
+        , $parent = $el.closest('.checkbox')
+        , checkAction = option == 'check' ? true : false
+        , e = $.Event(option)
+      
+      $parent[checkAction ? 'addClass' : 'removeClass' ](ch) && checkAction ? $el.attr(ch, true) : $el.removeAttr(ch);
+      $el.trigger(e).trigger('change');       
+    }  
+      
   }
 
 
@@ -76,8 +80,6 @@
     template: '<span class="icons"><span class="first-icon fui-checkbox-unchecked"></span><span class="second-icon fui-checkbox-checked"></span></span>'
   }
 
-  $.fn.checkbox.Constructor = Checkbox
-
 
  /* CHECKBOX NO CONFLICT
   * ================== */
@@ -96,6 +98,13 @@
     e && e.preventDefault() && e.stopPropagation();
     if (!$checkbox.hasClass('checkbox')) $checkbox = $checkbox.closest('.checkbox');
     $checkbox.find(':checkbox').checkbox('toggle');
+  });
+  
+  $(window).on('load', function () {
+    $('[data-toggle="checkbox"]').each(function () {
+      var $checkbox = $(this);
+      $checkbox.checkbox();
+    });
   });
 
 }(window.jQuery);

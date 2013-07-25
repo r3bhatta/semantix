@@ -9,30 +9,19 @@ $("#search").keyup(function(event){
 });
 
 $('.search-button').on('click', function(evt){
-
     var website = $("#search").val().toString();
     $('.data-wrap').addClass('hide');
-    // do some more sanity check to ensure its a valid URL before going into this
-    if(website.indexOf("www") != -1){
+    // Do some more sanity check to ensure its a valid URL.
+    if (website.indexOf("www") != -1){
         var dotOperatorAtIndex = 4;
         var websiteName = website.substring(dotOperatorAtIndex);
         websiteName = websiteName.replace(/[-./]/g,"_");
 
-        $.get("classify_business" , { business_name : JSON.stringify(websiteName) } ,
-        function(data) {
-
-            if(data === "Null"){
-                alert("Data not available for this website");
-            } else{
-
-                console.log(data)
-                data = JSON.parse(data)
-                bizType = data["businessTypeLabel"]
-                bizName = data["businessName"]
-                bizProbability = data['businessAverageProbability']
-
-                $('.data-name').html(bizName);
-                $('.data-business').html(bizType + ' - ' + bizProbability);
+        $.get("classify_business" , {business_name: JSON.stringify(websiteName)}, function(data){
+            data = JSON.parse(data)
+            if (data){
+                $('.data-name').html(data.name);
+                $('.data-business').html(data.type.label + ' - ' + data.type.probability);
                 $('.data-wrap').removeClass('hide');
             }
         });

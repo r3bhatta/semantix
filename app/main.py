@@ -1,18 +1,7 @@
-'''
-try:
-    from mercurial import demandimport; demandimport.enable()
-except ImportError:
-    import sys
-    sys.stderr.write("abort: couldn't find mercurial libraries in [%s]\n" %
-    				' '.join(sys.path))
-    sys.stderr.write("(check your install and PYTHONPATH)\n")
-    sys.exit(-1)
-'''
-
 import os
 from os import listdir
 import sys
-import collections
+from collections import namedtuple
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import settings
@@ -20,67 +9,77 @@ from parsers import jsonparser as JsonParser
 from parsers import contextparser as ContextParser
 from parsers import businesstypeparser as BusinessTypeParser
 from naivebayesclassifier.naivebayesclassifier import NaiveBayesClassifier
-import stringsimilarity
 
-WINDOWS = 'nt'
+WINDOWS = "nt"
 reload(sys)
-sys.setdefaultencoding('utf-8')     # Set default encoding to UTF to avoid conflicts with symbols.
+sys.setdefaultencoding("utf-8")     # Set default encoding to UTF to avoid conflicts with symbols.
 
-# Parse a single business, identified by input file.
-def parseBusiness(inputFile):
-    soups = JsonParser.parseData(inputFile)
-    nbc = NaiveBayesClassifier(os.path.join(settings.APP_DATA_TRAINING, 'general'))
-    return ContextParser.parseSoups(soups, nbc)
+"""
+Parses the business JSON data for a dict of labels and items.
+@return Dict where key is a label and value is an array of items for that 
+        {"label": ["item1", "item2"]}
+"""
+def parseBusinessData(parsedJSON):
+    nbc = NaiveBayesClassifier(os.path.join(settings.APP_DATA_TRAINING, "general"))
+    return ContextParser.parseSoups(parsedJSON.soups, nbc)
     # NOTE: contextMap may have repeats of similar texts, it needs to run through string comparison
     # taking bests.
 
-# Parse a single business file to identify its business type.
-def parseBusinessType(inputFile):
-    nbc = NaiveBayesClassifier(os.path.join(settings.APP_DATA_TRAINING, 'businesses'))
+"""
+Identify the business type of the business JSON data.
+@return ("Business", ["name", "type"])
+"""
+def parseBusinessType(parsedJSON):
+    nbc = NaiveBayesClassifier(os.path.join(settings.APP_DATA_TRAINING, "businesses"))
     # Our data files are .txt files for now.
-    if inputFile.endswith('.txt'):
-        jsonParsedTuple = JsonParser.parseData(inputFile, True)
-        businessTuple = collections.namedtuple('Business', ['name', 'file', 'type'])
-
-        businessTuple.name = jsonParsedTuple.name
-        businessTuple.file = inputFile
-        businessTuple.type = BusinessTypeParser.parse(inputFile, jsonParsedTuple.soups, nbc)
-        return businessTuple
+    businessTuple = namedtuple("Business", ["name", "type"])
+    businessTuple.name = parsedJSON.name
+    businessTuple.type = BusinessTypeParser.parse(parsedJSON.soups, nbc)
+    return businessTuple
 
 # Filter and prune menu items.
-def pruneMenuItems(inputFile):
-    business = parseBusiness(inputFile)
+def parseMenuItems(businessData):
     filteredMenuItems = []
-    for label, menuItems in business.items():
-        if label.label == 'menu' and label.probability >= 0.6:
+    for label, menuItems in businessData.items():
+        if label.label == "menu" and label.probability >= 0.6:
             for item in menuItems:
                 if len(item.split()) <= 5:
                     filteredMenuItems.append(item)
     filteredMenuItems = list(set(filteredMenuItems))
-    for item in filteredMenuItems:
-        print item
+    return filteredMenuItems
 
-'''
+def parse(inputFile):
+    parsedJSON = JsonParser.parseData(inputFile)
+    businessData = parseBusinessData(parsedJSON)
+    businessType = parseBusinessType(parsedJSON)
+    menuItems = parseMenuItems(businessData)
+    Business = namedtuple("Business", ["name", "type", "menu"])
+    return Business(businessType.name, businessType.type, menuItems)
+
+
+"""
 contextMap = parseBusiness(settings.CPK_DATA)
 for item in contextMap:
     print item
-'''
-business = parseBusinessType(os.path.join(settings.APP_DATA_HTML, 'townhouseny_com.txt'))
+"""
 
-print (business.file, business.type.label, business.type.probability)
+"""
+business = parse(os.path.join(settings.APP_DATA_HTML, "cpk_com.txt"))
+print business
+"""
 
-# pruneMenuItems(os.path.join(settings.APP_DATA_HTML, 'cpk_com.txt'))
+# pruneMenuItems(os.path.join(settings.APP_DATA_HTML, "cpk_com.txt"))
 
 
-# print stringsimilarity.compute('word is one', 'word is two')
+# print stringsimilarity.compute("word is one", "word is two")
 
-'''
-business = parseBusinessType(os.path.join(settings.APP_DATA_HTML, 'townhouseny_com.txt'))
+"""
+business = parseBusinessType(os.path.join(settings.APP_DATA_HTML, "townhouseny_com.txt"))
 >>>>>>> Stashed changes
 print (business.file, business.type.label, business.type.probability)
-'''
+"""
 
-'''
+"""
 results = []
 for businessFile in listdir(settings.APP_DATA_HTML):
     business = parseBusinessType(os.path.join(settings.APP_DATA_HTML, businessFile))
@@ -88,5 +87,5 @@ for businessFile in listdir(settings.APP_DATA_HTML):
         results.append((business.file, business.type.label, business.type.probability))
 for result in results:
     print result
-'''
+"""
 
