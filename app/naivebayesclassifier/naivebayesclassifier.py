@@ -217,46 +217,48 @@ class NaiveBayesClassifier:
     def demo(self):
         testingSet = {
         
-           # 'We are at 444 Weber Street, CA',
-           # 'steak bread hot dog',
-           # '888 Socks Drive, CA',
-           #'chicken broccoli',
-           # '8 oz steak',
-           # 'turkey club',
-        
-            "9:00 aM"
-            #"pm canada facebook"
-           # "8:00 AM to 9:00 PM"
-           # "6th street",
-           # "Mona Lisa"
+            'We are at 444 Weber Street, CA',
+            'steak bread hot dog',
+            '888 Socks Drive, CA',
+           'chicken broccoli',
+            '8 oz steak',
+            'turkey club',
+            "9:00 aM",
+            "pm canada facebook",
+            "8:00 AM to 9:00 PM",
+            "6th street",
+            "Mona Lisa"
             
         }
         for item in testingSet:
             probs = {}
 
             #testing
-            #item = item.lower()
-            #tokenizedInput = self._tokenizeInputToFeatures(item)
-            #trialData = self.trialClassify(tokenizedInput)
+            item = item.lower()
+            tokenizedInput = self._tokenizeInputToFeatures(item)
+
+            print "-------------------------------------------------------"
+            print "for item " + str(item)
+            trialData = self.trialClassify(tokenizedInput)
             #end testing
 
 
-            data = self.classify(item)
+            #data = self.classify(item)
 
             
             #print '%s | %s | %s ' % (item, data.label, data.probability)
             
-            
+            '''
             for label in self.labels:
                 probs[label] = round(self._classifier.prob_classify(self._tokenizeInputToFeatures(item.lower())).prob(label), 2)
             print '%s | %s | %s | %s' % (item, data.label, data.probability, probs)
-            
+            '''
             
             
         print '\n'
 
 
-    '''
+    
     def trialClassify(self, featureset):
         
         featureset = featureset.copy() 
@@ -303,5 +305,3 @@ class NaiveBayesClassifier:
 
         for label in dictprobDist.samples():
             print label + " is probability " + str(dictprobDist.prob(label))
-
-    '''
