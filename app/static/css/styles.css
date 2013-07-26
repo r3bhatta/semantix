@@ -35,6 +35,10 @@ html, body {
     margin-right: 20px;
 }
 
+.data-item .tagsinput {
+    height: 200px;
+}
+
 .noRightMargin {
     margin-right: 0;
 }

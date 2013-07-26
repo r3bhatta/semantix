@@ -8,6 +8,7 @@ from collections import defaultdict
 from os import listdir
 from os.path import isfile, join
 from collections import namedtuple
+import re
 
 """
 Example:
@@ -103,13 +104,15 @@ class NaiveBayesClassifier:
     """
     def _tokenizeInputToFeatures(self, item):
 
-        words = re.split('[ .,-]', item) # split on space, period, comma, dash
+        words = filter(None, re.split("[ .,-?!]", item))
+
         splits = {}
 
         # Location feature.
         ordinals = ['st', 'nd', 'rd', 'th']
 
         for word in words:
+
 
             if word not in self._commonwords :
 
@@ -128,6 +131,7 @@ class NaiveBayesClassifier:
                 /LOCATION FEATURES SPECIFIC.
                 """
                 splits[word] = True
+
         return splits
 
     """ Generates the features set. """
@@ -179,9 +183,7 @@ class NaiveBayesClassifier:
 
         probabilityDistribution = {}
         for ((label, name), freqDist) in frequencyDistributions.items():
-
-            #print  ((label, name), freqDist)
-            eleProbDist = ELEProbDist(freqDist, bins = len(values[name]))
+            eleProbDist = ELEProbDist(freqDist, bins=len(values[name]))
             probabilityDistribution[label, name] = eleProbDist
 
         self._featureProbabilityDistribution = probabilityDistribution

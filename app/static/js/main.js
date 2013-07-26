@@ -1,5 +1,4 @@
 
-
 // on enter while on search
 $("#search").keyup(function(event){
     var enterKey = 13
@@ -9,21 +8,34 @@ $("#search").keyup(function(event){
 });
 
 $('.search-button').on('click', function(evt){
-    var website = $("#search").val().toString();
+    var searchEl = $("#search");
+    var inputURL = searchEl.val();
     $('.data-wrap').addClass('hide');
     // Do some more sanity check to ensure its a valid URL.
-    if (website.indexOf("www") != -1){
-        var dotOperatorAtIndex = 4;
-        var websiteName = website.substring(dotOperatorAtIndex);
-        websiteName = websiteName.replace(/[-./]/g,"_");
+    if (inputURL.indexOf('www') != -1){
+        searchEl.attr('disabled', true);
+        evt.currentTarget.disabled = true;
 
-        $.get("classify_business" , {business_name: JSON.stringify(websiteName)}, function(data){
-            data = JSON.parse(data)
+        var dotOperatorAtIndex = 4;
+        inputURL = inputURL.substring(dotOperatorAtIndex).replace(/[-./]/g,"_");
+        $.get('classify_business', {business_name: JSON.stringify(inputURL)}, function(data){
+            data = JSON.parse(data);
             if (data){
                 $('.data-name').html(data.name);
-                $('.data-business').html(data.type.label + ' - ' + data.type.probability);
+                $('.data-business').html(data.type.label + ' with ' + data.type.probability + '%');
+                
+                var menuHTML = '';
+                data.menu.forEach(function(menuItem){
+                    menuHTML += '<span class="tag"><span>' + menuItem.trim() + '</span></span>';
+                });
+                menuHTML += '<input id="menuTags_tag" value="" data-default="" ' +
+                    'style="color: rgb(102, 102, 102); width: 12px;"></div></div>';
+                $('#menuTags_tagsinput').html(menuHTML);
+
                 $('.data-wrap').removeClass('hide');
             }
+            searchEl.removeAttr('disabled');
+            evt.currentTarget.disabled = false;
         });
     }
 
