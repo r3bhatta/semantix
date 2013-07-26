@@ -199,6 +199,64 @@ class NaiveBayesClassifier:
         self._classifier = nltk.NaiveBayesClassifier(self._labelProbabilityDistribution, self._featureProbabilityDistribution)
 
 
+
+    """ Classify an item. """
+    def classify(self, item):
+        item = item.lower()
+        tokenizedInput = self._tokenizeInputToFeatures(item)
+        label = self._classifier.classify(tokenizedInput)        
+
+        print "feature set is " + str(tokenizedInput)
+        print "labels are " + str (self._classifier.labels())
+
+        
+        data = namedtuple('ClassifiedData', ['label', 'probability'])
+        return data(label, self._classifier.prob_classify(tokenizedInput).prob(label))
+
+    """ Print some demo items. """
+    def demo(self):
+        testingSet = {
+        
+           # 'We are at 444 Weber Street, CA',
+           # 'steak bread hot dog',
+           # '888 Socks Drive, CA',
+           #'chicken broccoli',
+           # '8 oz steak',
+           # 'turkey club',
+        
+            "9:00 aM"
+            #"pm canada facebook"
+           # "8:00 AM to 9:00 PM"
+           # "6th street",
+           # "Mona Lisa"
+            
+        }
+        for item in testingSet:
+            probs = {}
+
+            #testing
+            #item = item.lower()
+            #tokenizedInput = self._tokenizeInputToFeatures(item)
+            #trialData = self.trialClassify(tokenizedInput)
+            #end testing
+
+
+            data = self.classify(item)
+
+            
+            #print '%s | %s | %s ' % (item, data.label, data.probability)
+            
+            
+            for label in self.labels:
+                probs[label] = round(self._classifier.prob_classify(self._tokenizeInputToFeatures(item.lower())).prob(label), 2)
+            print '%s | %s | %s | %s' % (item, data.label, data.probability, probs)
+            
+            
+            
+        print '\n'
+
+
+    '''
     def trialClassify(self, featureset):
         
         featureset = featureset.copy() 
@@ -246,57 +304,4 @@ class NaiveBayesClassifier:
         for label in dictprobDist.samples():
             print label + " is probability " + str(dictprobDist.prob(label))
 
-    """ Classify an item. """
-    def classify(self, item):
-        item = item.lower()
-        tokenizedInput = self._tokenizeInputToFeatures(item)
-        label = self._classifier.classify(tokenizedInput)        
-
-        print "feature set is " + str(tokenizedInput)
-        print "labels are " + str (self._classifier.labels())
-
-        
-        data = namedtuple('ClassifiedData', ['label', 'probability'])
-        return data(label, self._classifier.prob_classify(tokenizedInput).prob(label))
-
-    """ Print some demo items. """
-    def demo(self):
-        testingSet = {
-        
-           # 'We are at 444 Weber Street, CA',
-           # 'steak bread hot dog',
-           # '888 Socks Drive, CA',
-           #'chicken broccoli',
-           # '8 oz steak',
-           # 'turkey club',
-        
-            "9:00 aM"
-            #"pm canada facebook"
-           # "8:00 AM to 9:00 PM"
-           # "6th street",
-           # "Mona Lisa"
-            
-        }
-        for item in testingSet:
-            probs = {}
-
-            #testing
-            item = item.lower()
-            tokenizedInput = self._tokenizeInputToFeatures(item)
-            trialData = self.trialClassify(tokenizedInput)
-            #end testing
-
-
-            #data = self.classify(item)
-
-            
-            #print '%s | %s | %s ' % (item, data.label, data.probability)
-            
-            '''
-            for label in self.labels:
-                probs[label] = round(self._classifier.prob_classify(self._tokenizeInputToFeatures(item.lower())).prob(label), 2)
-            print '%s | %s | %s | %s' % (item, data.label, data.probability, probs)
-            '''
-            
-            
-        print '\n'
+    '''
