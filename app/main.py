@@ -29,14 +29,14 @@ sys.setdefaultencoding('utf-8')     # Set default encoding to UTF to avoid confl
 # Parse a single business, identified by input file.
 def parseBusiness(inputFile):
     soups = JsonParser.parseData(inputFile)
-    nbc = NaiveBayesClassifier(os.path.join(settings.APP_DATA_TRAINING, 'general'))
+    nbc = NaiveBayesClassifier(os.path.join(settings.APP_DATA_TRAINING, 'general'), settings.APP_DATA_COMMON_WORDS)
     return ContextParser.parseSoups(soups, nbc)
     # NOTE: contextMap may have repeats of similar texts, it needs to run through string comparison
     # taking bests.
 
 # Parse a single business file to identify its business type.
 def parseBusinessType(inputFile):
-    nbc = NaiveBayesClassifier(os.path.join(settings.APP_DATA_TRAINING, 'businesses'))
+    nbc = NaiveBayesClassifier(os.path.join(settings.APP_DATA_TRAINING, 'businesses'),settings.APP_DATA_COMMON_WORDS)
     # Our data files are .txt files for now.
     if inputFile.endswith('.txt'):
         jsonParsedTuple = JsonParser.parseData(inputFile, True)
@@ -60,8 +60,17 @@ def pruneMenuItems(inputFile):
     for item in filteredMenuItems:
         print item
 
-business = parseBusinessType(os.path.join(settings.APP_DATA_HTML, 'partymixnyc_com.txt'))
-print (business.file, business.type.label, business.type.probability)
+#business = parseBusinessType(os.path.join(settings.APP_DATA_HTML, 'partymixnyc_com.txt'))
+#print (business.file, business.type.label, business.type.probability)
+
+#business = parseBusiness(os.path.join(settings.APP_DATA_HTML, "alexandregallery_com.txt"))
+nbc = NaiveBayesClassifier(os.path.join(settings.APP_DATA_TRAINING, 'general'), settings.APP_DATA_COMMON_WORDS)
+nbc.demo();
+'''
+for key in business:
+    print "-----------------------------------------------------------------"
+    print key
+'''
 
 '''
 results = []

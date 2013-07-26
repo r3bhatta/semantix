@@ -1,13 +1,7 @@
- apartment-style 
- sofa
- traveler
-guests
-internet
-spacious
-wireless
 accommodation
 accommodations
 alcove
+apartment-style
 balcony
 bathroom
 bed
@@ -24,9 +18,11 @@ extended
 feet
 guest
 guestroom
-high-speed 
+guests
+high-speed
 hotel
 in
+internet
 king
 linens
 long-term
@@ -49,12 +45,15 @@ room
 rooms
 sink
 skyline
+sofa
+spacious
 spectacular
 square
 suite
 suites
 tile
 toaster
+traveler
 travelers
 two-bedroom
 utensils
@@ -63,3 +62,4 @@ view
 views
 wi-fi
 wifi
+wireless
