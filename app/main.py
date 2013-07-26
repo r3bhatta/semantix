@@ -9,6 +9,7 @@ from parsers import jsonparser as JsonParser
 from parsers import contextparser as ContextParser
 from parsers import businesstypeparser as BusinessTypeParser
 from naivebayesclassifier.naivebayesclassifier import NaiveBayesClassifier
+import re
 
 WINDOWS = "nt"
 reload(sys)
@@ -39,39 +40,60 @@ def parseBusinessType(parsedJSON):
 
 # Filter and prune menu items.
 def parseMenuItems(businessData):
-    filteredMenuItems = []
+    parsedMenuItems = []
     for label, menuItems in businessData.items():
         if label.label == "menu" and label.probability >= 0.6:
             for item in menuItems:
                 if len(item.split()) <= 5:
-                    filteredMenuItems.append(item)
-    filteredMenuItems = list(set(filteredMenuItems))
-    return filteredMenuItems
+                    parsedMenuItems.append(item)
+    parsedMenuItems = list(set(parsedMenuItems))
+    return parsedMenuItems
+
+def saveTrainingFileToSet(inputFile):
+    results = set()
+    with open(inputFile) as inputFile:
+        lines = inputFile.readlines()
+        for line in lines:
+            for token in line.split():
+                results.add(token)
+    return results
+
+def parseLocations(businessData):
+    # Read in countries and state information.
+    countries = saveTrainingFileToSet(os.path.join(settings.APP_DATA_TRAINING, \
+        "general/location/countries"))
+    states = saveTrainingFileToSet(os.path.join(settings.APP_DATA_TRAINING, \
+        "general/location/states"))
+    # The threshold the string has to hit before we accept it as a valid location.
+    threshold = 4
+
+    uniqueLocations = set()
+    parsedLocations = []
+    for label, locations in businessData.items():
+        if label.label == "location":
+            for location in locations:
+                currentThreshold = 0
+                tokenized = filter(None, re.split("[ .,-?!]", location))
+                if location not in uniqueLocations and 4 <= len(tokenized) <= 10:
+                    uniqueLocations.add(location)
+                    for token in tokenized:
+                        if token in countries: currentThreshold += 1
+
+                    print "%s, %s, %s" % (location, label.probability, len(tokenized))
 
 def parse(inputFile):
     parsedJSON = JsonParser.parseData(inputFile)
     businessData = parseBusinessData(parsedJSON)
     businessType = parseBusinessType(parsedJSON)
+    locations = parseLocations(businessData)
     menuItems = parseMenuItems(businessData)
     Business = namedtuple("Business", ["name", "type", "menu"])
     return Business(businessType.name, businessType.type, menuItems)
 
+# business = parse(os.path.join(settings.APP_DATA_HTML, "cpk_com.txt"))
 
-"""
-contextMap = parseBusiness(settings.CPK_DATA)
-for item in contextMap:
-    print item
-"""
-
-"""
-business = parse(os.path.join(settings.APP_DATA_HTML, "cpk_com.txt"))
-print business
-"""
-
-# pruneMenuItems(os.path.join(settings.APP_DATA_HTML, "cpk_com.txt"))
-
-
-# print stringsimilarity.compute("word is one", "word is two")
+#nbc = NaiveBayesClassifier(os.path.join(settings.APP_DATA_TRAINING, "general"))
+#nbc.demo()
 
 """
 business = parseBusinessType(os.path.join(settings.APP_DATA_HTML, "townhouseny_com.txt"))

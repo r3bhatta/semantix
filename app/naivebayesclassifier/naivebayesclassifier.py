@@ -7,6 +7,7 @@ from collections import defaultdict
 from os import listdir
 from os.path import isfile, join
 from collections import namedtuple
+import re
 
 """
 Example:
@@ -86,13 +87,14 @@ class NaiveBayesClassifier:
     value of true.
     """
     def _tokenizeInputToFeatures(self, item):
-        words = item.split()
+        words = filter(None, re.split("[ .,-?!]", item))
         splits = {}
 
         # Location feature.
         ordinals = ['st', 'nd', 'rd', 'th']
 
         for word in words:
+            word = word.strip()
             """
             LOCATION FEATURES SPECIFIC.
             """
@@ -153,7 +155,7 @@ class NaiveBayesClassifier:
                 values[token].add(True)
         probabilityDistribution = {}
         for ((label, name), freqDist) in frequencyDistributions.items():
-            eleProbDist = ELEProbDist(freqDist, bins = len(values[name]))
+            eleProbDist = ELEProbDist(freqDist, bins=len(values[name]))
             probabilityDistribution[label, name] = eleProbDist
 
         self._featureProbabilityDistribution = probabilityDistribution
