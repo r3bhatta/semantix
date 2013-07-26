@@ -9,12 +9,11 @@
   position: relative;
   .transition(color .25s linear);
   
-  input[data-toggle="checkbox"],
-  input[data-toggle="radio"] {
+  input {
     outline: none !important;
     display: none;
   }
-  
+
   // Replace icons
   // --------------------------------------------------
   .icons {
@@ -29,95 +28,95 @@
     line-height: 20px;
     font-size: 20px;
     .transition(color .25s linear);
-    
+
     .first-icon-icon,
-    .second-icon { 
+    .second-icon {
       position: absolute;
       left: 0;
       top: 0;
-      .opacity(100); 
+      .opacity(100);
     }
     .second-icon {
-      .opacity(0); 
+      .opacity(0);
     }
   }
-  
+
   // Alternate States
   // --------------------------------------------------
-  
+
   // Hover State
   &:hover {
     .first-icon {
-      .opacity(0); 
+      .opacity(0);
     }
-    .second-icon {            
-      .opacity(100); 
+    .second-icon {
+      .opacity(100);
     }
   }
-  
+
   // Checked State
   &.checked {
     color: @link-color;
-    
-    .icons {      
+
+    .icons {
       color: @firm;
     }
     .first-icon {
-      .opacity(0); 
+      .opacity(0);
     }
-    .second-icon {            
-      .opacity(100); 
+    .second-icon {
+      .opacity(100);
     }
   }
-  
+
   // Disabled state
-  &.disabled {    
+  &.disabled {
     cursor: default;
     color: mix(@lightgray, white, 38%);
-    
+
     .icons {
       color: mix(@lightgray, white, 38%);
     }
-    .first-icon {            
-      .opacity(100); 
+    .first-icon {
+      .opacity(100);
     }
     .second-icon {
-      .opacity(0); 
+      .opacity(0);
     }
     &.checked {
       .icons {
         color: mix(@lightgray, white, 38%);
       }
-      .first-icon {            
-        .opacity(0); 
+      .first-icon {
+        .opacity(0);
       }
       .second-icon {
-        .opacity(100); 
+        .opacity(100);
       }
     }
-  } 
-  
+  }
+
   // Alternate Color
   // --------------------------------------------------
-  
+
   // Primary
   &.primary {
     .icons {
-      color: @base; 
-    }    
+      color: @base;
+    }
     // Checked State
     &.checked {
       color: @link-color;
-      
+
       .icons {
         color: @firm;
       }
     }
     // Disabled state
-    &.disabled {    
+    &.disabled {
       cursor: default;
       color: @lightgray;
-      
+
       .icons {
         color: @lightgray;
       }

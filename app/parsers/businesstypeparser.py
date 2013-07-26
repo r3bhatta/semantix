@@ -44,7 +44,7 @@ def highestFrequency(labels):
 """
 Get the business type of the business file.
 """
-def parse(businessFile, soups, nbc):
+def parse(soups, nbc):
     labels = []
     for soup in soups:
         print "------------------------------------------------------------------------------"

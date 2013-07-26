@@ -1,7 +1,7 @@
 // Some general UI pack related JS
 // Extend JS String with repeat method
 String.prototype.repeat = function(num) {
-    return new Array(num + 1).join(this);
+  return new Array(num + 1).join(this);
 };
 
 (function($) {
@@ -37,40 +37,55 @@ String.prototype.repeat = function(num) {
 
     // jQuery UI Sliders
     var $slider = $("#slider");
-    $slider.slider({
-      min: 1,
-      max: 5,
-      value: 3,
-      orientation: "horizontal",
-      range: "min"
-    }).addSliderSegments($slider.slider("option").max);
+    if ($slider.length > 0) {
+      $slider.slider({
+        min: 1,
+        max: 5,
+        value: 3,
+        orientation: "horizontal",
+        range: "min"
+      }).addSliderSegments($slider.slider("option").max);
+    }
 
     var $slider2 = $("#slider2");
-    $slider2.slider({
-      min: 1,
-      max: 5,
-      values: [3, 4],
-      orientation: "horizontal",
-      range: true
-    }).addSliderSegments($slider2.slider("option").max);
+    if ($slider2.length > 0) {
+      $slider2.slider({
+        min: 1,
+        max: 5,
+        values: [3, 4],
+        orientation: "horizontal",
+        range: true
+      }).addSliderSegments($slider2.slider("option").max);
+    }
 
     var $slider3 = $("#slider3")
       , slider3ValueMultiplier = 100
       , slider3Options;
-    $slider3.slider({
-      min: 1,
-      max: 5,
-      values: [3, 4],
-      orientation: "horizontal",
-      range: true,
-      slide: function(event, ui) {
-        $slider3.find(".ui-slider-value:first").text("$" + ui.values[0] * slider3ValueMultiplier).end()
-                .find(".ui-slider-value:last").text("$" + ui.values[1] * slider3ValueMultiplier);
-      }
-    });
-    slider3Options = $slider3.slider("option");    
-    $slider3.addSliderSegments(slider3Options.max).find(".ui-slider-value:first").text("$" + slider3Options.values[0] * slider3ValueMultiplier).end()
-            .find(".ui-slider-value:last").text("$" + slider3Options.values[1] * slider3ValueMultiplier);
+
+    if ($slider3.length > 0) {
+      $slider3.slider({
+        min: 1,
+        max: 5,
+        values: [3, 4],
+        orientation: "horizontal",
+        range: true,
+        slide: function(event, ui) {
+          $slider3.find(".ui-slider-value:first")
+            .text("$" + ui.values[0] * slider3ValueMultiplier)
+            .end()
+            .find(".ui-slider-value:last")
+            .text("$" + ui.values[1] * slider3ValueMultiplier);
+        }
+      });
+
+      slider3Options = $slider3.slider("option");
+      $slider3.addSliderSegments(slider3Options.max)
+        .find(".ui-slider-value:first")
+        .text("$" + slider3Options.values[0] * slider3ValueMultiplier)
+        .end()
+        .find(".ui-slider-value:last")
+        .text("$" + slider3Options.values[1] * slider3ValueMultiplier);
+    }
 
     // Add style class name to a tooltips
     $(".tooltip").addClass(function() {
@@ -92,23 +107,24 @@ String.prototype.repeat = function(num) {
     });
 
     // Disable link clicks to prevent page scrolling
-    $('a[href="#fakelink""]').on('click', function (e) {
+    $('a[href="#fakelink"]').on('click', function (e) {
       e.preventDefault();
     });
-    
+
     // jQuery UI Spinner
     $.widget( "ui.customspinner", $.ui.spinner, {
+      widgetEventPrefix: $.ui.spinner.prototype.widgetEventPrefix,
       _buttonHtml: function() { // Remove arrows on the buttons
         return "" +
-  			"<a class='ui-spinner-button ui-spinner-up ui-corner-tr'>" +
-  				"<span class='ui-icon " + this.options.icons.up + "'></span>" +
-  			"</a>" +
-  			"<a class='ui-spinner-button ui-spinner-down ui-corner-br'>" +
-  				"<span class='ui-icon " + this.options.icons.down + "'></span>" +
-  			"</a>";
+        "<a class='ui-spinner-button ui-spinner-up ui-corner-tr'>" +
+          "<span class='ui-icon " + this.options.icons.up + "'></span>" +
+        "</a>" +
+        "<a class='ui-spinner-button ui-spinner-down ui-corner-br'>" +
+          "<span class='ui-icon " + this.options.icons.down + "'></span>" +
+        "</a>";
       }
     });
-    
+
     $('#spinner-01').customspinner({
       min: -99,
       max: 99
@@ -139,33 +155,33 @@ String.prototype.repeat = function(num) {
         , toggle = e.type == 'toggle'
         , checkboxes = $('.table tbody :checkbox')
         , checkAll = checkboxes.length == checkboxes.filter(':checked').length
-        
+
       $this.closest('tr')[check ? 'addClass' : 'removeClass']('selected-row');
       if (toggle) $this.closest('.table').find('.toggle-all :checkbox').checkbox(checkAll ? 'check' : 'uncheck');
     });
 
     // jQuery UI Datepicker
-    $('#datepicker-01').datepicker({
+    var datepickerSelector = '#datepicker-01';
+    $(datepickerSelector).datepicker({
       showOtherMonths: true,
       selectOtherMonths: true,
       dateFormat: "d MM, yy",
       yearRange: '-1:+1'
     }).prev('.btn').on('click', function (e) {
       e && e.preventDefault();
-      $('#datepicker-01').focus();
+      $(datepickerSelector).focus();
     });
-    $.extend($.datepicker, {_checkOffset:function(inst,offset,isFixed){return offset}});
 
-    // Custom checkboxes
-    $('[data-toggle="checkbox"]').checkbox();
-
-    // Custom radios
-    $('[data-toggle="radio"]').radio();
+    // Now let's align datepicker with the prepend button
+    $(datepickerSelector).datepicker('widget').css({'margin-left': -$(datepickerSelector).prev('.btn').outerWidth() - 2});
 
     // Switch
     $("[data-toggle='switch']").wrap('<div class="switch" />').parent().bootstrapSwitch();
 
     // Stackable tables
     $(".table-striped").stacktable({id: "rwd-table"});
+
+    // make code pretty
+    window.prettyPrint && prettyPrint()
   });
 })(jQuery);
