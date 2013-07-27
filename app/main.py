@@ -89,7 +89,7 @@ def parse(inputFile):
     return Business(businessType.name, businessType.type, businessData, menuItems)
 
 
-business = parse(os.path.join(settings.APP_DATA_HTML, "alexandregallery_com.txt"))
+business = parse(os.path.join(settings.APP_DATA_HTML, "escada_com.txt"))
 print business.name
 print business.type
 
