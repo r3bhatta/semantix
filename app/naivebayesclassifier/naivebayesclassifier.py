@@ -1,6 +1,6 @@
 import os, sys, re
 from nltk.probability import ELEProbDist, FreqDist, DictionaryProbDist, sum_logs, _NINF
-from collections import defaultdict,namedtuple
+from collections import defaultdict, namedtuple
 from os import listdir
 from os.path import isfile, join
 
@@ -27,7 +27,7 @@ class NaiveBayesClassifier:
             raise Exception('Please input an absolute path training directory.')
 
         # Start training.
-        self._commonwords = self._getCommonWords(commonWordsDirectory)
+        self._commonWords = self._getCommonWords(commonWordsDirectory)
         self._trainingDirectory = trainingDirectory
         self.train(self._trainingDirectory)
 
@@ -42,18 +42,20 @@ class NaiveBayesClassifier:
         for item, labels in trainingSet.items():
             self._trainingSet[item].extend(labels)
 
-    '''returns a list of common words extracted from the common words directory'''
-    '''ensures that none of the tokens in the training or input get higher ratings based on common words'''
+    """
+    Ensures that common words are not considered to avoid under representing matched words.
+    @returns A list of common words extracted from the common words directory.
+    """
     def _getCommonWords(self, commonWordsDirectory):
-        commonwords = [] 
-        for root,dirs,files in os.walk(commonWordsDirectory):
+        commonWords = [] 
+        for root, dirs, files in os.walk(commonWordsDirectory):
             for file in files:
                 if file.endswith(".txt"):
                     f = open(os.path.join(commonWordsDirectory,file), 'r')
                     for line in f:
-                        commonwords.append(line.strip('\r\n') )
+                        commonWords.append(line.strip('\r\n') )
                     f.close()
-        return commonwords
+        return commonWords
 
     """
     Train the classifier by iterating through the folder that contains the data.
@@ -70,7 +72,8 @@ class NaiveBayesClassifier:
         ignores = ['.DS_Store']
         trainingDirectory = self._trainingDirectory
 
-        # Loop through each folder name for the training folder. The folder name corresponds to a label.
+        # Loop through each folder name for the training folder. 
+        # The folder name corresponds to a label.
         for label in listdir(trainingDirectory):
             if label not in ignores:
                 # Add the folder name as a 'label'.
@@ -84,41 +87,33 @@ class NaiveBayesClassifier:
                     # Update the training set dictionary with the training set from the file.
                     self._updateTrainingSet(absFileName, label)
 
-    """ Check if a string is an integer. """
-    def _isInt(self, s):
-        try: 
-            int(s)
-            return True
-        except ValueError:
-            return False
-
     """
     Tokenize the input, perform some label specific feature work, and assign to kvp with
     value of true.
     Generates the features set for the input data
     """
     def _tokenizeInputToFeatures(self, item):
-
         words = filter(None, re.split("[ ?!.,-]", item))
         splits = {}
 
         # Location feature.
         ordinals = ['st', 'nd', 'rd', 'th']
+        numOrdinals = 1
 
         for word in words:
-            if word not in self._commonwords :
-
+            if word not in self._commonWords:
                 """
                 LOCATION FEATURES SPECIFIC.
                 """
-                # Consider all numbers as one category for location. 10 because full address is about
-                # 10 tokens.
-                if self._isInt(word) and len(words) < 10:
+                # Consider all numbers as one category for location. 10 because full address is
+                # about 10 tokens.
+                if word.isdigit() and len(words) < 10:
                     word = 'number'
                 elif len(word) > 2:
                     # Check if this word is an ordinal number like '1st' for location feature.
-                    if word[-2:] in ordinals and self._isInt(word[:-2]):
-                        word = 'ordinal'
+                    if word[-2:] in ordinals and word[:-2].isdigit():
+                        word = 'ordinal' + str(numOrdinals)
+                        numOrdinals += 1
                 """
                 /LOCATION FEATURES SPECIFIC.
                 """
@@ -139,7 +134,7 @@ class NaiveBayesClassifier:
             tokens = re.split('[ .,-]', text) # split on space, period, comma, dash
             for token in tokens:
 
-                if token not in self._commonwords :
+                if token not in self._commonWords:
                     if token not in featuresSet:
                         featuresSet[token] = generateDefaultFreq()
                     # Loop through all labels associated with this feature.
@@ -178,22 +173,28 @@ class NaiveBayesClassifier:
         self._generateFeatureProbabilityDistribution()
 
 
-    """ Classify an item"""
-    """ returns a tuple of best classified label with its probability"""
+    """
+    Classifies an item.
+    @return A tuple of best classified label with its probability.
+    """
     def classify(self, input): 
-
         input = input.lower()
         inputFeatureSet = self._tokenizeInputToFeatures(input)
         classifiedDataTuple = namedtuple('ClassifiedData', ['label', 'probability'])
 
-        probabilityDistribution = self.prob_classify(inputFeatureSet)
-        label = probabilityDistribution.max()                       # max is taking the label with highest probability
-        probability = probabilityDistribution.prob(label)           # getting its probability
+        probabilityDistribution = self._prob_classify(inputFeatureSet)
+        # Max is taking the label with the highest probability.
+        label = probabilityDistribution.max()
+        # Get the probability.
+        probability = probabilityDistribution.prob(label)
 
         return classifiedDataTuple(label, probability)
 
-    def prob_classify(self, featureset):
-    
+    """
+    Overwrites _prob_classify of nltk so that we can force label frequencies to be empty, otherwise
+    label frequencies will skew our results in favor of which label has the most trained data.
+    """
+    def _prob_classify(self, featureset):
         featureset = featureset.copy() 
         for fname in featureset.keys(): 
             for label in self.labels: 
@@ -234,11 +235,12 @@ class NaiveBayesClassifier:
 
         return dictprobDist
 
-
-    """ Print some demo items. """
+    """
+    Print some demo items.
+    """
     def demo(self):
         testingSet = {
-            
+            "1st Street and 2nd Street, Canada",
             'We are at 444 Weber Street, CA',
             'steak bread hot dog',
             '888 Socks Drive, CA',
@@ -251,8 +253,8 @@ class NaiveBayesClassifier:
             "6th street",
             "Mona Lisa",
              "Margaret Magnetic North: The Landscapes of Tom Uttech Milwaukee: Milwaukee Art Museum"
-            
         }
+
         for item in testingSet:
             probs = {}
         
@@ -261,9 +263,11 @@ class NaiveBayesClassifier:
             item = item.lower()
             featureset = self._tokenizeInputToFeatures(item)
 
-            probabilityDistribution = self.prob_classify(featureset)
-            label = probabilityDistribution.max()                       # max is taking the label with highest probability
-            probability = probabilityDistribution.prob(label)           # getting its probability
+            probabilityDistribution = self._prob_classify(featureset)
+            # Max is taking the label with highest probability.
+            label = probabilityDistribution.max()
+            # Getting its probability.
+            probability = probabilityDistribution.prob(label)
 
             for labelItem in probabilityDistribution.samples():
                 probs[labelItem] = str(probabilityDistribution.prob(labelItem))
