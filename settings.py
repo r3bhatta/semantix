@@ -13,4 +13,5 @@ CPK_DATA = os.path.join(APP_DATA_HTML, 'cpk_com.txt')
 
 
 ###### ADDRESSES SPLIT BY STATE/COUNTRIES/KEYWORDS
-ADDRESSES = os.path.join(APP_DATA, 'ADDRESSES')
+ADDRESSES = os.path.join(APP_DATA, 'addresses')
+
