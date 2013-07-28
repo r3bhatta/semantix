@@ -1,7 +1,7 @@
 import os
 from os import listdir
 import sys
-from collections import namedtuple
+from collections import defaultdict, namedtuple
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import settings
@@ -46,17 +46,9 @@ def parseBusinessType(parsedJSON):
     businesstuple.type = BusinessTypeParser.parse(parsedJSON.soups, nbc)
     return businesstuple
 
-# Filter and prune menu items.
-def parseMenuItems(businessData):
-    parsedMenuItems = []
-    for label, menuItems in businessData.items():
-        if getLabel(label.label) == "menu" and label.probability >= 0.6:
-            for item in menuItems:
-                if len(item.split()) <= 5:
-                    parsedMenuItems.append(item)
-    parsedMenuItems = list(set(parsedMenuItems))
-    return parsedMenuItems
-
+"""
+Saves a training file to a set to use as a keyword match when parsing.
+"""
 def saveTrainingFileToSet(inputFile):
     results = set()
     with open(inputFile) as inputFile:
@@ -66,119 +58,164 @@ def saveTrainingFileToSet(inputFile):
                 results.add(token)
     return results
 
-def parseLocations(businessData):
+"""
+Called by parseLabels. Parsing locations is a bit more convoluted for now.
+"""
+def parseLocations(extrainfo, item):
+    threshold = 4
+    tokenized = filter(None, re.split("[ .,-]", item))
+    if 4 <= len(tokenized) <= 10:
+        # A dict of thresholds to map points.
+        thresholds = {}
+        for token in tokenized:
+            token = token.lower()
+            if token in extrainfo["countries"] and "countries" not in thresholds: 
+                thresholds["countries"] = 1 
+            if token in extrainfo["states"] and "states" not in thresholds:
+                thresholds["states"] = 1
+            if token.isdigit():
+                if "number" not in thresholds:
+                    thresholds["number"] = 1
+                if len(token) is 5 and "postalcode" not in thresholds: 
+                    thresholds["postalcode"] = 1
+            if token in extrainfo["keywords"] and "keywords" not in thresholds:
+                thresholds["keywords"] = 1
+        totalValue = 0
+        for key, value in thresholds.items():
+            totalValue += value
+        if totalValue >= 4:
+            return item
+    return None
+
+"""
+Given the business data and the type, split the data into correct labels.
+Eg. Given www.escada.com, get data for clothing, locations, and hours.
+Returns a default dict:
+    {"apparel": [ ... ], "locations": [ ... ], "hours": [ ... ]}
+"""
+def parseLabels(businessData, businesstype):
+    # Some data to check keywords against.
     # Read in countries and state information.
     countries = saveTrainingFileToSet(os.path.join(settings.ADDRESSES, "countries"))
     states = saveTrainingFileToSet(os.path.join(settings.ADDRESSES, "states"))
     keywords = saveTrainingFileToSet(os.path.join(settings.ADDRESSES, "keywords"))
-    # The threshold the string has to hit before we accept it as a valid location.
-    threshold = 4
+    extrainfo = {"countries": countries, "states": states, "keywords": keywords}
 
-    uniqueLocations = set()
-    parsedLocations = []
-    for label, locations in businessData.items():
-        if getLabel(label.label) == "location":
-            for location in locations:
-                tokenized = filter(None, re.split("[ .,-]", location))
-                if location not in uniqueLocations and 4 <= len(tokenized) <= 10:
-                    # A dict of thresholds to map points.
-                    thresholds = {}
-                    uniqueLocations.add(location)
-                    for token in tokenized:
-                        token = token.lower()
-                        if token in countries and "countries" not in thresholds: 
-                            thresholds["countries"] = 1 
-                        if token in states and "states" not in thresholds:
-                            thresholds["states"] = 1
-                        if token.isdigit():
-                            if "number" not in thresholds:
-                                thresholds["number"] = 1
-                            if len(token) is 5 and "postalcode" not in thresholds: 
-                                thresholds["postalcode"] = 1
-                        if token in keywords and "keywords" not in thresholds:
-                            thresholds["keywords"] = 1
-                    totalValue = 0
-                    for key, value in thresholds.items():
-                        totalValue += value
-                    if totalValue >= 4:
-                        parsedLocations.append(location)
-    return locations
-
-def getLabel(label):
-    if ":" in label:
-        return label[:label.index(":")]
-    return label
+    parseditems = defaultdict(list)
+    properties = parsePropertiesMapping(businesstype.type.label)
+    for type, items in businessData.items():
+        if type.label in properties:
+            if type.probability >= properties[type.label]["probability"]:
+                for item in items:
+                    if type.label == "location":
+                        location = parseLocations(extrainfo, item)
+                        if location is not None:
+                            parseditems[type.label].append(item)
+                    elif len(item.split()) <= properties[type.label]["itemlength"]:
+                        parseditems[type.label].append(item)
+    for label, items in parseditems.items():
+        items = list(set(items))
+    return parseditems
 
 """
-Sets up the mapping from training labels to specific general data.
-Eg. "museum_gallery": ["art", "hours", "location", "noise"]
-This is a bit more complicated than described.
+Returns mapping of a label (business type like "museum_gallery") to its corresponding "general" 
+training directories.
+Eg. "museum_gallery" ==> ["art", "hours", "location", "noise"]
 """
-def mapping():
-    ignores = [".DS_Store"]
+def labelToDirsMapping(label):
+    defaultdirs = ["hours", "location", "noise"]
+    trainingdirs = []
+    if label == "museum_gallery": 
+        trainingdirs.append("art")
+    if label == "apparel": 
+        trainingdirs.append("clothing")
+    if label == "restaurant":
+        trainingdirs.append("menu")
+    trainingdirs.extend(defaultdirs)
+    return trainingdirs
 
-    defaulttraining = ["hours", "location", "noise"]
-    mapping = {}
-    businessFolder = os.path.join(settings.APP_DATA_TRAINING, "businesses")
-    for businessType in listdir(businessFolder):
-        if businessType not in ignores:
-            typetraining = []
-            if businessType == "museum_gallery": typetraining.extend(["art"])
-            if businessType == "apparel": typetraining.extend(["clothing"])
-            if businessType == "restaurant": typetraining.extend(["menu"])
-            typetraining.extend(defaulttraining)
-            mapping[businessType] = typetraining
-    return mapping
+"""
+Given a label (business type like "museum_gallery"), return a mapping to its "general" data 
+counterpart and the parsing properties such as:
+    probability threshold
+    max item length (in tokens)
+Eg. "museum_gallery" ==> 
+        returns {"art": {"probability": 0.7, "itemlength": 10},
+                 "hours": {"probability": 0.6, "itemlength": 5},
+                 "location": {"probability": 0.6, "itemlength": 10}}
+"""
+def parsePropertiesMapping(label):
+    def createProperties(probability, itemlength):
+        return {
+            "probability": probability,
+            "itemlength": itemlength
+        }
 
+    properties = {}
+    if label == "museum_gallery":
+        properties["art"] = createProperties(0.7, 10)
+    if label == "apparel":
+        properties["clothing"] = createProperties(0.7, 15)
+    if label == "restaurant":
+        properties["menu"] = createProperties(0.5, 5)
+
+    properties["hours"] = createProperties(0.6, 5)
+    properties["location"] = createProperties(0.6, 10)
+    
+    return properties
+
+"""
+Takes in an input path and returns a namedtuple.
+"labels" contain all the information:
+    {"location": [...], "clothing": [...], ... }
+"""
 def parse(inputFile):
-    typemapping = mapping()
     parsedJSON = JsonParser.parseData(inputFile)
     businesstype = parseBusinessType(parsedJSON)
 
     # Obtain the correct general training folder mappings.
     label = businesstype.type.label
-
-    # label = "museum_gallery:museum_gallery", so we have to split on first ":".
-    traininglabels = typemapping[getLabel(label)]
+    trainingdirs = labelToDirsMapping(label)
     generalpath = os.path.join(settings.APP_DATA_TRAINING, "general")
 
-    # The training folders to be passed into the NBC.
-    trainingfolders = []
-    for generallabel in listdir(generalpath):
-        if generallabel in traininglabels:
-            trainingfolders.append(os.path.join(generalpath, generallabel))
+    # The training paths to be passed into the NBC.
+    trainingpaths = []
+    for dir in trainingdirs:
+        trainingpaths.append(os.path.join(generalpath, dir))
 
-    businessData = parseBusinessData(parsedJSON, trainingfolders)
+    businessData = parseBusinessData(parsedJSON, trainingpaths)
 
-    # So I still need to generalize these things here, since not all businesses will need to parse
-    # menu. 
-    locations = parseLocations(businessData)
-    menuItems = parseMenuItems(businessData)
-    Business = namedtuple("Business", ["name", "type", "data", "menu", "locations"])
-    return Business(businesstype.name, businesstype.type, businessData, menuItems, locations)
+    labels = parseLabels(businessData, businesstype)
 
+    Business = namedtuple("Business", ["name", "type", "data", "labels"])
+    return Business(businesstype.name, businesstype.type, businessData, labels)
 
-
-
+"""
 business = parse(os.path.join(settings.APP_DATA_HTML, "escada_com.txt"))
+for label, items in business.labels.items():
+    print label
+    print "\n"
+    print items
+    print "\n\n"
+"""
 
+"""
 print business.name
 print business.type
 # Prints out all attributes from general that have been classified.
 for key, value in business.data.items():
     print "----------------------------------------"
     print key, list(set(value))
-
+"""
 
 def demo():
     generalpath = os.path.join(settings.APP_DATA_TRAINING, "general")
     trainingfolders = []
     for generallabel in listdir(generalpath):
-        if generallabel in ["menu", "location", "noise", "hours","clothing"]:
+        if generallabel in ["menu", "location", "noise", "hours", "clothing"]:
             trainingfolders.append(os.path.join(generalpath, generallabel))
     nbc = NaiveBayesClassifier(trainingfolders, settings.APP_DATA_COMMON_WORDS)
     nbc.demo()
 
 #demo()
-
 
