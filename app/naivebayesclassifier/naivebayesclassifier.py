@@ -34,19 +34,6 @@ class NaiveBayesClassifier:
         self._generateFeatureProbabilityDistribution()
 
     """
-    Creates and returns a training set (dictionary) from one data file belonging to a label.
-    """
-    def _updateTrainingSet(self, filename, label):
-        trainingset = defaultdict(list)
-        with open(filename) as trainingfile:
-            lines = trainingfile.readlines()
-            for line in lines:
-                trainingset[line.strip()].append(label)
-        # Add the new features:labels to the training set.
-        for item, labels in trainingset.items():
-            self._trainingset[item].extend(labels)
-
-    """
     Ensures that common words are not considered to avoid under representing matched words.
     @returns A list of common words extracted from the common words directory.
     """
@@ -125,15 +112,12 @@ class NaiveBayesClassifier:
 
         featuresset = {}
         for text, labels in self._trainingset.items():
-            # Split on these characters.
-            tokens = re.split('[ .,-]', text)
-            for token in tokens:
-                if token not in self._commonwords:
-                    if token not in featuresset:
-                        featuresset[token] = generateDefaultFreq()
-                    # Loop through all labels associated with this feature.
-                    for label in labels:
-                        featuresset[token][label] += 1
+            if text not in self._commonwords:
+                if text not in featuresset:
+                    featuresset[text] = generateDefaultFreq()
+                # Loop through all labels associated with this feature.
+                for label in labels:
+                    featuresset[text][label] += 1
         self._featuresset = featuresset
 
     """
@@ -238,18 +222,17 @@ class NaiveBayesClassifier:
             "8:00 AM to 9:00 PM",
             "6th street",
             "Mona Lisa",
-             "Margaret Magnetic North: The Landscapes of Tom Uttech Milwaukee: Milwaukee Art Museum",
-             "Chicken & Shrimp",
-             "New Jersey - Cherry Hill Mall",
-             "CPKids Fundraisers & Activities",
-             "From a legendary pizza to a global brand",
-             "Seasonal Selection - Artichoke & Broccoli",
-             "California Pizza Kitchen - About Catering & Events",
-             "LA Food Show Grill & Bar Opens in Beverly Hills, California",
-             "Pizza & The Presidency: National Survey Reveals Leading Candidates and America's Dining Preferences"
+            "Margaret Magnetic North: The Landscapes of Tom Uttech Milwaukee: Milwaukee Art Museum",
+            "Chicken & Shrimp",
+            "New Jersey - Cherry Hill Mall",
+            "CPKids Fundraisers & Activities",
+            "From a legendary pizza to a global brand",
+            "Seasonal Selection - Artichoke & Broccoli",
+            "California Pizza Kitchen - About Catering & Events",
+            "LA Food Show Grill & Bar Opens in Beverly Hills, California",
+            "Pizza & The Presidency: National Survey Reveals Leading Candidates and America's Dining Preferences"
             "Margaret Magnetic North: The Landscapes of Tom Uttech Milwaukee: Milwaukee Art Museum",
             "pizzas"
-
         }
 
         for item in testingSet:
