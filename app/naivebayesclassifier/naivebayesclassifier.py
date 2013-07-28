@@ -168,10 +168,26 @@ class NaiveBayesClassifier:
         classifiedDataTuple = namedtuple('ClassifiedData', ['label', 'probability'])
 
         probabilityDistribution = self._prob_classify(inputFeatureSet)
-        # Max is taking the label with the highest probability.
-        label = probabilityDistribution.max()
+
+        highestProbabilityLabel = probabilityDistribution.max()
+
+        probabilityMap = {}
+
+        for label in probabilityDistribution.samples():
+            generalLabel = label[:label.index(":")]  # gets art from art:artists
+            
+            probabilityValuesList = []
+            if generalLabel in probabilityMap:
+                probabilityValuesList = probabilityMap[generalLabel] 
+                
+            probabilityValuesList.append(probabilityDistribution.prob(label))
+            probabilityMap[generalLabel] = probabilityValuesList
+
+        print probabilityMap
+
+
         # Get the probability.
-        probability = probabilityDistribution.prob(label)
+        probability = probabilityDistribution.prob(highestProbabilityLabel)
 
         return classifiedDataTuple(label, probability)
 
@@ -248,7 +264,9 @@ class NaiveBayesClassifier:
              "LA Food Show Grill & Bar Opens in Beverly Hills, California",
              "Pizza & The Presidency: National Survey Reveals Leading Candidates and America's Dining Preferences"
             "Margaret Magnetic North: The Landscapes of Tom Uttech Milwaukee: Milwaukee Art Museum",
-            "pizzas"
+            "pizzas",
+            "JEANS",
+            "denim jeans"
 
         }
 
@@ -261,14 +279,49 @@ class NaiveBayesClassifier:
             featureset = self._tokenizeInputToFeatures(item)
 
             probabilityDistribution = self._prob_classify(featureset)
-            # Max is taking the label with highest probability.
-            label = probabilityDistribution.max()
+            highestProbabilityLabel = probabilityDistribution.max()
+
+            probabilityListMap = {}
+
+            # iterates through probability distribtion making a mapping like {'clothing': [0.011363636363636258, 0.011363636363636258], 'location': [0.011363636363636258]}
+            # where the 2 values in array correspond to 2 specific values in clothing like clothing:brands and clothing:type as example
+
+            for label in probabilityDistribution.samples():
+                generalLabel = label[:label.index(":")]  # gets art from art:artists
+                probabilityValuesList = []
+                if generalLabel in probabilityListMap:
+                    probabilityValuesList = probabilityListMap[generalLabel]   
+                probabilityValuesList.append(probabilityDistribution.prob(label))
+                probabilityListMap[generalLabel] = probabilityValuesList
+
+            print probabilityListMap
+            
+            # makes probability map where the probability for a category is the "max" in the list + the average of the rest of the values
+            probabilityMap = {}
+            sumOfAllValues = 0
+            for key,value in probabilityListMap.items():
+                probabilityValuesList = value
+                maxProbability = max(probabilityValuesList)
+                average = 0
+                if len(probabilityValuesList) > 1:
+                    average = ( sum(probabilityValuesList) - maxProbability ) / (len(probabilityValuesList) - 1)
+                probabilityMap[key] = maxProbability + average
+                sumOfAllValues += probabilityMap[key]
+
+            print probabilityMap
+            # now normalize these so all values make sense on a scale to 1
+            for key,value in probabilityMap.items():
+                probabilityMap[key] = probabilityMap[key] / sumOfAllValues
+
+            print probabilityMap
+
+            
             # Getting its probability.
-            probability = probabilityDistribution.prob(label)
+            probability = probabilityDistribution.prob(highestProbabilityLabel)
 
             for labelItem in probabilityDistribution.samples():
                 probs[labelItem] = str(probabilityDistribution.prob(labelItem))
-            print '%s | %s | %s | %s' % (item, label, probability, probs)
+            print '%s | %s | %s | %s' % (item, highestProbabilityLabel, probability, probs)
 
         print '\n'
 

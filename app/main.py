@@ -124,6 +124,7 @@ def mapping():
             if businessType == "museum_gallery": typetraining.extend(["art"])
             if businessType == "apparel": typetraining.extend(["clothing"])
             if businessType == "restaurant": typetraining.extend(["menu"])
+            if businessType == "furniture": typetraining.extend(["furniture"])
             typetraining.extend(defaulttraining)
             mapping[businessType] = typetraining
     return mapping
@@ -165,16 +166,17 @@ print business.type
 for key, value in business.data.items():
     print "----------------------------------------"
     print key, list(set(value))
-'''
 
+'''
 def demo():
     generalpath = os.path.join(settings.APP_DATA_TRAINING, "general")
     trainingfolders = []
     for generallabel in listdir(generalpath):
-        if generallabel in ["menu", "location", "noise", "hours"]:
+        if generallabel in ["menu", "location", "noise", "hours","clothing"]:
             trainingfolders.append(os.path.join(generalpath, generallabel))
     nbc = NaiveBayesClassifier(trainingfolders, settings.APP_DATA_COMMON_WORDS)
     nbc.demo()
 
 demo()
+
 
