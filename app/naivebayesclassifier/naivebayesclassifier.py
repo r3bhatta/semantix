@@ -34,19 +34,6 @@ class NaiveBayesClassifier:
         self._generateFeatureProbabilityDistribution()
 
     """
-    Creates and returns a training set (dictionary) from one data file belonging to a label.
-    """
-    def _updateTrainingSet(self, filename, label):
-        trainingset = defaultdict(list)
-        with open(filename) as trainingfile:
-            lines = trainingfile.readlines()
-            for line in lines:
-                trainingset[line.strip()].append(label)
-        # Add the new features:labels to the training set.
-        for item, labels in trainingset.items():
-            self._trainingset[item].extend(labels)
-
-    """
     Ensures that common words are not considered to avoid under representing matched words.
     @returns A list of common words extracted from the common words directory.
     """
@@ -125,15 +112,12 @@ class NaiveBayesClassifier:
 
         featuresset = {}
         for text, labels in self._trainingset.items():
-            # Split on these characters.
-            tokens = re.split('[ .,-]', text)
-            for token in tokens:
-                if token not in self._commonwords:
-                    if token not in featuresset:
-                        featuresset[token] = generateDefaultFreq()
-                    # Loop through all labels associated with this feature.
-                    for label in labels:
-                        featuresset[token][label] += 1
+            if text not in self._commonwords:
+                if text not in featuresset:
+                    featuresset[text] = generateDefaultFreq()
+                # Loop through all labels associated with this feature.
+                for label in labels:
+                    featuresset[text][label] += 1
         self._featuresset = featuresset
 
     """
@@ -169,27 +153,16 @@ class NaiveBayesClassifier:
 
         probabilityDistribution = self._prob_classify(inputFeatureSet)
 
-        highestProbabilityLabel = probabilityDistribution.max()
+        probabilityMap = self.generalizeAndNormalize(probabilityDistribution)
 
-        probabilityMap = {}
+        highestProbabilityLabel = ""
+        probability = 0
+        for key,value in probabilityMap.items():
+            if value > probability:
+                probability = value
+                highestProbabilityLabel = key
 
-        for label in probabilityDistribution.samples():
-            generalLabel = label[:label.index(":")]  # gets art from art:artists
-            
-            probabilityValuesList = []
-            if generalLabel in probabilityMap:
-                probabilityValuesList = probabilityMap[generalLabel] 
-                
-            probabilityValuesList.append(probabilityDistribution.prob(label))
-            probabilityMap[generalLabel] = probabilityValuesList
-
-        print probabilityMap
-
-
-        # Get the probability.
-        probability = probabilityDistribution.prob(highestProbabilityLabel)
-
-        return classifiedDataTuple(label, probability)
+        return classifiedDataTuple(highestProbabilityLabel, probability)
 
     """
     Overwrites _prob_classify of nltk so that we can force label frequencies to be empty, otherwise
@@ -208,6 +181,7 @@ class NaiveBayesClassifier:
         # Start with a log probability of 0 to avoid skewing towards larger data sets
         logprob = {} 
         for label in self._labels: 
+            #print "in here adding labels"
             logprob[label] = 0                 
 
         # Add in the log probability of features given labels. 
@@ -237,6 +211,52 @@ class NaiveBayesClassifier:
 
         return dictprobDist
 
+
+    # gets art from art:artists
+    def getLabel(self, label):
+        if ":" in label:
+            return label[:label.index(":")]
+        return label
+
+    '''
+    Takes in a DictionaryProbDist which has probabilites for all categories including spefific categories like clothing:brands
+    This function makes all specific categories into one. It uses the max from the list of probabilities + average of rest
+    All the values are then normalized to scale to 1, thus raising each individual probability
+    '''
+    def generalizeAndNormalize(self, probabilityDistribution):
+        probabilityListMap = {}
+
+        # iterates through probability distribtion making a mapping like {'clothing': [0.011363636363636258, 0.011363636363636258], 'location': [0.011363636363636258]}
+        # where the 2 values in array correspond to 2 specific values in clothing like clothing:brands and clothing:type as example
+        for label in probabilityDistribution.samples():
+            generalLabel = self.getLabel(label)
+            probabilityValuesList = []
+            if generalLabel in probabilityListMap:
+                probabilityValuesList = probabilityListMap[generalLabel]   
+            probabilityValuesList.append(probabilityDistribution.prob(label))
+            probabilityListMap[generalLabel] = probabilityValuesList
+        #print probabilityListMap
+        
+        # makes probability map where the probability for a category is the "max" in the list + the average of the rest of the values
+        probabilityMap = {}
+        sumOfAllValues = 0
+        for key,value in probabilityListMap.items():
+            probabilityValuesList = value
+            maxProbability = max(probabilityValuesList)
+            average = 0
+            if len(probabilityValuesList) > 1:
+                average = ( sum(probabilityValuesList) - maxProbability ) / (len(probabilityValuesList) - 1)
+            probabilityMap[key] = maxProbability + average
+            sumOfAllValues += probabilityMap[key]
+        #print probabilityMap
+
+        # now normalize these so all values make sense on a scale to 1
+        for key,value in probabilityMap.items():
+            probabilityMap[key] = probabilityMap[key] / sumOfAllValues
+        #print probabilityMap
+    
+        return probabilityMap
+
     """
     Print some demo items.
     """
@@ -254,20 +274,19 @@ class NaiveBayesClassifier:
             "8:00 AM to 9:00 PM",
             "6th street",
             "Mona Lisa",
-             "Margaret Magnetic North: The Landscapes of Tom Uttech Milwaukee: Milwaukee Art Museum",
-             "Chicken & Shrimp",
-             "New Jersey - Cherry Hill Mall",
-             "CPKids Fundraisers & Activities",
-             "From a legendary pizza to a global brand",
-             "Seasonal Selection - Artichoke & Broccoli",
-             "California Pizza Kitchen - About Catering & Events",
-             "LA Food Show Grill & Bar Opens in Beverly Hills, California",
-             "Pizza & The Presidency: National Survey Reveals Leading Candidates and America's Dining Preferences"
+            "Margaret Magnetic North: The Landscapes of Tom Uttech Milwaukee: Milwaukee Art Museum",
+            "Chicken & Shrimp",
+            "New Jersey - Cherry Hill Mall",
+            "CPKids Fundraisers & Activities",
+            "From a legendary pizza to a global brand",
+            "Seasonal Selection - Artichoke & Broccoli",
+            "California Pizza Kitchen - About Catering & Events",
+            "LA Food Show Grill & Bar Opens in Beverly Hills, California",
+            "Pizza & The Presidency: National Survey Reveals Leading Candidates and America's Dining Preferences"
             "Margaret Magnetic North: The Landscapes of Tom Uttech Milwaukee: Milwaukee Art Museum",
             "pizzas",
             "JEANS",
             "denim jeans"
-
         }
 
         for item in testingSet:
@@ -279,49 +298,19 @@ class NaiveBayesClassifier:
             featureset = self._tokenizeInputToFeatures(item)
 
             probabilityDistribution = self._prob_classify(featureset)
-            highestProbabilityLabel = probabilityDistribution.max()
+            probabilityMap = self.generalizeAndNormalize(probabilityDistribution)
 
-            probabilityListMap = {}
-
-            # iterates through probability distribtion making a mapping like {'clothing': [0.011363636363636258, 0.011363636363636258], 'location': [0.011363636363636258]}
-            # where the 2 values in array correspond to 2 specific values in clothing like clothing:brands and clothing:type as example
-
-            for label in probabilityDistribution.samples():
-                generalLabel = label[:label.index(":")]  # gets art from art:artists
-                probabilityValuesList = []
-                if generalLabel in probabilityListMap:
-                    probabilityValuesList = probabilityListMap[generalLabel]   
-                probabilityValuesList.append(probabilityDistribution.prob(label))
-                probabilityListMap[generalLabel] = probabilityValuesList
-
-            print probabilityListMap
-            
-            # makes probability map where the probability for a category is the "max" in the list + the average of the rest of the values
-            probabilityMap = {}
-            sumOfAllValues = 0
-            for key,value in probabilityListMap.items():
-                probabilityValuesList = value
-                maxProbability = max(probabilityValuesList)
-                average = 0
-                if len(probabilityValuesList) > 1:
-                    average = ( sum(probabilityValuesList) - maxProbability ) / (len(probabilityValuesList) - 1)
-                probabilityMap[key] = maxProbability + average
-                sumOfAllValues += probabilityMap[key]
-
-            print probabilityMap
-            # now normalize these so all values make sense on a scale to 1
+            highestProbabilityLabel = ""
+            probability = 0
             for key,value in probabilityMap.items():
-                probabilityMap[key] = probabilityMap[key] / sumOfAllValues
-
-            print probabilityMap
-
-            
-            # Getting its probability.
-            probability = probabilityDistribution.prob(highestProbabilityLabel)
+                if value > probability:
+                    probability = value
+                    highestProbabilityLabel = key
+        
 
             for labelItem in probabilityDistribution.samples():
                 probs[labelItem] = str(probabilityDistribution.prob(labelItem))
-            print '%s | %s | %s | %s' % (item, highestProbabilityLabel, probability, probs)
+            print '%s | %s | %s | %s' % (item, highestProbabilityLabel, probability, probabilityMap)
 
         print '\n'
 
