@@ -59,7 +59,8 @@ def saveTrainingFileToSet(inputFile):
     return results
 
 """
-Called by parseLabels. Parsing locations is a bit more convoluted for now.
+Called by parseLabels. Parsing locations is a bit more convoluted for now, so it has its own
+function.
 """
 def parseLocations(extrainfo, item):
     threshold = 4
@@ -102,6 +103,7 @@ def parseLabels(businessData, businesstype):
     extrainfo = {"countries": countries, "states": states, "keywords": keywords}
 
     parseditems = defaultdict(list)
+    # Get the parsing properties for each label, such as probability threshold.
     properties = parsePropertiesMapping(businesstype.type.label)
     for type, items in businessData.items():
         if type.label in properties:
@@ -113,6 +115,7 @@ def parseLabels(businessData, businesstype):
                             parseditems[type.label].append(item)
                     elif len(item.split()) <= properties[type.label]["itemlength"]:
                         parseditems[type.label].append(item)
+    # Get rid of duplicate results.
     for label, items in parseditems.items():
         items = list(set(items))
     return parseditems
@@ -125,6 +128,8 @@ Eg. "museum_gallery" ==> ["art", "hours", "location", "noise"]
 def labelToDirsMapping(label):
     defaultdirs = ["hours", "location", "noise"]
     trainingdirs = []
+    # The mapping part. The keys of the properties dict correspond to the folder names under the
+    # "general" directory.
     if label == "museum_gallery": 
         trainingdirs.append("art")
     if label == "apparel": 
@@ -152,6 +157,8 @@ def parsePropertiesMapping(label):
         }
 
     properties = {}
+    # The mapping part. The keys of the properties dict correspond to the folder names under the
+    # "general" directory.
     if label == "museum_gallery":
         properties["art"] = createProperties(0.7, 10)
     if label == "apparel":
@@ -178,7 +185,7 @@ def parse(inputFile):
     trainingdirs = labelToDirsMapping(label)
     generalpath = os.path.join(settings.APP_DATA_TRAINING, "general")
 
-    # The training paths to be passed into the NBC.
+    # Generate the training paths to be passed into the NBC.
     trainingpaths = []
     for dir in trainingdirs:
         trainingpaths.append(os.path.join(generalpath, dir))
