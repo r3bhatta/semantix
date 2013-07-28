@@ -93,7 +93,7 @@ def parseLocations(businessData):
                     for key, value in thresholds.items():
                         totalValue += value
                     if totalValue >= 4:
-                        print "%s, %s, %s" % (location, label.probability, len(tokenized))
+                        #print "%s, %s, %s" % (location, label.probability, len(tokenized))
                         parsedLocations.append(location)
     return locations
 
@@ -108,19 +108,21 @@ def parse(inputFile):
 
 
 
-business = parse(os.path.join(settings.APP_DATA_HTML, "cpk_com.txt"))
+business = parse(os.path.join(settings.APP_DATA_HTML, "escada_com.txt"))
 
 print business.name
 print business.type
-print business.locations
+#print business.locations
 
-"""
+
 # Prints out all attributes from general that have been classified.
 for key, value in business.data.items():
     print "----------------------------------------"
     print key, list(set(value))
 
+'''
 nbc = NaiveBayesClassifier(os.path.join(settings.APP_DATA_TRAINING, "general"), settings.APP_DATA_COMMON_WORDS)
 nbc.demo();
-"""
+'''
+
 

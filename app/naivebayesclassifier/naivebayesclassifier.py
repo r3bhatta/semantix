@@ -216,8 +216,8 @@ class NaiveBayesClassifier:
 
                 if (label, fname) in self._featureProbabilityDistribution: 
                     feature_probs = self._featureProbabilityDistribution[label,fname] 
-                    #print "log prob for " + str(label) +  " is " + str(feature_probs.logprob(fval) )
-                    logprob[label] += feature_probs.logprob(fval) 
+                    print "log prob for " + str(label) + " for string " + str(fname)+  " is " + str(feature_probs.logprob(fval) )
+                    #logprob[label] += feature_probs.logprob(fval) 
                 else: 
                 # nb: This case will never come up if the classifier was created by NaiveBayesClassifier.train(). 
                     logprob[label] += sum_logs([]) # = -INF.
@@ -252,7 +252,17 @@ class NaiveBayesClassifier:
             "8:00 AM to 9:00 PM",
             "6th street",
             "Mona Lisa",
-             "Margaret Magnetic North: The Landscapes of Tom Uttech Milwaukee: Milwaukee Art Museum"
+             "Margaret Magnetic North: The Landscapes of Tom Uttech Milwaukee: Milwaukee Art Museum",
+             "Chicken & Shrimp",
+             "New Jersey - Cherry Hill Mall",
+             "CPKids Fundraisers & Activities",
+             "From a legendary pizza to a global brand",
+             "Seasonal Selection - Artichoke & Broccoli",
+             "California Pizza Kitchen - About Catering & Events",
+             "LA Food Show Grill & Bar Opens in Beverly Hills, California",
+             "Pizza & The Presidency: National Survey Reveals Leading Candidates and America's Dining Preferences"
+
+
         }
 
         for item in testingSet:
