@@ -156,6 +156,7 @@ def parse(inputFile):
 
 
 
+'''
 business = parse(os.path.join(settings.APP_DATA_HTML, "escada_com.txt"))
 
 print business.name
@@ -164,7 +165,7 @@ print business.type
 for key, value in business.data.items():
     print "----------------------------------------"
     print key, list(set(value))
-
+'''
 
 def demo():
     generalpath = os.path.join(settings.APP_DATA_TRAINING, "general")
@@ -175,5 +176,5 @@ def demo():
     nbc = NaiveBayesClassifier(trainingfolders, settings.APP_DATA_COMMON_WORDS)
     nbc.demo()
 
-#demo()
+demo()
 

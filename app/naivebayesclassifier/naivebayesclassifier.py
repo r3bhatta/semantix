@@ -201,7 +201,7 @@ class NaiveBayesClassifier:
                 
                 if (label, fname) in self._featureProbabilityDistribution: 
                     feature_probs = self._featureProbabilityDistribution[label,fname] 
-                    print "log prob for " + str(label) + " for string " + str(fname)+  " is " + str(feature_probs.logprob(fval) )
+                    #print "log prob for " + str(label) + " for string " + str(fname)+  " is " + str(feature_probs.logprob(fval) )
                     logprob[label] += feature_probs.logprob(fval) 
                 else: 
                 # nb: This case will never come up if the classifier was created by 
