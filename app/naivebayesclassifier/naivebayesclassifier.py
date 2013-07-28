@@ -66,11 +66,12 @@ class NaiveBayesClassifier:
     """
     def _generateTrainingSet(self):
         ignores = [".DS_Store"]
-        for name, folderpath in self._trainingfolders.items():
-            if folderpath not in ignores:
+        for folderpath in self._trainingfolders:
+            basename = os.path.basename(folderpath)
+            if basename not in ignores:
                 for sublabel in listdir(folderpath):
                     if sublabel not in ignores:
-                        label = str(name) + ":" + str(sublabel)
+                        label = str(basename) + ":" + str(sublabel)
                         self._labels.add(label)
                         sublabelpath = os.path.join(folderpath, sublabel)
                         with open(sublabelpath) as trainingfile:
@@ -155,7 +156,7 @@ class NaiveBayesClassifier:
             eleProbDist = ELEProbDist(freqDist, bins=len(values[name]))
             probabilityDistribution[label, name] = eleProbDist
 
-        self._featureprobabilitydistribution = probabilityDistribution
+        self._featureProbabilityDistribution = probabilityDistribution
 
     """
     Classifies an item.
@@ -182,7 +183,7 @@ class NaiveBayesClassifier:
         featureset = featureset.copy() 
         for fname in featureset.keys(): 
             for label in self._labels: 
-                if (label, fname) in self._featureprobabilitydistribution: 
+                if (label, fname) in self._featureProbabilityDistribution: 
                     break 
             else: 
                 #print 'Ignoring unseen feature %s' % fname 
@@ -246,7 +247,8 @@ class NaiveBayesClassifier:
              "California Pizza Kitchen - About Catering & Events",
              "LA Food Show Grill & Bar Opens in Beverly Hills, California",
              "Pizza & The Presidency: National Survey Reveals Leading Candidates and America's Dining Preferences"
-
+            "Margaret Magnetic North: The Landscapes of Tom Uttech Milwaukee: Milwaukee Art Museum",
+            "pizzas"
 
         }
 

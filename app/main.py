@@ -33,11 +33,11 @@ Identify the business type of the business JSON data.
 """
 def parseBusinessType(parsedJSON):
     businessespath = os.path.join(settings.APP_DATA_TRAINING, "businesses")
-    businessfolders = {}
+    businessfolders = []
     for businesslabel in listdir(businessespath):
         ignores = [".DS_Store"]
         if businesslabel not in ignores:
-            businessfolders[businesslabel] = os.path.join(businessespath, businesslabel)
+            businessfolders.append(os.path.join(businessespath, businesslabel))
 
     nbc = NaiveBayesClassifier(businessfolders, settings.APP_DATA_COMMON_WORDS)
     # Our data files are .txt files for now.
@@ -140,10 +140,10 @@ def parse(inputFile):
     generalpath = os.path.join(settings.APP_DATA_TRAINING, "general")
 
     # The training folders to be passed into the NBC.
-    trainingfolders = {}
+    trainingfolders = []
     for generallabel in listdir(generalpath):
         if generallabel in traininglabels:
-            trainingfolders[generallabel] = os.path.join(generalpath, generallabel)
+            trainingfolders.append(os.path.join(generalpath, generallabel))
 
     businessData = parseBusinessData(parsedJSON, trainingfolders)
 
@@ -155,23 +155,25 @@ def parse(inputFile):
     return Business(businesstype.name, businesstype.type, businessData, menuItems, locations)
 
 
+
 business = parse(os.path.join(settings.APP_DATA_HTML, "escada_com.txt"))
 
 print business.name
 print business.type
-#print business.locations
-
 # Prints out all attributes from general that have been classified.
 for key, value in business.data.items():
     print "----------------------------------------"
     print key, list(set(value))
 
-'''
-nbc = NaiveBayesClassifier(os.path.join(settings.APP_DATA_TRAINING, "general"), settings.APP_DATA_COMMON_WORDS)
-nbc.demo();
-'''
 
-=======
-"""
->>>>>>> 0516f8380d320fa305a68bde0d336aaa5a0d00e1
+def demo():
+    generalpath = os.path.join(settings.APP_DATA_TRAINING, "general")
+    trainingfolders = []
+    for generallabel in listdir(generalpath):
+        if generallabel in ["menu", "location", "noise", "hours"]:
+            trainingfolders.append(os.path.join(generalpath, generallabel))
+    nbc = NaiveBayesClassifier(trainingfolders, settings.APP_DATA_COMMON_WORDS)
+    nbc.demo()
+
+#demo()
 
