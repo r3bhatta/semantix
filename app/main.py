@@ -62,10 +62,12 @@ def saveTrainingFileToSet(inputFile):
 Called by parseLabels. Parsing locations is a bit more convoluted for now, so it has its own
 function.
 """
-def parseLocations(extrainfo, item):
-    threshold = 4
+def parseLocations(extrainfo, item, prop):
+    POSTAL_CODE_LENGTH = 5
+
+    threshold = prop["threshold"]
     tokenized = filter(None, re.split("[ .,-]", item))
-    if 4 <= len(tokenized) <= 10:
+    if prop["mintokens"] <= len(tokenized) <= prop["maxtokens"]:
         # A dict of thresholds to map points.
         thresholds = {}
         for token in tokenized:
@@ -77,20 +79,21 @@ def parseLocations(extrainfo, item):
             if token.isdigit():
                 if "number" not in thresholds:
                     thresholds["number"] = 1
-                if len(token) is 5 and "postalcode" not in thresholds: 
+                if len(token) is POSTAL_CODE_LENGTH and "postalcode" not in thresholds: 
                     thresholds["postalcode"] = 1
             if token in extrainfo["keywords"] and "keywords" not in thresholds:
                 thresholds["keywords"] = 1
         totalValue = 0
         for key, value in thresholds.items():
             totalValue += value
-        if totalValue >= 4:
+        if totalValue >= threshold:
             return item
     return None
 
 """
 Given the business data and the type, split the data into correct labels.
 Eg. Given www.escada.com, get data for clothing, locations, and hours.
+NOTE: This does not take into account threshold for now. Threshold is for locations only.
 Returns a default dict:
     {"apparel": [ ... ], "locations": [ ... ], "hours": [ ... ]}
 """
@@ -107,13 +110,14 @@ def parseLabels(businessData, businesstype):
     properties = parsePropertiesMapping(businesstype.type.label)
     for type, items in businessData.items():
         if type.label in properties:
-            if type.probability >= properties[type.label]["probability"]:
+            prop = properties[type.label]
+            if type.probability >= prop["probability"]:
                 for item in items:
                     if type.label == "location":
-                        location = parseLocations(extrainfo, item)
+                        location = parseLocations(extrainfo, item, prop)
                         if location is not None:
                             parseditems[type.label].append(item)
-                    elif len(item.split()) <= properties[type.label]["itemlength"]:
+                    elif prop["mintokens"] <= len(item.split()) <= prop["maxtokens"]:
                         parseditems[type.label].append(item)
     # Get rid of duplicate results.
     for label, items in parseditems.items():
@@ -139,6 +143,14 @@ def labelToDirsMapping(label):
     trainingdirs.extend(defaultdirs)
     return trainingdirs
 
+def createProperties(probability=1, mintokens=0, maxtokens=sys.maxint, threshold=0):
+    return {
+        "probability": probability,
+        "mintokens": mintokens,
+        "maxtokens": maxtokens,
+        "threshold": threshold
+    }
+
 """
 Given a label (business type like "museum_gallery"), return a mapping to its "general" data 
 counterpart and the parsing properties such as:
@@ -150,24 +162,25 @@ Eg. "museum_gallery" ==>
                  "location": {"probability": 0.6, "itemlength": 10}}
 """
 def parsePropertiesMapping(label):
-    def createProperties(probability, itemlength):
-        return {
-            "probability": probability,
-            "itemlength": itemlength
-        }
+    # TUNING PARAMETERS.
+    ART_PROB = 0.7; ART_MIN = 0; ART_MAX = 10
+    CLO_PROB = 0.7; CLO_MIN = 0; CLO_MAX = 15
+    MENU_PROB = 0.5; MENU_MIN = 0; MENU_MAX = 5
+    HOURS_PROB = 0.6; HOURS_MIN = 0; HOURS_MAX = 10
+    LOC_PROB = 0.6; LOC_MIN = 4; LOC_MAX = 10; LOC_THRES = 4
 
     properties = {}
     # The mapping part. The keys of the properties dict correspond to the folder names under the
     # "general" directory.
     if label == "museum_gallery":
-        properties["art"] = createProperties(0.7, 10)
+        properties["art"] = createProperties(ART_PROB, ART_MIN, ART_MAX)
     if label == "apparel":
-        properties["clothing"] = createProperties(0.7, 15)
+        properties["clothing"] = createProperties(CLO_PROB, CLO_MIN, CLO_MAX)
     if label == "restaurant":
-        properties["menu"] = createProperties(0.5, 5)
+        properties["menu"] = createProperties(MENU_PROB, MENU_MIN, MENU_MAX)
 
-    properties["hours"] = createProperties(0.6, 5)
-    properties["location"] = createProperties(0.6, 10)
+    properties["hours"] = createProperties(HOURS_PROB, HOURS_MIN, HOURS_MAX)
+    properties["location"] = createProperties(LOC_PROB, LOC_MIN, LOC_MAX, LOC_THRES)
     
     return properties
 
@@ -198,7 +211,7 @@ def parse(inputFile):
     return Business(businesstype.name, businesstype.type, businessData, labels)
 
 """
-business = parse(os.path.join(settings.APP_DATA_HTML, "escada_com.txt"))
+business = parse(os.path.join(settings.APP_DATA_HTML, "cpk_com.txt"))
 for label, items in business.labels.items():
     print label
     print "\n"
