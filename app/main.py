@@ -113,6 +113,7 @@ def parseLabels(businessData, businesstype):
             prop = properties[type.label]
             if type.probability >= prop["probability"]:
                 for item in items:
+                    item = item.strip()
                     if type.label == "location":
                         location = parseLocations(extrainfo, item, prop)
                         if location is not None:
@@ -121,7 +122,7 @@ def parseLabels(businessData, businesstype):
                         parseditems[type.label].append(item)
     # Get rid of duplicate results.
     for label, items in parseditems.items():
-        items = list(set(items))
+        parseditems[label] = list(set(items))
     return parseditems
 
 """
@@ -167,9 +168,9 @@ def parsePropertiesMapping(label):
     # TUNING PARAMETERS.
     ART_PROB = 0.7; ART_MIN = 0; ART_MAX = 10
     CLO_PROB = 0.7; CLO_MIN = 0; CLO_MAX = 15
-    MENU_PROB = 0.5; MENU_MIN = 0; MENU_MAX = 5
+    MENU_PROB = 0.7; MENU_MIN = 0; MENU_MAX = 5
     HOURS_PROB = 0.6; HOURS_MIN = 0; HOURS_MAX = 10
-    LOC_PROB = 0.6; LOC_MIN = 4; LOC_MAX = 10; LOC_THRES = 4
+    LOC_PROB = 0.6; LOC_MIN = 4; LOC_MAX = 12; LOC_THRES = 4
 
     properties = {}
     # The mapping part. The keys of the properties dict correspond to the folder names under the
@@ -213,7 +214,7 @@ def parse(inputFile):
     return Business(businesstype.name, businesstype.type, businessData, labels)
 
 """
-business = parse(os.path.join(settings.APP_DATA_HTML, "cpk_com.txt"))
+business = parse(os.path.join(settings.APP_DATA_HTML, "escada_com.txt"))
 for label, items in business.labels.items():
     print label
     print "\n"
@@ -222,8 +223,6 @@ for label, items in business.labels.items():
 """
 
 """
-print business.name
-print business.type
 # Prints out all attributes from general that have been classified.
 for key, value in business.data.items():
     print "----------------------------------------"
@@ -234,10 +233,10 @@ def demo():
     generalpath = os.path.join(settings.APP_DATA_TRAINING, "general")
     trainingfolders = []
     for generallabel in listdir(generalpath):
-        if generallabel in ["menu", "location", "noise", "hours", "clothing"]:
+        if generallabel in ["menu", "location", "noise", "hours"]:
             trainingfolders.append(os.path.join(generalpath, generallabel))
     nbc = NaiveBayesClassifier(trainingfolders, settings.APP_DATA_COMMON_WORDS)
     nbc.demo()
 
-#demo()
+# demo()
 
