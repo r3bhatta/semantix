@@ -8,9 +8,11 @@ $("#search").keyup(function(event){
 });
 
 $('.search-button').on('click', function(evt){
+    $('.loader').removeClass('hide');
+
     var searchEl = $("#search");
     var inputURL = searchEl.val();
-    $('.data-wrap').addClass('hide');
+
     // Do some more sanity check to ensure its a valid URL.
     if (inputURL.indexOf('www') != -1){
         searchEl.attr('disabled', true);
@@ -22,7 +24,14 @@ $('.search-button').on('click', function(evt){
             data = JSON.parse(data);
             if (data){
                 $('.data-name').html(data.name);
-                $('.data-business').html(data.type.label + ' with ' + data.type.probability + '%');
+                
+                var probability = data.type.probability * 100;
+                probability = probability.toString().substring(0,5);
+
+                var label = data.type.label;
+                label = label.replace(/_/g, ", ")
+
+                $('.data-business').html(label + ' | ' + probability + '%');
                 
                 var menuHTML = '';
                 data.menu.forEach(function(menuItem){
@@ -32,6 +41,7 @@ $('.search-button').on('click', function(evt){
                     'style="color: rgb(102, 102, 102); width: 12px;"></div></div>';
                 $('#menuTags_tagsinput').html(menuHTML);
 
+                $('.loader').addClass('hide');
                 $('.data-wrap').removeClass('hide');
             }
             searchEl.removeAttr('disabled');
