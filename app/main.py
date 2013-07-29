@@ -229,11 +229,9 @@ def parsePropertiesMapping(label):
         properties["jewellery"] = createProperties(JEW_PROB, JEW_MIN, JEW_MAX)
     if label == "hotel":
         properties["hotel"] = createProperties(HOTEL_PROB, HOTEL_MIN, HOTEL_MAX)
-        
 
     properties["hours"] = createProperties(HOURS_PROB, HOURS_MIN, HOURS_MAX)
-    properties["location"] = createProperties(LOC_PROB, LOC_MIN, LOC_MAX, LOC_THRES)
-    
+    properties["location"] = createProperties(LOC_PROB, LOC_MIN, LOC_MAX, LOC_THRES)    
     return properties
 
 """
