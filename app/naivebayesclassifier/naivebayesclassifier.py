@@ -83,6 +83,7 @@ class NaiveBayesClassifier:
             if word not in self._commonwords:
                 """
                 LOCATION FEATURES SPECIFIC.
+                This needs to be implemented as a strategy somehow so that parse locations filter can use it too.
                 """
                 # Consider all numbers as one category for location. 10 because full address is
                 # about 10 tokens.
