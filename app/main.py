@@ -169,6 +169,7 @@ def labelToDirsMapping(label):
         trainingdirs.append("menu")
     if label == "furniture":
         trainingdirs.append("furniture")
+        trainingdirs.append("jewellery")
     if label == "dental":
         trainingdirs.append("dental")
     if label == "medical":
@@ -219,6 +220,7 @@ def parsePropertiesMapping(label):
         properties["menu"] = createProperties(MENU_PROB, MENU_MIN, MENU_MAX)
     if label == "furniture":
         properties["furniture"] = createProperties(FUR_PROB, FUR_MIN, FUR_MAX)
+        properties["jewellery"] = createProperties(JEW_PROB, JEW_MIN, JEW_MAX)
     if label == "dental":
         properties["dental"] = createProperties(DENT_PROB, DENT_MIN, DENT_MAX)
     if label == "medical":
