@@ -67,10 +67,6 @@ def parseLocations(type, extrainfo, item, prop):
     # Put this inside properties if other labels use it as well.
     MAX_PROB = 0.96
 
-    # If greater than max probability, than return right away.
-    if type.probability >= MAX_PROB:
-        return item
-
     ordinals = ['st', 'nd', 'rd', 'th']
     numOrdinals = 1
     threshold = prop["threshold"]
@@ -78,6 +74,9 @@ def parseLocations(type, extrainfo, item, prop):
 
     if prop["mintokens"] <= len(tokenized) <= prop["maxtokens"] and \
         type.probability >= prop["probability"]:
+        # If greater than max probability, than return right away.
+        if type.probability >= MAX_PROB:
+            return item
         # A dict of thresholds to map points.
         thresholds = defaultdict(int)
         for token in tokenized:
