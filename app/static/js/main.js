@@ -85,6 +85,10 @@ $('.search-button').on('click', function(evt){
     */
 });
 
+$(".todo li").click(function() {
+    $(this).toggleClass("todo-done");
+});
+
 //this is the data that is obtained by making a call to 
 //businesscategories.getCategories()
 var data;
