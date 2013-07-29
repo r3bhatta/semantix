@@ -38,39 +38,13 @@
                     <div class="todo-search categories-header">
                         Categories
                     </div>
-                    <ul>
-                        <li class="todo-done">
-                            <div class="todo-content todo-name">Locations</div>
-                        </li>
-                        <li>
-                            <div class="todo-content todo-name">Menu</div>
-                        </li>
-                        <li>
-                            <div class="todo-content todo-name">Hours</div>
-                        </li>
-                    </ul>
-                    <div class="btn btn-primary pull-right">Submit</div>
+                    <ul class="data-categories"></ul>
+                    <div class="btn btn-primary pull-right" id="submit-button">Submit</div>
                 </div>
             </div>
 
-            <div class="row">
-                <div class="span6 data-item noRightMargin">
-                    <span class="label label-large label-primary span3">Locations</span>
-                </div>
-                <div class="span6 data-item noRightMargin">
-                    <span class="label label-large label-primary span3">Menu</span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="span6 data-item noRightMargin">
-                    <input name="tagsinput" class="tagsinput tagsinput-primary" value="" id="locationTags" style="display: none;">
-                    <div id="locationTags_tagsinput" class="tagsinput tagsinput-primary"></div>
-                </div>
-                <div class="span6 data-item noRightMargin">
-                    <input name="tagsinput" class="tagsinput tagsinput-primary" value="" id="menuTags" style="display: none;">
-                    <div id="menuTags_tagsinput" class="tagsinput tagsinput-primary"></div>
-                </div>
-            </div>
+            <div class="row" id="tag-label"></div>
+            <div class="row" id="tag-content"></div>
         </div>
     </div>
 {% endblock %}

@@ -140,6 +140,8 @@ def labelToDirsMapping(label):
         trainingdirs.append("clothing")
     if label == "restaurant":
         trainingdirs.append("menu")
+    if label == "furniture":
+        trainingdirs.append("furniture")
     trainingdirs.extend(defaultdirs)
     return trainingdirs
 
