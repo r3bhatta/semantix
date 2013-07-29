@@ -286,7 +286,8 @@ class NaiveBayesClassifier:
             "Margaret Magnetic North: The Landscapes of Tom Uttech Milwaukee: Milwaukee Art Museum",
             "pizzas",
             "JEANS",
-            "denim jeans"
+            "denim jeans",
+            "18601 Airport Way # 135 Santa Ana, CA 92707 949-252-6125"
         }
 
         for item in testingSet:
