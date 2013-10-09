@@ -1,7 +1,14 @@
 Semantix
 ========
 
-The Semantix crawler.
+The Semantix crawler - in progress.  
+
+Implements a Naive Bayes classifier using the NLTK library.  
+Takes in crawled HTML pages of a whole website and classifies the website based on a business type 
+such as `restaurant` or `medical`.  
+Based on the business type, further classify the website's content into relevant data such as hours 
+of operation, location, and menu items for restaurants.
+
 
 Installation
 ------------
