@@ -4,8 +4,10 @@ Semantix
 The Semantix crawler - in progress.  
 
 Implements a Naive Bayes classifier using the NLTK library.  
+
 Takes in crawled HTML pages of a whole website and classifies the website based on a business type 
 such as `restaurant` or `medical`.  
+
 Based on the business type, further classify the website's content into relevant data such as hours 
 of operation, location, and menu items for restaurants.
 
@@ -19,6 +21,7 @@ while `virtualenv` is activated.
 3. Install [Flask](http://flask.pocoo.org/docs/installation/ "Flask").
 4. Install [BeautifulSoup](http://www.crummy.com/software/BeautifulSoup/bs4/doc/ "BeautifulSoup").
 5. Install [NLTK](http://nltk.org/install.html "NLTK").
+6. Obtain crawled websites data from someone on the team.
 
 Run
 ---
