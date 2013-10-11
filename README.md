@@ -16,12 +16,24 @@ Installation
 ------------
 
 1. Install Python 2.7.3.
-2. Install `virtualenv` and make sure it is activated. All Python libraries should be installed 
+2. Clone the project and navigate into it.
+3. Install `virtualenv` and make sure it is activated. All Python libraries should be installed 
 while `virtualenv` is activated.
-3. Install [Flask](http://flask.pocoo.org/docs/installation/ "Flask").
-4. Install [BeautifulSoup](http://www.crummy.com/software/BeautifulSoup/bs4/doc/ "BeautifulSoup").
-5. Install [NLTK](http://nltk.org/install.html "NLTK").
-6. Obtain crawled websites data from someone on the team.
+4. Install [Flask](http://flask.pocoo.org/docs/installation/ "Flask").
+5. Install [BeautifulSoup](http://www.crummy.com/software/BeautifulSoup/bs4/doc/ "BeautifulSoup").
+6. Install [NLTK](http://nltk.org/install.html "NLTK").
+7. Obtain crawled websites data from someone on the team.
+
+Quick Installation Commands
+---------------------------
+
+1. Install Python 2.7.3.
+2. `git clone https://github.com/rhuang/semantix.git`
+3. `sudo pip install virtualenv`
+4. `virtualenv venv`
+5. `. venv/bin/activate`
+6. `pip install -U Flask beautifulsoup4 pyyaml nltk`
+7. `./start` or `python semantix.py`
 
 Run
 ---
