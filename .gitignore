@@ -50,3 +50,6 @@ nosetests.xml
 *.json
 *.zip
 *.gz
+
+# logs
+log/
