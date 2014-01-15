@@ -9,20 +9,28 @@ def parseSingleSoup(soup, contextMap, nbc):
     scriptTags = re.compile(r"[{}\[\]\*>=]")
     if soup is not None:
         tags = soup.findAll()
+
         for tag in tags:
             tagText = tag.findAll(text=True, recursive=False)                                                # get one level of text depth
             finalText = ''
             for text in tagText:        
+                text = re.sub('[.!;+_|]', '', text.strip())
                 if len(re.sub(r'\s+', '', text)) > 0 and re.search(scriptTags, text) is None:                # if this actually contains text AND do not take characters with script chars in it
-                        finalText += str(re.sub(r'\s+', ' ', text))            
+                        print "text  is a" + re.sub(r'\s+', '', text.strip()) + "b"
+                        print "length is " + str(len(re.sub(r'\s+', '', text)))
+                        finalText += str(re.sub(r'\s+',' ', text))            
 
             if finalText:
+                
                 # Clean up the string.
-                finalText = re.sub('[.!;+_]', '', finalText)
-                finalText = finalText.strip()
                 finalText = ' '.join(finalText.split())
+
+                #print "Classifying " + finalText 
+
                 # Classify the string.
                 data = nbc.classify(finalText)
+
+                #print "Classified " + str(data)
                 # Add into dict.
                 if data in contextMap:
                     contextMap[data].append(finalText)
@@ -40,4 +48,9 @@ def parseSoups(soups, nbc):
     contextMap = {}
     for soup in soups:
         parseSingleSoup(soup, contextMap, nbc)
+
+    #for key,value in contextMap.items():
+    #    print key
+    #    print value
+
     return contextMap

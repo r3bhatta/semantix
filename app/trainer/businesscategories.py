@@ -32,6 +32,7 @@ def recurseAndApplyData(map, path):
             value = list(set(value))                    # remove duplicates
             value.sort()                                # sort
             for item in value:                          # iterate
+                #print item
                 file.write("%s\n" % item.lower())       # lower
 
 # Input         - map                   : The map that contains the newly trained values from the UI. This map has key with filename and value with a list of words
