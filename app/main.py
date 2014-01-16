@@ -171,10 +171,12 @@ def labelToDirsMapping(label):
     if label == "furniture":
         trainingdirs.append("furniture")
         trainingdirs.append("jewellery")
-    if label == "dental":
-        trainingdirs.append("dental")
     if label == "medical":
+<<<<<<< HEAD
         trainingdirs.append("dental") # there is no medical folder for now
+=======
+        trainingdirs.append("dental")
+>>>>>>> 83a1f588a3ee6e514ba1b82567656e70fe2e557e
     if label == "jewellery":
         trainingdirs.append("jewellery")
     if label == "hotel":
@@ -228,10 +230,8 @@ def parsePropertiesMapping(label):
     if label == "furniture":
         properties["furniture"] = createProperties(FUR_PROB, FUR_MIN, FUR_MAX)
         properties["jewellery"] = createProperties(JEW_PROB, JEW_MIN, JEW_MAX)
-    if label == "dental":
-        properties["dental"] = createProperties(DENT_PROB, DENT_MIN, DENT_MAX)
     if label == "medical":
-        properties["medical"] = createProperties(MED_PROB, MED_MIN, MED_MAX)
+        properties["dental"] = createProperties(DENT_PROB, DENT_MIN, DENT_MAX)
     if label == "jewellery":
         properties["jewellery"] = createProperties(JEW_PROB, JEW_MIN, JEW_MAX)
     if label == "hotel":
