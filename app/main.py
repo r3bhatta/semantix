@@ -139,9 +139,9 @@ def parseLabels(businessData, businesstype):
                             parseditems[type.label].append(item)
                         uniquesets[type.label].add(item.lower())
             elif type.probability >= prop["probability"]:
-                if type.label == "menu":
-                    for item in items:
-                        print item
+                #if type.label == "menu":
+                    #for item in items:
+                    #    print item
                 for item in items:
                     if prop["mintokens"] <= len(item.split()) <= prop["maxtokens"]:
                         # Account for cases like "ADDRESS" AND "address" with .lower().
@@ -151,9 +151,11 @@ def parseLabels(businessData, businesstype):
     return parseditems
 
 """
-Returns mapping of a label (business type like "museum_gallery") to its corresponding "general" 
+This maps a business type label to a list of general labels. 
+An example of business type like "museum_gallery" to its corresponding "general" 
 training directories.
-Eg. "museum_gallery" ==> ["art", "hours", "location", "noise"]
+
+Eg. a  label of "museum_gallery" will return ["art", "hours", "location", "noise"]
 """
 def labelToDirsMapping(label):
     defaultdirs = ["hours", "location", "noise"]
@@ -170,7 +172,11 @@ def labelToDirsMapping(label):
         trainingdirs.append("furniture")
         trainingdirs.append("jewellery")
     if label == "medical":
+<<<<<<< HEAD
+        trainingdirs.append("dental") # there is no medical folder for now
+=======
         trainingdirs.append("dental")
+>>>>>>> 83a1f588a3ee6e514ba1b82567656e70fe2e557e
     if label == "jewellery":
         trainingdirs.append("jewellery")
     if label == "hotel":
@@ -202,9 +208,12 @@ def parsePropertiesMapping(label):
     CLO_PROB = 0.7; CLO_MIN = 0; CLO_MAX = 15
     MENU_PROB = 0.7; MENU_MIN = 0; MENU_MAX = 10
     HOURS_PROB = 0.6; HOURS_MIN = 0; HOURS_MAX = 10
-    LOC_PROB = 0.6; LOC_MIN = 4; LOC_MAX = 20; LOC_THRES = 4
-    FUR_PROB = 0.6; FUR_MIN = 3; FUR_MAX = 15;
-    DENT_PROB = 0.6; DENT_MIN = 3; DENT_MAX = 1200;
+    # Location threshold kept to 3 since at times just the street is mentioned (eg )
+    LOC_PROB = 0.6; LOC_MIN = 4; LOC_MAX = 20; LOC_THRES = 3
+    # furniture kept to 0.4 probability since any furniture classifications will include the labels
+    # hours, noise, location, jewelery, and furniture and the minimum probability goes lower
+    FUR_PROB = 0.4; FUR_MIN = 1; FUR_MAX = 15;
+    DENT_PROB = 0.6; DENT_MIN = 3; DENT_MAX = 25;
     MED_PROB = 0.6; MED_MIN = 3; MED_MAX = 25;
     JEW_PROB = 0.6; JEW_MIN = 3; JEW_MAX = 25;
     HOTEL_PROB = 0.6; HOTEL_MIN = 3; HOTEL_MAX = 10;
@@ -238,6 +247,7 @@ Takes in an input path and returns a namedtuple.
     {"location": [...], "clothing": [...], ... }
 """
 def parse(inputFile):
+    print inputFile
     parsedJSON = JsonParser.parseData(inputFile)
     businesstype = parseBusinessType(parsedJSON)
 
@@ -283,5 +293,5 @@ def demo():
     nbc = NaiveBayesClassifier(trainingfolders, settings.APP_DATA_COMMON_WORDS)
     nbc.demo()
 
-# demo()
+#demo()
 
