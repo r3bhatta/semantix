@@ -16,8 +16,8 @@ def parseSingleSoup(soup, contextMap, nbc):
             for text in tagText:        
                 text = re.sub('[.!;+_|]', '', text.strip())
                 if len(re.sub(r'\s+', '', text)) > 0 and re.search(scriptTags, text) is None:                # if this actually contains text AND do not take characters with script chars in it
-                        print "text  is a" + re.sub(r'\s+', '', text.strip()) + "b"
-                        print "length is " + str(len(re.sub(r'\s+', '', text)))
+                        #print "text  is a" + re.sub(r'\s+', '', text.strip()) + "b"
+                        #print "length is " + str(len(re.sub(r'\s+', '', text)))
                         finalText += str(re.sub(r'\s+',' ', text))            
 
             if finalText:

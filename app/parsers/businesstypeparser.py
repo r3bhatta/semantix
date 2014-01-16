@@ -60,14 +60,13 @@ Get the business type of the business file.
 def parse(soups, nbc):
     labels = []
     for soup in soups:
-        print "------------------------------"
+        #print "------------------------------"
         #print(soup.getText())
-        print "------------------------------"
+        #print "------------------------------"
         labels.append(parseSingleSoup(soup,nbc))
 
     label = highestFrequency(labels)
 
-    print "Label is"
     businessType = namedtuple('Type', ['label', 'probability'])
 
     return businessType(label['label'], label['probability'])
