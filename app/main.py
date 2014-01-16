@@ -172,11 +172,7 @@ def labelToDirsMapping(label):
         trainingdirs.append("furniture")
         trainingdirs.append("jewellery")
     if label == "medical":
-<<<<<<< HEAD
         trainingdirs.append("dental") # there is no medical folder for now
-=======
-        trainingdirs.append("dental")
->>>>>>> 83a1f588a3ee6e514ba1b82567656e70fe2e557e
     if label == "jewellery":
         trainingdirs.append("jewellery")
     if label == "hotel":
