@@ -81,13 +81,14 @@ class NaiveBayesClassifier:
 
         for word in words:
             if word not in self._commonwords:
+
                 """
                 LOCATION FEATURES SPECIFIC.
                 This needs to be implemented as a strategy somehow so that parse locations filter can use it too.
                 """
                 # Consider all numbers as one category for location. 10 because full address is
                 # about 10 tokens.
-                if len(word) == 5:
+                if len(word) == 5 and word.isdigit():
                     word = "postalcode"
                 elif len(word) > 2:
                     # Check if this word is an ordinal number like '1st' for location feature.
@@ -153,6 +154,9 @@ class NaiveBayesClassifier:
     def classify(self, input): 
         input = input.lower()
         inputFeatureSet = self._tokenizeInputToFeatures(input)
+
+        #print "Input feature set is " + str(inputFeatureSet)
+        #print "Feature set is" + str(self._featuresset)
         classifiedDataTuple = namedtuple('ClassifiedData', ['label', 'probability'])
 
         probabilityDistribution = self._prob_classify(inputFeatureSet)
@@ -161,7 +165,11 @@ class NaiveBayesClassifier:
 
         highestProbabilityLabel = ""
         probability = 0
+
+        #print "for Input " + str(input)
         for key,value in probabilityMap.items():
+        #    print "key : " + str(key)
+        #    print "value : " + str(value)
             if value > probability:
                 probability = value
                 highestProbabilityLabel = key
@@ -203,7 +211,7 @@ class NaiveBayesClassifier:
                     logprob[label] += sum_logs([]) # = -INF.
         
         # print out the log prob for each label before normalizing
-        #for key,value in  self._featureprobabilitydistribution.items():
+        #for key,value in  self._featureProbabilityDistribution.items():
         #    print "key value of featureProbabilityDistribution " + str(key) + "," + str(value.freqdist() )
 
         #print "log prob with features is " + str(logprob)    
@@ -257,7 +265,9 @@ class NaiveBayesClassifier:
         # now normalize these so all values make sense on a scale to 1
         for key,value in probabilityMap.items():
             probabilityMap[key] = probabilityMap[key] / sumOfAllValues
-        #print probabilityMap
+        
+        #for key,value in probabilityMap.items():
+        #    print str(key) + "," + str(value)
     
         return probabilityMap
 
@@ -266,6 +276,7 @@ class NaiveBayesClassifier:
     """
     def demo(self):
         testingSet = {
+            "1501 Broadway, 12th Floor"       
             "1st Street and 2nd Street, Canada",
             'We are at 444 Weber Street, CA',
             'steak bread hot dog',
@@ -295,6 +306,10 @@ class NaiveBayesClassifier:
             "180 El Camino Real Palo Alto, CA 94304 (650) 325-2753",
             "201 No 1 Long 507 Fu Xing (Mid) Rd Lu Wan District Shanghai, China 2000"
         }
+        
+        testingSet = {
+            "1501 Broadway, 12th Floor"       
+        }        
 
         for item in testingSet:
             probs = {}
@@ -304,8 +319,13 @@ class NaiveBayesClassifier:
             item = item.lower()
             featureset = self._tokenizeInputToFeatures(item)
 
+            print featureset
             probabilityDistribution = self._prob_classify(featureset)
+
+
             probabilityMap = self.generalizeAndNormalize(probabilityDistribution)
+
+            print probabilityMap
 
             highestProbabilityLabel = ""
             probability = 0
@@ -314,7 +334,7 @@ class NaiveBayesClassifier:
                     probability = value
                     highestProbabilityLabel = key
         
-
+            print highestProbabilityLabel
             for labelItem in probabilityDistribution.samples():
                 probs[labelItem] = str(probabilityDistribution.prob(labelItem))
             print '%s | %s | %s | %s' % (item, highestProbabilityLabel, probability, probabilityMap)

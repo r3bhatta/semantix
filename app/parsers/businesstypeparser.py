@@ -23,6 +23,7 @@ def highestFrequency(labels):
     # Calculate the average probability from the frequencies as well as the weight to get the 
     # highest weight. Weight is frequency * average probability.
     highestResult = {}
+
     for label in frequencies:
         frequency = frequencies[label]['frequency']
 
@@ -39,15 +40,33 @@ def highestFrequency(labels):
 
     return highestResult
 
+
+def parseSingleSoup(soup, nbc):
+    soupText = ""
+    scriptTags = re.compile(r"[{}\[\]\*>=]")
+    if soup is not None:
+        # clean up the text
+        soupText = str(re.sub(r'\s+', ' ', soup.getText()))
+        soupText = re.sub('[.!;+_]', '', soupText)
+        soupText = soupText.strip()
+        soupText = ' '.join(soupText.split())
+
+        return nbc.classify(soupText)
+
+
 """
 Get the business type of the business file.
 """
 def parse(soups, nbc):
     labels = []
     for soup in soups:
-        labels.append(nbc.classify(soup.getText()))
+        #print "------------------------------"
+        #print(soup.getText())
+        #print "------------------------------"
+        labels.append(parseSingleSoup(soup,nbc))
 
     label = highestFrequency(labels)
+
     businessType = namedtuple('Type', ['label', 'probability'])
 
     return businessType(label['label'], label['probability'])
