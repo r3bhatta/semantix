@@ -2,6 +2,7 @@ import urllib
 import urlparse
 from bs4 import BeautifulSoup
 import json
+import re
 
 #import settings
 #import os
@@ -56,8 +57,9 @@ def pullJsonEncodedHtml(url):
 		return None
 
 	if htmlText is not "":
+		htmlText = re.sub('\\s', '', htmlText)
 		jsonData.append({
-			"data" : htmlText,
+			"body" : htmlText,
 			"sequence_number" : current_level,
 			"url" : url
 		})
@@ -84,8 +86,9 @@ def pullJsonEncodedHtml(url):
 				visited.append(tag['href'])
 				newLevel = True
 				if htmlText is not "":
+					htmlText = re.sub('\\s', '', htmlText)
 					jsonData.append({
-						"data" : htmlText,
+						"body" : htmlText,
 						"sequence_number" : current_level,
 						"url" : tag['href']
 					})
@@ -93,4 +96,8 @@ def pullJsonEncodedHtml(url):
 		if newLevel:
 			current_level = current_level + 1
 
-	return json.dumps(jsonData)
+	jsonStrData = ''
+	for data in jsonData:
+		jsonStrData = jsonStrData + json.dumps(data) + '\n'
+	
+	return jsonStrData
