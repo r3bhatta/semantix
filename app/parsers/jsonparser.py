@@ -6,32 +6,35 @@ import os, errno
 import os.path
 import collections
 import crawler
+from collections import  namedtuple
 
 def populateSoupData(soups, data, businessName):
+    
+
+    souptuple = namedtuple("SoupData", ["name", "soups"])
     for line in data:
+        #print "Line is " + str(line)
         loadedJson = json.loads(line)
         seqVal = loadedJson["sequence_number"]  
         body = loadedJson["body"]
         
-        #decodedQP = quopri.decodestring(body)
-        #soup = BeautifulSoup(decodedQP)
-
-        soup = BeautifulSoup(body)
-        
-        # Used to have this, but maybe don't need it?
-        #decodedQP = quopri.decodestring(body)
-        #soup = BeautifulSoup(decodedQP)
+        decodedQP = quopri.decodestring(body)
+        soup = BeautifulSoup(decodedQP)
 
         # get the title of the page from the body of the root page
         if seqVal == 0:
             businessName = str(soup.title).replace("<title>","").replace("</title>","")
         soups.append(soup)
 
+    souptuple.name = businessName
+    souptuple.soups = soups
+    return souptuple
+
 
 def convertFileNameToUrl(filename):
     url = filename.encode('ascii', 'ignore')
     url = re.sub('_', '.', url)
-    url = "http://" + url
+    url = "http://www." + url
     return url
 
 # Input         - An input file that corresponds to a website
@@ -56,9 +59,11 @@ def parseData(inputFilePath, fileName):
     # If the file does exist open it    
     with open(inputFilePath) as data:
         print "Not using the crawler ##############################"
-        populateSoupData(soups, data, businessName)
+        souptuple = populateSoupData(soups, data, businessName)    
+
+    businessName = souptuple.name
 
     if businessName is None:
         businessName = "Not Found!"
 
-    return business(soups, businessName)
+    return business(souptuple.soups, businessName)

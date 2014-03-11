@@ -245,7 +245,7 @@ Takes in an input path and returns a namedtuple.
 def parse(inputFilePath, fileName):
     parsedJSON = JsonParser.parseData(inputFilePath, fileName)
     businesstype = parseBusinessType(parsedJSON)
-
+    
     # Obtain the correct general training folder mappings.
     label = businesstype.type.label
     trainingdirs = labelToDirsMapping(label)

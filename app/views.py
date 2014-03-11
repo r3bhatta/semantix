@@ -61,8 +61,9 @@ def classify_business():
                 })
 
     # Here we know that no match has been found so crawl the website
+    print businessName
     business = main.parse(
-        os.path.join(settings.APP_DATA_HTML, businessName+".txt"),
+        os.path.join(settings.APP_DATA_HTML, businessName),
         businessName
     )
 

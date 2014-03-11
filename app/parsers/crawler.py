@@ -47,36 +47,29 @@ def pullJsonEncodedHtml(url):
 	urls = [url]
 	visited = [url]
 	jsonData = []
-	htmlText = ""
 	current_level = 0
-
-	try:
-		htmlText = urllib.urlopen(urls[0]).read()
-	except:
-		print "ERROR: crawler.pullJsonEncodedHtml cannot open url argument " + urls[0]
-		return None
-
-	if htmlText is not "":
-		htmlText = re.sub('\\s', '', htmlText)
-		jsonData.append({
-			"body" : htmlText,
-			"sequence_number" : current_level,
-			"url" : url
-		})
-		current_level = current_level + 1
-	else:
-		return None
 
 	while len(urls) > 0:
 		htmlText = ""
-		newLevel = False
 		
 		try:
 			htmlText = urllib.urlopen(urls[0]).read()
 		except:
 			print "ERROR: crawler.pullJsonEncodedHtml cannot open url argument " + urls[0]
 
+		if htmlText is not "":
+			htmlText = re.sub('\\s', ' ', htmlText)
+			htmlText = re.sub('%([0-9]|[A-Z])([0-9]|[A-Z])', ' ', htmlText)
+			htmlText = re.sub('\*\*', '', htmlText)
+			htmlText = unicode(htmlText, errors='ignore')
+			jsonData.append({
+				"body" : htmlText,
+				"sequence_number" : current_level,
+				"url" : urls[0]
+			})
+
 		urls.pop(0)
+		current_level = current_level + 1
 		htmlSoup = BeautifulSoup(htmlText)
 
 		for tag in htmlSoup.findAll('a', href=True):
@@ -84,17 +77,6 @@ def pullJsonEncodedHtml(url):
 			if url in tag['href'] and tag['href'] not in visited:
 				urls.append(tag['href'])
 				visited.append(tag['href'])
-				newLevel = True
-				if htmlText is not "":
-					htmlText = re.sub('\\s', '', htmlText)
-					jsonData.append({
-						"body" : htmlText,
-						"sequence_number" : current_level,
-						"url" : tag['href']
-					})
-
-		if newLevel:
-			current_level = current_level + 1
 
 	jsonStrData = ''
 	for data in jsonData:
