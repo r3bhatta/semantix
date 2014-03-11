@@ -4,13 +4,6 @@ from bs4 import BeautifulSoup
 import json
 import re
 
-#import settings
-#import os
-#import sys
-#sys.path.insert(0, '/path/to/application/app/folder')
-
-#from semantix.app.trainer.businessname import fileNameFromURL
-
 '''
 This function opens a network object denoted by a URL and vists links 
 within associated html. Any links identified will only further be explored
@@ -49,6 +42,10 @@ def pullJsonEncodedHtml(url):
 	jsonData = []
 	current_level = 0
 
+	whiteSpaceRegex = '\\s'
+	urlEncodingsRegex = '%([0-9]|[A-Z])([0-9]|[A-Z])'
+	doubleStarRegex = '\*\*'
+
 	while len(urls) > 0:
 		htmlText = ""
 		
@@ -58,9 +55,9 @@ def pullJsonEncodedHtml(url):
 			print "ERROR: crawler.pullJsonEncodedHtml cannot open url argument " + urls[0]
 
 		if htmlText is not "":
-			htmlText = re.sub('\\s', ' ', htmlText)
-			htmlText = re.sub('%([0-9]|[A-Z])([0-9]|[A-Z])', ' ', htmlText)
-			htmlText = re.sub('\*\*', '', htmlText)
+			htmlText = re.sub(whiteSpace, ' ', htmlText)
+			htmlText = re.sub(urlEncodings, ' ', htmlText)
+			htmlText = re.sub(doubleStarRegex, '', htmlText)
 			htmlText = unicode(htmlText, errors='ignore')
 			jsonData.append({
 				"body" : htmlText,

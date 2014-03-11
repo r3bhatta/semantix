@@ -13,7 +13,6 @@ def populateSoupData(soups, data, businessName):
 
     souptuple = namedtuple("SoupData", ["name", "soups"])
     for line in data:
-        #print "Line is " + str(line)
         loadedJson = json.loads(line)
         seqVal = loadedJson["sequence_number"]  
         body = loadedJson["body"]
