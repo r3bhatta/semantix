@@ -1,10 +1,9 @@
 from flask import render_template, request
 from app import app
+from trainer import businesscategories
 import main
 import os
 import settings
-from trainer import businesscategories
-
 import json
 
 # Input         - 
@@ -40,13 +39,17 @@ def trainer():
 def classify_business():
     businessesDirectory = settings.APP_DATA_HTML
     businessName = json.loads(request.args["business_name"]).lower() 
+    
     for root, dirs, files in os.walk(businessesDirectory):
         for filename in files:
             originalFileName = filename = filename.lower()           
             if(filename.endswith(".txt")):
                 filename = filename[:-4]
             if filename == businessName:
-                business = main.parse(os.path.join(settings.APP_DATA_HTML, originalFileName))
+                business = main.parse(
+                    os.path.join(settings.APP_DATA_HTML, originalFileName),
+                    filename
+                )
 
                 return json.dumps({
                     "name": business.name,
@@ -56,7 +59,22 @@ def classify_business():
                     },
                     "labels": business.labels
                 })
-    return json.dumps(None)
+
+    # Here we know that no match has been found so crawl the website
+    print businessName
+    business = main.parse(
+        os.path.join(settings.APP_DATA_HTML, businessName),
+        businessName
+    )
+
+    return json.dumps({
+        "name": business.name,
+        "type": {
+            "label": business.type.label, 
+            "probability": business.type.probability
+        },
+        "labels": business.labels
+    })
 
 # Input         - 
 # Description   - 

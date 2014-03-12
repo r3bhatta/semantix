@@ -242,11 +242,10 @@ Takes in an input path and returns a namedtuple.
 "labels" contain all the information:
     {"location": [...], "clothing": [...], ... }
 """
-def parse(inputFile):
-    print inputFile
-    parsedJSON = JsonParser.parseData(inputFile)
+def parse(inputFilePath, fileName):
+    parsedJSON = JsonParser.parseData(inputFilePath, fileName)
     businesstype = parseBusinessType(parsedJSON)
-
+    
     # Obtain the correct general training folder mappings.
     label = businesstype.type.label
     trainingdirs = labelToDirsMapping(label)

@@ -2,13 +2,7 @@ import urllib
 import urlparse
 from bs4 import BeautifulSoup
 import json
-
-#import settings
-#import os
-#import sys
-#sys.path.insert(0, '/path/to/application/app/folder')
-
-#from semantix.app.trainer.businessname import fileNameFromURL
+import re
 
 '''
 This function opens a network object denoted by a URL and vists links 
@@ -46,35 +40,33 @@ def pullJsonEncodedHtml(url):
 	urls = [url]
 	visited = [url]
 	jsonData = []
-	htmlText = ""
 	current_level = 0
 
-	try:
-		htmlText = urllib.urlopen(urls[0]).read()
-	except:
-		print "ERROR: crawler.pullJsonEncodedHtml cannot open url argument " + urls[0]
-		return None
-
-	if htmlText is not "":
-		jsonData.append({
-			"data" : htmlText,
-			"sequence_number" : current_level,
-			"url" : url
-		})
-		current_level = current_level + 1
-	else:
-		return None
+	whiteSpaceRegex = '\\s'
+	urlEncodingsRegex = '%([0-9]|[A-Z])([0-9]|[A-Z])'
+	doubleStarRegex = '\*\*'
 
 	while len(urls) > 0:
 		htmlText = ""
-		newLevel = False
 		
 		try:
 			htmlText = urllib.urlopen(urls[0]).read()
 		except:
 			print "ERROR: crawler.pullJsonEncodedHtml cannot open url argument " + urls[0]
 
+		if htmlText is not "":
+			htmlText = re.sub(whiteSpace, ' ', htmlText)
+			htmlText = re.sub(urlEncodings, ' ', htmlText)
+			htmlText = re.sub(doubleStarRegex, '', htmlText)
+			htmlText = unicode(htmlText, errors='ignore')
+			jsonData.append({
+				"body" : htmlText,
+				"sequence_number" : current_level,
+				"url" : urls[0]
+			})
+
 		urls.pop(0)
+		current_level = current_level + 1
 		htmlSoup = BeautifulSoup(htmlText)
 
 		for tag in htmlSoup.findAll('a', href=True):
@@ -82,15 +74,9 @@ def pullJsonEncodedHtml(url):
 			if url in tag['href'] and tag['href'] not in visited:
 				urls.append(tag['href'])
 				visited.append(tag['href'])
-				newLevel = True
-				if htmlText is not "":
-					jsonData.append({
-						"data" : htmlText,
-						"sequence_number" : current_level,
-						"url" : tag['href']
-					})
 
-		if newLevel:
-			current_level = current_level + 1
-
-	return json.dumps(jsonData)
+	jsonStrData = ''
+	for data in jsonData:
+		jsonStrData = jsonStrData + json.dumps(data) + '\n'
+	
+	return jsonStrData
