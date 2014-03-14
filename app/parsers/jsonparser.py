@@ -5,7 +5,7 @@ import re
 import os, errno
 import os.path
 import collections
-import crawler
+from ..crawlers import crawler
 import sys
 from collections import  namedtuple
 
@@ -26,7 +26,7 @@ def populateSoupData(soups, data, businessName):
                 businessName = str(soup.title).replace("<title>","").replace("</title>","")
             soups.append(soup)
         except :
-            print "An error occured when populating soup data "
+            print "An error occured when attempting to parse some soup data "
             #print "on line " + line
 
     souptuple.name = businessName

@@ -1,12 +1,21 @@
 import re
+import threading
+import time
+
+
+# A map that contains all classification types as keys, with their respective values as a list of text 
+contextMap = {}
+# The most common script tags
+scriptTags = re.compile(r"[{}\[\]\*>=]")
+
 
 # Input         -   soup        : A soup that 
-#                   contextMap  : A map that contains all classification types as keys, with their respective values as a list of text 
+#                   contextMap  : 
 # Description   -   Iterates through the single soup looking for text and calling the classifier, classifying the text into the map
 
-def parseSingleSoup(soup, contextMap, nbc):
+def parseSingleSoup(soup, nbc):
     textList = []
-    scriptTags = re.compile(r"[{}\[\]\*>=]")
+    
     if soup is not None:
         tags = soup.findAll()
 
@@ -25,20 +34,14 @@ def parseSingleSoup(soup, contextMap, nbc):
                 # Clean up the string.
                 finalText = ' '.join(finalText.split())
 
-                #if "Anne Arnold" in finalText:
-                #    print "Classifying " + finalText 
-
                 # Classify the string.
                 data = nbc.classify(finalText)
 
-                #if "Anne Arnold" in finalText:
-                #    print "Classified " + str(data)
-                # Add into dict.
+                # Push the classified text into the context Map
                 if data in contextMap:
                     contextMap[data].append(finalText)
                 else:
                     contextMap[data] = [finalText]
-
 
 # Input         - soups     : A list of soups that Beautiful soup is capable of parsing
 #               - nbc       : A trained naive bayes classifier
@@ -47,12 +50,21 @@ def parseSingleSoup(soup, contextMap, nbc):
 
 def parseSoups(soups, nbc):
     
-    contextMap = {}
+    
+    threads = []
+    start_time = time.time()
     for soup in soups:
-        parseSingleSoup(soup, contextMap, nbc)
+        parseSingleSoup(soup, nbc)        
+        #t = threading.Thread(target=parseSingleSoup, args = (soup,nbc))
+        #threads.append(t)
+        #t.start()
+
+    # Wait for all of them to finish
+    #[x.join() for x in threads]
+
+    print "Classification took " + str((time.time() - start_time))  + " seconds"
 
     #for key,value in contextMap.items():
     #    print key
     #    print value
-
     return contextMap
