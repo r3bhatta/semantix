@@ -2,20 +2,18 @@ import re
 import threading
 import time
 
+MAX_CONTEXT_PARSING_TIME = 30 # seconds
 
-# A map that contains all classification types as keys, with their respective values as a list of text 
-contextMap = {}
 # The most common script tags
 scriptTags = re.compile(r"[{}\[\]\*>=]")
-
 
 # Input         -   soup        : A soup that 
 #                   contextMap  : 
 # Description   -   Iterates through the single soup looking for text and calling the classifier, classifying the text into the map
 
-def parseSingleSoup(soup, nbc):
+def parseSingleSoup(soup, contextMap, nbc):
     textList = []
-    
+    # A map that contains all classification types as keys, with their respective values as a list of text 
     if soup is not None:
         tags = soup.findAll()
 
@@ -50,21 +48,18 @@ def parseSingleSoup(soup, nbc):
 
 def parseSoups(soups, nbc):
     
-    
+    contextMap = {}
     threads = []
     start_time = time.time()
-    for soup in soups:
-        parseSingleSoup(soup, nbc)        
-        #t = threading.Thread(target=parseSingleSoup, args = (soup,nbc))
-        #threads.append(t)
-        #t.start()
 
-    # Wait for all of them to finish
-    #[x.join() for x in threads]
+    for soup in soups:
+
+        # stop parsing at MAX_JSON_PARSING_TIME
+        if (time.time() - start_time) > MAX_CONTEXT_PARSING_TIME:
+            print "Passed context parser timer, finishing up"
+            break
+
+        parseSingleSoup(soup, contextMap, nbc)        
 
     print "Classification took " + str((time.time() - start_time))  + " seconds"
-
-    #for key,value in contextMap.items():
-    #    print key
-    #    print value
     return contextMap
