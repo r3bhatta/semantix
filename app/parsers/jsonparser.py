@@ -9,7 +9,6 @@ from ..crawlers import crawler
 import sys
 from collections import  namedtuple
 import time
-import threading
 import settings
 from os import listdir
 from ..naivebayesclassifier.naivebayesclassifier import NaiveBayesClassifier
@@ -132,7 +131,7 @@ def parseData(inputFilePath, fileName):
 
     # If the file does not exist make it
     if os.path.isfile(inputFilePath) != True:
-        print "Using the crawler @@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+        print "Using the crawler for " + str(inputFilePath)
         url = convertFileNameToUrl(fileName)
         jsonData = crawler.pullJsonEncodedHtml(url)
         with open(inputFilePath, 'w') as f:
@@ -140,7 +139,7 @@ def parseData(inputFilePath, fileName):
     
     # If the file does exist open it    
     with open(inputFilePath) as data:
-        print "JSON crawled data found ##############################"
+        print "JSON crawled data found for" + str(inputFilePath)
         soupdata = generateSoupData(data, nbc)    
 
     businessName = soupdata.name

@@ -1,5 +1,4 @@
 import re
-import threading
 import time
 
 MAX_CONTEXT_PARSING_TIME = 30 # seconds
@@ -49,7 +48,6 @@ def parseSingleSoup(soup, contextMap, nbc):
 def parseSoups(soups, nbc):
     
     contextMap = {}
-    threads = []
     start_time = time.time()
 
     for soup in soups:
