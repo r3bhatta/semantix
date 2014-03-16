@@ -9,19 +9,29 @@ $("#search").keyup(function(event){
 var categoryData;
 
 $('.search-button').on('click', function(evt){
-    $('.loader').removeClass('hide');
-    $('.data-wrap').addClass('hide');
 
     var searchEl = $("#search");
     var inputURL = searchEl.val();
 
     // Do some more sanity check to ensure its a valid URL.
     if (inputURL.indexOf('www') != -1){
-        searchEl.attr('disabled', true);
-        evt.currentTarget.disabled = true;
 
-        var dotOperatorAtIndex = 4;
-        inputURL = inputURL.substring(dotOperatorAtIndex).replace(/[-./]/g,"_");
+        // show up the wheel and hide any previously showing data
+        $('.loader').removeClass('hide');
+        $('.data-wrap').addClass('hide');
+
+        searchEl.attr('disabled', true);
+
+        // remove http://, https://, www. from the front
+        inputURL = inputURL.replace("http://","").replace("https://","").replace("www.","")
+
+        // remove .com, .ca, .org, .co, .uk to underscores so it can be saved correctly
+        inputURL = inputURL.replace(/[.]/g,"_");
+
+        // if the URL has a trailing /, remove it
+        if(inputURL.slice(-1) === "/")
+            inputURL = inputURL.substring(0,inputURL.lastIndexOf("/"));
+
         $.get('classify_business', {business_name: JSON.stringify(inputURL)}, function(data){
             data = JSON.parse(data);
             if (data){
@@ -39,7 +49,6 @@ $('.search-button').on('click', function(evt){
                 $('.data-business').html(label + ' | ' + probability + '%');
                 $('.loader').addClass('hide');
                 $('.data-wrap').removeClass('hide');
-                evt.currentTarget.disabled = false;
             }
             searchEl.removeAttr('disabled');
         });

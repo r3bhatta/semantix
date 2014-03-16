@@ -70,9 +70,7 @@ def populateSoupBusinessType(soup, nbc):
         soupText = re.sub('[.!;+_]', '', soupText)
         soupText = soupText.strip()
         soupText = ' '.join(soupText.split())
-        return nbc.classify(soupText)
-        #labels.append(nbc.classify(soupText))
-    #return labels
+    return nbc.classify(soupText)
 
 def generateSoupData(data, nbc):
     
@@ -80,7 +78,7 @@ def generateSoupData(data, nbc):
     labels = []
     soups = []
     start_time = time.time()
-
+    businessName = ""
     for line in data:
 
         # stop parsing at MAX_JSON_PARSING_TIME
@@ -109,6 +107,7 @@ def generateSoupData(data, nbc):
     
     label = highestFrequency(labels)
     print "Extracting all HTML and getting biz name/type took " + str((time.time() - start_time))  + " seconds"
+
     soup_data.name = businessName
     soup_data.soups = soups
     soup_data.label = label

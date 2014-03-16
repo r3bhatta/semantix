@@ -78,7 +78,7 @@ def pullJsonEncodedHtml(url):
 
 		if (time.time() - start_time) < MAX_CRAWLING_TIME:
 			for tag in htmlSoup.findAll('a', href=True):
-				tag['href'] = urlparse.urljoin(url, tag['href'])
+				tag['href'] = urlparse.urljoin(url, tag['href']).split("#")[0]
 				if url in tag['href'] and tag['href'] not in visited:
 					urls.append(tag['href'])
 					visited.add(tag['href'])

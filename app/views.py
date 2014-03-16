@@ -39,7 +39,7 @@ def trainer():
 def classify_business():
     businessesDirectory = settings.APP_DATA_HTML
     businessName = json.loads(request.args["business_name"]).lower() 
-    
+
     for root, dirs, files in os.walk(businessesDirectory):
         for filename in files:
             originalFileName = filename = filename.lower()           
