@@ -34,7 +34,7 @@ does not make any attempt to validate the url argument.
 '''
 def pullJsonEncodedHtml(url):
 	if not isinstance(url, str):
-		print "ERROR: crawler.pullJsonEncodedHtml called with non-string argument"
+		print "WARNING: crawler.pullJsonEncodedHtml called with non-string argument"
 	
 	if "http://" not in url:
 		url = "http://" + url

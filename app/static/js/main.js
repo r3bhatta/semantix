@@ -21,17 +21,7 @@ $('.search-button').on('click', function(evt){
         $('.data-wrap').addClass('hide');
 
         searchEl.attr('disabled', true);
-
-        // remove http://, https://, www. from the front
-        inputURL = inputURL.replace("http://","").replace("https://","").replace("www.","")
-
-        // remove .com, .ca, .org, .co, .uk to underscores so it can be saved correctly
-        inputURL = inputURL.replace(/[.]/g,"_");
-
-        // if the URL has a trailing /, remove it
-        if(inputURL.slice(-1) === "/")
-            inputURL = inputURL.substring(0,inputURL.lastIndexOf("/"));
-
+     
         $.get('classify_business', {business_name: JSON.stringify(inputURL)}, function(data){
             data = JSON.parse(data);
             if (data){
